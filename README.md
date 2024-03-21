@@ -8,13 +8,13 @@ Ce projet a été créer pour faciliter la présentation des spécialités du ba
 
 Ce projet a été conçu pour un usage sous Ubuntu sur Raspberry Pi 4 8Gb dans le but d'être intégré au sein d'une borne type "arcade". La navigation a été pensée pour se faire avec un joystick et 4 boutons, le tout relié à un microcontroleur connecté en USB.
 
-Si vous ne disposez pas de ces prérequis, dans `config.txt` changez :
+Si vous ne disposez pas de ces prérequis, dans `config.py` changez :
 ```py
-NAVIGATION_MODE='JOYSTICK'
+NAVIGATION_MODE='JOYSTICK' # change between 'JOYSTICK' or 'KEYBOARD_MOUSE'
 ```
  par 
  ```py
- NAVIGATION_MODE='KEYBOARD_MOUSE'
+NAVIGATION_MODE='KEYBOARD_MOUSE' # change between 'JOYSTICK' or 'KEYBOARD_MOUSE'
 ```
 
 Pour toute information complémentaire, réferez-vous à la documentation du projet dans `doc/documentation.txt`
