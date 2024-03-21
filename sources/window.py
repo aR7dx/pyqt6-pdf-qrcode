@@ -1,5 +1,6 @@
 # Ce fichier contient l'interface graphique de l'application
 
+import sys # importation du module sys
 import os  # importation du module os
 import pyautogui # importation du module pyautogui pour effectuer des actions graphiques notamment
 
@@ -9,6 +10,10 @@ from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import QUrl, Qt
 from PyQt6.QtWebEngineWidgets import QWebEngineView # composant du module PyQt6 qui créer un moteur de rendu pour les fichers html et pdf
 from scan_qrcode import CameraApp # composant qui gère les qrcodes
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) # trouve le chemin absolu du fichier, et os.path.dirname() l'appelle une seconde fois pour obtenir le chemin du dossier parent. Ensuite, ce chemin est ajouté à sys.path, ce qui permet à Python de trouver et d'importer le module config.
+
+from config import SCROLL_SPEED # importation de la variable "SCROLL_SPEED" qui permet de savoir si la vitesse de defilement sur une page
 
 pyautogui.PAUSE = 0 # variable du module pyautogui qui permet de choisir le délai entre chaque action du module
 listeAccueil = [(330,900),(1540,100),(1750,100)] # coordonnées de la page d'accueil
@@ -261,9 +266,9 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         
     def command_handler(self, command):
         if command == 'z':
-            pyautogui.scroll(75) # on monte la page vers le haut (scroll vers le haut)
+            pyautogui.scroll(SCROLL_SPEED) # on monte la page vers le haut (scroll vers le haut)
         elif command == 's':
-            pyautogui.scroll(-75) # on descend la page (scroll versle bas)
+            pyautogui.scroll(-SCROLL_SPEED) # on descend la page (scroll versle bas)
         elif command == 'q':
             self.moveLeft() # déplace le curseur sur la gauche pour passer au bouton précédent
         elif command == 'd':
