@@ -8,13 +8,13 @@ This project was created to make it easier to present the specialities of the ba
 
 This project was designed for use under Ubuntu on a Raspberry Pi 4 8Gb, with the aim of being integrated into an arcade-style kiosk. Navigation has been designed to use a joystick and 4 buttons, all connected to a USB microcontroller.
 
-If you do not have these prerequisites, in `config.txt` change :
+If you do not have these prerequisites, in `config.py` change :
 ```py
-NAVIGATION_MODE='JOYSTICK'
+NAVIGATION_MODE='JOYSTICK' # change between 'JOYSTICK' or 'KEYBOARD_MOUSE'
 ```
 by
  ```py
- NAVIGATION_MODE='KEYBOARD_MOUSE'
+ NAVIGATION_MODE='KEYBOARD_MOUSE' # change between 'JOYSTICK' or 'KEYBOARD_MOUSE'
 ```
 
 For further information, please refer to the project documentation in `doc/documentation.txt`.
