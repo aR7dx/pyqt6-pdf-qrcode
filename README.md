@@ -2,15 +2,40 @@
 
 Ce projet a été créer pour faciliter la présentation des spécialités du baccalauréat à l'aide de qr-code.
 
+> If you want there is an english version of this file: [*README* in english](./README_EN.md) !
+
 ## À propos du Projet
 
-Il a été conçu pour un usage sous Ubuntu sur Raspberry Pi 4 8Gb dans le but d'être intégré au sein d'une borne type "arcade".
+Ce projet a été conçu pour un usage sous Ubuntu sur Raspberry Pi 4 8Gb dans le but d'être intégré au sein d'une borne type "arcade". La navigation a été pensée pour se faire avec un joystick et 4 boutons, le tout relié à un microcontroleur connecté en USB.
 
-La navigation a été pensée pour se faire avec un joystick et 4 boutons, le tout relié à un microcontroleur connecté en USB.
+Si vous ne disposez pas de ces prérequis, dans `config.txt` changez :
+```py
+NAVIGATION_MODE='JOYSTICK'
+```
+ par 
+ ```py
+ NAVIGATION_MODE='KEYBOARD_MOUSE'
+```
+
+Pour toute information complémentaire, réferez-vous à la documentation du projet dans `doc/documentation.txt`
 
 ## Installation
 
-Pour installer les modules nécessaires au fonctionnement:
+Le fichier `requirements.txt` liste l'entièreté des modules python nécessaires.
+
+Pour installer un module éxécutez une commande ci-dessous en fonction de votre environnement:
+
+Pip:
+
+```bat
+python -m pip install [<module-name>]
+```
+```bat
+python3 -m pip install [<module-name>]
+```
+
+
+Linux:
 
 ```bash
 sudo apt-get install python3-[<module-name>]
