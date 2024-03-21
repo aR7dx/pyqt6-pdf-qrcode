@@ -1,34 +1,36 @@
-import sys
-from PyQt6.QtWidgets import QApplication
-from threading import Thread
-from window import Window
-from command import Worker
+# fichier principal/centrale du programme: son rôle est d'ordonner la création des différents composants de l'application.
+
+import sys # importation du module sys
+from PyQt6.QtWidgets import QApplication # importation pour PyQt6 qui permet de créer une application
+from threading import Thread # importation du module Thread qui permet de créer et gérer des Threads
+from window import Window # importation de l'interface graphique
+from command import Worker # importation du gestionnaire des commandes
 
 
-def main():
-    app = QApplication(sys.argv) # creation de l'application
+def main(): # création de la fonction main qui gère le lancement et la création de l'application
+    app = QApplication(sys.argv) # création de l'application
+    app.setOverrideCursor(QCursor(Qt.CursorShape.BlankCursor)) # rend invisible le curseur dans l'application
     app.setApplicationName('Scanner Qrcode Application') # défini le nom de l'application
     
     win = Window() # création la fenetre
     win.show() # affichage en mode plein écran
-    print('Thread : window           |   Statut : opérationnel')
+    print('Thread : window           |   Statut : opérationnel') # affichage du statut du thread 'window'
     
-    worker = Worker(win)
-    worker.command_signal.connect(win.command_handler)
+    worker = Worker(win) # gestionnaire des commandes
+    worker.command_signal.connect(win.command_handler) # connexion/lien/pont avec le gestionnaire des commandes
     
-    command_thread = Thread(target=worker.run)
-    command_thread.start()
-    print('Thread : command_thread   |   Statut : opérationnel')
+    command_thread = Thread(target=worker.run) # création du thread des commandes
+    command_thread.start() # lancement du thread des commandes
+    print('Thread : command_thread   |   Statut : opérationnel') # affichage du statut du thread 'command'
     
-    # changer la version quand il y a des changements assez importants ou nouvelles fontionnalitées
-    print('=====')
-    print('Application chargée !')
-    print('version: v1.2')
-    print('=====')
+    print('=====') # séparateur
+    print('Application chargée !') # statut de l'application
+    print('version: v0.1.0-beta') # version de l'application
+    print('=====') # séparateur
     
     sys.exit(app.exec()) # execute l'application
 
 
 if __name__ == '__main__':
-    main()
+    main() # lancement de la fonction main qui gère le lancement et la création de l'application
 
