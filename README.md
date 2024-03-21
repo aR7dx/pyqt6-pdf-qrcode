@@ -25,7 +25,9 @@ sudo apt-get install python3-[<module-name>]
 
 ## Contribution
 
-Ce projet a été réalisé par des élèves de Terminale à l'occasion des portes ouvertes du Lycée Curie-Corot.
+Ce projet a été réalisé par des élèves de Terminale durant les heures consacrées à l'enseignement de la spécialité « numérique et sciences informatiques » (NSI), il constitue leur projet de l'année de Terminale.
+
+Le projet a eu l'occasion d'être présenté lors des portes ouvertes du Lycée Curie-Corot.
 
 
 <!-- MARKDOWN -->
