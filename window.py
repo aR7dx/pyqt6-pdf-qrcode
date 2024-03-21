@@ -256,17 +256,18 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         
     
     # Programmation Evénementielle
-    # Fonctions qui détecte lorsque qu'une touche spécifique est pressée ou qu'une action précise est réalisée   
+    # Fonctions qui détecte lorsque qu'une touche spécifique est pressée ou qu'une action précise est réalisée
+    # Les actions proviennent du fichier command.py suite à l'activation d'un bouton ou du joystick
         
     def command_handler(self, command):
         if command == 'z':
-            pyautogui.scroll(75) # monte la page vers le haut (scroll vers le haut)
+            pyautogui.scroll(75) # on monte la page vers le haut (scroll vers le haut)
         elif command == 's':
-            pyautogui.scroll(-75) # descend la page vers le bas (scroll vers le bas)
+            pyautogui.scroll(-75) # on descend la page (scroll versle bas)
         elif command == 'q':
-            self.moveLeft() # déplace le curseur à gauche
+            self.moveLeft() # déplace le curseur sur la gauche pour passer au bouton précédent
         elif command == 'd':
-            self.moveRight() # déplace le curseur à droite
+            self.moveRight() # déplace le curseur sur la droite pour passer au bouton suivant
         elif command == 'b':
             self.close_current_tab() # supprime l'onglet actif
         elif command == 'f':
