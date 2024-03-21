@@ -8,7 +8,7 @@ from PyQt6.QtWidgets import QMainWindow, QTabWidget, QToolBar
 from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import QUrl, Qt
 from PyQt6.QtWebEngineWidgets import QWebEngineView # composant du module PyQt6 qui créer un moteur de rendu pour les fichers html et pdf
-from scan_qrcode_old import CameraApp # composant qui gère les qrcodes
+from scan_qrcode import CameraApp # composant qui gère les qrcodes
 
 pyautogui.PAUSE = 0 # variable du module pyautogui qui permet de choisir le délai entre chaque action du module
 listeAccueil = [(330,900),(1540,100),(1750,100)] # coordonnées de la page d'accueil
