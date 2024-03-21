@@ -1,4 +1,4 @@
-# fichier principal/centrale du programme: son rôle est d'ordonner la création des différents composants de l'application.
+# fichier principal/central du programme: son rôle est d'ordonner la création des différents composants de l'application.
 
 import sys # importation du module sys
 from PyQt6.QtWidgets import QApplication # importation pour PyQt6 qui permet de créer une application
