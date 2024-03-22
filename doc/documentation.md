@@ -1,7 +1,7 @@
 # Documentation (pyqt6-pdf-qrocde)
 
-Bienvenue sur la documentation du projet "pyqt6-pdf-qrcode", à l'intérieur de cette dernière vous retrouverais l'ensemble des concepts, idées et fonctionnalités du programme de façon détaillé de manière à pouvoir vous les comprendres et vous les appropriez.  
-> English version of the documentation can be found [here](./documentation_EN.md).
+Bienvenue sur la documentation du projet "pyqt6-pdf-qrcode", à l'intérieur de cette dernière vous retrouverez l'acheminement du programme de façon détaillé de manière à pouvoir utiliser correctement le programme.  
+> If you want there is an english version of this file: [*DOCUMENTATION* in english](./documentation_EN.md).
 
 ## Table des matières
 
@@ -9,9 +9,12 @@ Bienvenue sur la documentation du projet "pyqt6-pdf-qrcode", à l'intérieur de 
  2. [A savoir](#goodtoknow)
  3. [Installation](#installation)
  4. [Passer du joystick au clavier/souris](#switchjoytokey)
- 5. [Utilisation](#use)
- 6. [test](#installation)
- 7. [Problèmes connues](#knowissue)
+ 5. [Créer un qrcode](#qrcode)
+ 6. [Utilisation et Navigation (joystick)](#usejoy)
+ 7. [Utilisation et Navigation (keyboard)](#usekey)
+ 8. [Problèmes connus](#knowissue)
+ 9. [Amélioration possible](#improvements)
+ 10. [Réalisé avec](#madewith)
 
 
 <div id='presentation'/> 
@@ -92,20 +95,82 @@ NAVIGATION_MODE='KEYBOARD_MOUSE' # change between 'JOYSTICK' or 'KEYBOARD_MOUSE'
 ```
 Cela permettra d'utiliser le programme en version clavier/souris. Vous n'aurez donc pas besoin d'un microcontroleur, de joystick ni même de boutons.
 
-<div id='use'/> 
+<div id='qrcode'/>
 
-## Utilisation
+## Créer un qrcode
 
-...
+....
+
+<div id='usejoy'/> 
+
+## Utilisation et Navigation (joystick)
+
+Version pour joystick et boutons :
+
+ 1. Utilisez le joystick pour naviguer à travers les menus affichées à l'écran.
+
+ 2. Pour scanner un QR code appuyez sur le bouton bleu ou sur la page d'acceuil appuyez sur commencer avec le bouton vert.
+
+ 3. Ensuite placez-vous dans le champ de vision de la caméra et scannez le QR code d'une spécialité avec notre lecteur intégré pour obtenir des détails spécifiques.
+
+<div id='usekey'/> 
+
+## Utilisation et Navigation (keyboard)
+
+> Comment utliser mon clavier et ma souris plutôt qu'un joystick ? [Passer du joystick au clavier/souris](#switchjoytokey)
+
+* **'q'** ⇒ passer au bouton précédent
+* **'d'** ⇒ passer au bouton suivant
+* **'b'** ⇒ supprime l'onglet actif
+* **'f'** ⇒ active la caméra pour permettre de scanner un qrcode
+* **'x'** ⇒ valider une action. Sur le bouton "commencer" cela lance la caméra.
+* **'e'** ⇒ fermer l'application
 
 <div id='knowissue'/> 
 
-## Problèmes connues
+## Problèmes connus
+
+> Vous avez découvert un bug dans le programme ? N'hésitez pas à nous en faire part !
+
+Voici une liste des problèmes connus :
+
+* Sur Windows, il se peut qu'au demarrage une page blanche apparaisse, il vous suffit de monter et descendre la page pour actualiser.
+
+* Il se peut que le défilement des boutons ne se passe pas correctment, essayez d'appuyer moins vite sur les touches de déplacement.
+
+<div id='improvements'/> 
+
+## Amélioration possible
+
+Ce projet possède plusieurs pistes d'amélioration, voici quelques-unes que nous avons imaginés:
+
+> Vous avez une idée ? N'hésitez pas à nous le faire savoir !
+
+* **Lecteur vidéo** : possibilté d'utiliser un lecteur vidéo, cependant quelques modifications sont à prévoir pour le rendre fonctionnel.
+* **Liste fichiers récemment ouvert** : base de données qui stocke le nom des derniers fichiers ouvert et l'affiche à l'utisateur 
+* ...
 
 
+<div id='madewith'/> 
+
+## Réalisé avec
+
+* [![Python][Python.org]][Python-url]
+* [![Html][Html]][Html-url]
+* [![Css][Css]][Css-url]
+* [![Javascript][Javascript]][Javascript-url]
+
+*******
 
 
-
-
+<!-- MARKDOWN -->
+[Python.org]: https://img.shields.io/badge/python-0769AD?style=for-the-badge&logo=python&logoColor=yellow
+[Python-url]: https://www.python.org/
+[Html]: https://img.shields.io/badge/html-DD0031?style=for-the-badge&logo=html5&logoColor=white
+[Html-url]: https://developer.mozilla.org/fr/docs/Web/HTML
+[Css]: https://img.shields.io/badge/css-4A4A55?style=for-the-badge&logo=css3&logoColor=blue
+[Css-url]: https://developer.mozilla.org/fr/docs/Web/CSS
+[Javascript]: https://img.shields.io/badge/javascript-black?style=for-the-badge&logo=javascript&logoColor=yellow
+[Javascript-url]: https://developer.mozilla.org/fr/docs/Web/JavaScript
 
 
