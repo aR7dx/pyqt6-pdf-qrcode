@@ -2,13 +2,21 @@
 
 This project was created to make it easier to present the specialities of the baccalauréat using qr-codes.
 
-> Il existe une version française de ce fichier: [*README* en français](./README.md) !
+> Il existe une version française de ce fichier: [*README* en français](./README.md) et [*DOCUMENTATION* en français](./doc/documentation.md) !
 
 ## About project
 
 This project was designed for use under Ubuntu on a Raspberry Pi 4 8Gb, with the aim of being integrated into an arcade-style kiosk. Navigation has been designed to use a joystick and 4 buttons, all connected to a USB microcontroller.
 
-If you do not have these prerequisites, in `config.py` change :
+The project also runs on Windows 10 and Windows 11.
+
+It is essential to have:
+
+- 1 Joystick
+- 4 Buttons
+- 1 Microcontroller
+
+If you do not have these prerequisites, in `config.py` replace :
 ```py
 NAVIGATION_MODE='JOYSTICK' # change between 'JOYSTICK' or 'KEYBOARD_MOUSE'
 ```
@@ -17,7 +25,9 @@ by
  NAVIGATION_MODE='KEYBOARD_MOUSE' # change between 'JOYSTICK' or 'KEYBOARD_MOUSE'
 ```
 
-For further information, please refer to the project documentation in `doc/documentation.txt`.
+This will allow the program to be used as a keyboard/mouse version. You won't need a microcontroller, joystick or buttons.
+
+For further information, please refer to the project documentation in [*doc/documentation.md*](./doc/documentation.md).
 
 ## Installation
 
