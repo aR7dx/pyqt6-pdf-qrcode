@@ -102,16 +102,16 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         self.scanner.close()  # Fermer le scanneur de qrcode
 
         occurence = 0 # variable qui compte le nombre d'occurence de la data dans le nom des fichiers
-        directory = os.path.split(os.path.abspath(__file__))[0]+r'/web/pdf' # dossier des pdf
+        directory = os.path.split(os.path.abspath(__file__))[0]+r'/web/pdf' # dossier des fichiers pdf
 
         if (str(data) != '' and data is not None): # on verifie que la valeur du qrcode est différente de None et ' '
             for filename in os.listdir(directory): # on recupere tout les noms des fichiers du dossier renseigner ci-dessus
 
-                if (filename == (str(data)+'.pdf') or (filename == (str(data)+'.mp4'))): # conditions qui permet de détecter si la data est comporté dans le nom d'un fichier
+                if (filename == (str(data)+'.pdf') or (filename == (str(data)+'.mp4'))): # condition qui permet de détecter si la data est comporté dans le nom d'un fichier
                     occurence += 1 # ajoute une occurence dès qu'un fichier comportant la data dans son nom est détécté
 
             if occurence == 0: # si le nombre d'occurence de la data est de 0
-                print(f'Le fichier {str(data)}.pdf n\'existe pas !') # Le fichier n'a pas été trouvé, ce qui signifie qu'il n'existe pas 
+                print(f'The {str(data)}.pdf file does not exist!') # Le fichier n'a pas été trouvé, ce qui signifie qu'il n'existe pas 
                 return
             elif occurence < 2: # si le nombre d'occurence de la data est inférieur à 2 donc égale à 1
                 self.add_new_tab(QUrl.fromLocalFile(os.path.split(os.path.abspath(__file__))[0]+rf'/web/pdf/{data}.pdf')) # on ajoute une nouvelle fenêtre comportant le fichier pdf que l'on souhaite ouvrir
@@ -123,7 +123,7 @@ class Window(QMainWindow): # création de la classe (fenêtre)
                 # ici le j est bien remis à 0 grace à la fonction add_new_tab
 
         else:
-            # print('Le fichier est introuvable en raison de la data fournie qui est incorrect !')
+            print('The file cannot be found because the qrcode data supplied is incorrect!')
             return
 
 
@@ -278,7 +278,7 @@ class Window(QMainWindow): # création de la classe (fenêtre)
             self.action_handler() # ouvre le gestionnaire de commandes
         elif command == 'e':
             self.close() # ferme la fenetre actuel
-            raise Exception('Vous venez de quittez l\'application.') # affiche un message d'arrêt et quitte l'application (en faisant crash)
+            raise Exception('You have just left the application.') # affiche un message d'arrêt et quitte l'application (en faisant crash)
             
             
             
