@@ -13,12 +13,9 @@ from scan_qrcode import CameraApp # composant qui gère les qrcodes
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) # trouve le chemin absolu du fichier, et os.path.dirname() l'appelle une seconde fois pour obtenir le chemin du dossier parent. Ensuite, ce chemin est ajouté à sys.path, ce qui permet à Python de trouver et d'importer le module config.
 
-from config import SCROLL_SPEED # importation de la variable "SCROLL_SPEED" qui permet de savoir si la vitesse de defilement sur une page
+from config import PYAUTOGUI_PAUSE, SCROLL_SPEED, LISTE_ACCUEIL, LISTE_SELECTION, LISTE_CREDITS # importation de la variable "SCROLL_SPEED" qui permet de savoir si la vitesse de defilement sur une page, la liste des coordonnées de chaque page et "PYAUTOGUI_PAUSE" le délai entre chaque action du module pyautogui
 
-pyautogui.PAUSE = 0 # variable du module pyautogui qui permet de choisir le délai entre chaque action du module
-listeAccueil = [(330,900),(1540,100),(1750,100)] # coordonnées de la page d'accueil
-listeCrédits = [(1540,100),(1750,100)] # coordonnées de la page des crédits
-listeSelection = [(760,615),(1170,615)] # coordonnées de la page de séléction
+pyautogui.PAUSE = PYAUTOGUI_PAUSE # variable du module pyautogui qui permet de choisir le délai entre chaque action du module
 j = 0 # compteur (sert pour savoir quel action effectuer)
 data_file = None # donnée récupérée par la caméra
 
@@ -58,7 +55,7 @@ class Window(QMainWindow): # création de la classe (fenêtre)
 
         # affiche la page d'accueil comme page d'acceuil à l'ouverture de l'application
         self.add_new_tab(QUrl.fromLocalFile(os.path.split(os.path.abspath(__file__))[0]+r'/web/html/index.html'))
-        self.moveCursor(listeAccueil[j][0], listeAccueil[j][1])
+        self.moveCursor(LISTE_ACCUEIL[j][0], LISTE_ACCUEIL[j][1])
 
         self.default_style_sheet() # appelle de la fonction qui s'occupe de la customisation de l'application
             
@@ -122,7 +119,7 @@ class Window(QMainWindow): # création de la classe (fenêtre)
             else:
                 data_file = str(data) # on converti la data récupéra en chaîne de caractères
                 self.add_new_tab(QUrl.fromLocalFile(os.path.split(os.path.abspath(__file__))[0]+r'/web/html/selection.html')) # on ajoute une nouvelle fenêtre qui offre le choîx à l'utilisateur d'ouvrir soit un fichier pdf soit une vidéo
-                self.moveCursor(listeSelection[j][0],listeSelection[j][1]) # on place le cursor sur le premier bouton de la page
+                self.moveCursor(LISTE_SELECTION[j][0],LISTE_SELECTION[j][1]) # on place le cursor sur le premier bouton de la page
                 # ici le j est bien remis à 0 grace à la fonction add_new_tab
 
         else:
@@ -166,7 +163,7 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         self.current_browser.page().runJavaScript('window.scrollTo(0, window.scrollY -3000);') # on remonte la barre de scroll tout en haut pour bien voir ce que l'on fait
         
         if titre_page == 'Accueil': # si l'utilisateur ce situe sur la page d'acceuil
-            liste = listeAccueil # coordonées accueil
+            liste = LISTE_ACCUEIL # coordonées accueil
             
             if j == 0: # si l'on ce situe sur le premier bouton
                 j = 2 # on passe au dernier bouton
@@ -175,9 +172,9 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         
         elif titre_page == 'Crédits' or titre_page == 'Séléction...': # si l'utilisateur ce situe sur la page des crédits ou la page de séléction
             if titre_page == 'Crédits':
-                liste = listeCrédits # coordonées page crédits
+                liste = LISTE_CREDITS # coordonées page crédits
             else:
-                liste = listeSelection # coordonées page séléction
+                liste = LISTE_SELECTION # coordonées page séléction
                 
             
             if j == 0: # si l'on ce situe sur le premier bouton
@@ -197,7 +194,7 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         self.current_browser.page().runJavaScript('window.scrollTo(0, window.scrollY - 3000);') # on remonte la barre de scroll tout en haut pour bien voir ce que l'on fait
         
         if titre_page == 'Accueil':
-            liste = listeAccueil # coordonées accueil
+            liste = LISTE_ACCUEIL # coordonées accueil
             
             if j == 2: # si l'on ce situe sur le dernier bouton
                 j = 0 # on passe au permier bouton
@@ -206,9 +203,9 @@ class Window(QMainWindow): # création de la classe (fenêtre)
                 
         elif titre_page == 'Crédits' or titre_page == 'Séléction...': # si l'utilisateur ce situe sur la page des crédits ou la page de séléction
             if titre_page == 'Crédits':
-                liste = listeCrédits # coordonées page crédits
+                liste = LISTE_CREDITS # coordonées page crédits
             else:
-                liste = listeSelection # coordonées page séléction
+                liste = LISTE_SELECTION # coordonées page séléction
             
             if j == 1:  # si l'on ce situe sur le dernier bouton
                 j = 0 # on passe au permier bouton
@@ -230,25 +227,25 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         # si l'on se situe sur la page acceuil et que l'on clique sur le bouton 2 alors on ouvre la page des crédits et on place le curseur sur le premier bouton de la page
         elif (j == 2 and titre_page == 'Accueil'):
             self.add_new_tab(QUrl.fromLocalFile(os.path.split(os.path.abspath(__file__))[0]+r'/web/html/credits.html'))
-            self.moveCursor(listeCrédits[j][0], listeCrédits[j][1])
+            self.moveCursor(LISTE_CREDITS[j][0], LISTE_CREDITS[j][1])
         
         # si l'on se situe sur la page crédits et que l'on clique sur le bouton 0 alors on ouvre la page d'acceuil et on place le curseur sur le premier bouton de la page
         elif (j == 0 and titre_page == 'Crédits'):
             self.add_new_tab(QUrl.fromLocalFile(os.path.split(os.path.abspath(__file__))[0]+r'/web/html/index.html'))
-            self.moveCursor(listeAccueil[j][0], listeAccueil[j][1])
+            self.moveCursor(LISTE_ACCUEIL[j][0], LISTE_ACCUEIL[j][1])
         
         # si l'on se situe sur la page de séléction de fichiers et que l'on clique sur le bouton 0 alors on ferme la page de séléction et on ouvre le fichier pdf dans le moteur de rendu puis on place le curseur sur le premier bouton de la page tout en appliquant le style pour les pages pdf
         elif (j == 0 and titre_page == 'Séléction...'):
             self.close_current_tab() # supprime l'onglet actif en recuperant son index
             self.add_new_tab(QUrl.fromLocalFile(os.path.split(os.path.abspath(__file__))[0]+rf'/web/pdf/{data_file}.pdf'))
-            self.moveCursor(listeAccueil[j][0],listeAccueil[j][1])
+            self.moveCursor(LISTE_SELECTION[j][0],LISTE_SELECTION[j][1])
             self.pdf_page_style_sheet()
         
         # si l'on se situe sur la page de séléction de fichiers et que l'on clique sur le bouton 1 alors on ferme la page de séléction et on ouvre le fichier vidéo dans le moteur de rendu puis on place le curseur sur le premier bouton de la page tout en appliquant le style pour les pages vidéo
         elif (j == 1 and titre_page == 'Séléction...'):
             self.close_current_tab() # supprime l'onglet actif en recuperant son index
             self.add_new_tab(QUrl.fromLocalFile(os.path.split(os.path.abspath(__file__))[0]+rf'/web/pdf/{data_file}.mp4'))
-            self.moveCursor(listeAccueil[j][0],listeAccueil[j][1])
+            self.moveCursor(LISTE_SELECTION[j][0],LISTE_SELECTION[j][1])
         
         # si rien ne correspond au cas énoncer ci-dessus, alors le programme passe la requête.
         else:
