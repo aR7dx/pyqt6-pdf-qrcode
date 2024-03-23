@@ -29,7 +29,7 @@ Ce projet a été réalisé par des élèves de Terminale durant les heures cons
   
 *L'objectif de ce projet est de rendre la découverte des spécialités du bac aussi informatif que ludique au travers de l'utilisation d'un joystick, 4 boutons et d'une interface "moderne".  -Équipe de développement.*   
   
-> Le projet a eu l'occasion d'être présenté lors des portes ouvertes du Lycée Curie-Corot.
+> Le projet a eu l'occasion d'être présenté lors des portes ouvertes du [Lycée Curie-Corot](https://curie-corot.lycee.ac-normandie.fr/).
 
 <div id='goodtoknow'/> 
 
