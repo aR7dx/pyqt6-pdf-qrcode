@@ -6,49 +6,9 @@ Ce projet a été créer pour faciliter la présentation des spécialités du ba
 
 ## À propos du Projet
 
-Ce projet a été conçu pour un usage sous Ubuntu sur Raspberry Pi 4 8Gb dans le but d'être intégré au sein d'une borne type "arcade". La navigation a été pensée pour se faire avec un joystick et 4 boutons, le tout relié à un microcontroleur connecté en USB.
-
-Le projet fonctionne également sur Windows 10 et Windows 11.
-
-Il est essentiel de disposer de:
-
-- 1 Joystick
-- 4 Boutons
-- 1 Microcontroleur
-
-Si vous ne disposez pas de ces prérequis, dans `config.py` remplacez :
-```py
-NAVIGATION_MODE='JOYSTICK' # change between 'JOYSTICK' or 'KEYBOARD_MOUSE'
-```
- par 
- ```py
-NAVIGATION_MODE='KEYBOARD_MOUSE' # change between 'JOYSTICK' or 'KEYBOARD_MOUSE'
-```
-Cela permettra d'utiliser le programme en version clavier/souris. Vous n'aurez donc pas besoin d'un microcontroleur, de joystick ni de boutons.
+> Présentation à venir
 
 Pour toute information complémentaire, réferez-vous à la documentation du projet dans [*doc/documentation.md*](./doc/documentation.md).
-
-## Installation
-
-Le fichier `requirements.txt` liste l'entièreté des modules python nécessaires.
-
-Pour installer un module éxécutez une commande ci-dessous en fonction de votre environnement:
-
-Pip:
-
-```bat
-python -m pip install [<module-name>]
-```
-```bat
-python3 -m pip install [<module-name>]
-```
-
-
-Linux:
-
-```bash
-sudo apt-get install python3-[<module-name>]
-```
 
 ## Réalisé avec
 
