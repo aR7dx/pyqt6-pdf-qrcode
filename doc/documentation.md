@@ -1,6 +1,6 @@
 # Documentation (pyqt6-pdf-qrocde)
 
-Bienvenue sur la documentation du projet "pyqt6-pdf-qrcode", à l'intérieur de cette dernière vous retrouverez l'acheminement du programme de façon détaillé de manière à pouvoir utiliser correctement le programme.  
+Bienvenue sur la documentation du projet "pyqt6-pdf-qrcode", à l'intérieur de cette dernière vous retrouverez le fonctionnement du programme de façon détaillé de manière à pouvoir utiliser correctement le programme.  
 > If you want there is an english version of this file: [*DOCUMENTATION* in english](./documentation_EN.md).
 
 ## Table des matières
@@ -15,6 +15,7 @@ Bienvenue sur la documentation du projet "pyqt6-pdf-qrcode", à l'intérieur de 
  8. [Problèmes connus](#knowissue)
  9. [Amélioration possible](#improvements)
  10. [Réalisé avec](#madewith)
+ 11. [References](#ref)
 
 
 <div id='presentation'/> 
@@ -23,11 +24,9 @@ Bienvenue sur la documentation du projet "pyqt6-pdf-qrcode", à l'intérieur de 
 
 Ce projet a été réalisé par des élèves de Terminale durant les heures consacrées à l'enseignement de la spécialité numérique et sciences informatiques (NSI), il constitue leur projet de l'année de Terminale.  
 
-Ce projet participe au concours *[Les Throphées NSI](https://trophees-nsi.fr/)* qui récompense les meilleurs créations des élèves participants.  
+Le projet participe au concours *[Les Throphées NSI](https://trophees-nsi.fr/)* qui récompense les meilleurs créations des élèves participants.
   
-  
->*L'objectif de ce projet est de rendre la découverte des spécialités du bac aussi informative que ludique au travers de l'utilisation d'un joystick, 4 boutons et d'une interface "moderne".  -Equipe de dévelopment.*  
-
+>*L'objectif de ce projet est de rendre la découverte des spécialités du bac aussi informative que ludique au travers de l'utilisation d'un joystick, 4 boutons et d'une interface "moderne".  -Equipe de dévelopment.*   
   
 Le projet a eu l'occasion d'être présenté lors des portes ouvertes du Lycée Curie-Corot.
 
@@ -115,13 +114,15 @@ Version pour joystick et boutons :
 
 <div id='usekey'/> 
 
-## Utilisation et Navigation (keyboard)
+## Utilisation et Navigation (clavier/souris)
 
 > Comment utliser mon clavier et ma souris plutôt qu'un joystick ? [Passer du joystick au clavier/souris](#switchjoytokey)
 
+Voici la liste des contrôles au clavier et à la souris : 
+
 * **'q'** ⇒ passer au bouton précédent
 * **'d'** ⇒ passer au bouton suivant
-* **'b'** ⇒ supprime l'onglet actif
+* **'b'** ⇒ supprime l'onglet actif (retour arrière)
 * **'f'** ⇒ active la caméra pour permettre de scanner un qrcode
 * **'x'** ⇒ valider une action. Sur le bouton "commencer" cela lance la caméra.
 * **'e'** ⇒ fermer l'application
@@ -147,7 +148,7 @@ Ce projet possède plusieurs pistes d'amélioration, voici quelques-unes que nou
 > Vous avez une idée ? N'hésitez pas à nous le faire savoir !
 
 * **Lecteur vidéo** : possibilté d'utiliser un lecteur vidéo, cependant quelques modifications sont à prévoir pour le rendre fonctionnel.
-* **Liste fichiers récemment ouvert** : base de données qui stocke le nom des derniers fichiers ouvert et l'affiche à l'utisateur 
+* **Liste fichiers récemment ouvert** : base de données qui stocke le nom des derniers fichiers ouvert et les affiches à l'utisateur. 
 * ...
 
 
@@ -159,6 +160,17 @@ Ce projet possède plusieurs pistes d'amélioration, voici quelques-unes que nou
 * [![Html][Html]][Html-url]
 * [![Css][Css]][Css-url]
 * [![Javascript][Javascript]][Javascript-url]
+
+<div id='ref'/> 
+
+## References
+
+* [Les Throphées NSI](https://trophees-nsi.fr/)
+* [Lycée Curie-Corot](https://curie-corot.lycee.ac-normandie.fr/)
+* [PIP](https://github.com/pypa/pip)
+* [Microsoft Visual Studio Code](https://code.visualstudio.com/)
+* [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/)
+* [Thonny](https://thonny.org/)
 
 *******
 
