@@ -8,8 +8,6 @@ Ce projet a été créer pour faciliter la présentation des spécialités du ba
 
 Il est impératif de consulter la documentation du projet si vous voulez utiliser le programme : [*DOCUMENTATION*](./doc/documentation.md).
 
-> Présentation à venir
-
 ## Réalisé avec
 
 * [![Python][Python.org]][Python-url]
