@@ -154,6 +154,8 @@ Voici la liste des contrôles au clavier et à la souris :
 * **'x'** ⇒ valider une action. Sur le bouton "commencer" cela lance la caméra.
 * **'e'** ⇒ fermer l'application
 
+> Utilisez la molette de votre souris pour défiler de haut en bas une page.
+
 <div id='knowissue'/> 
 
 ## Problèmes connus
@@ -176,8 +178,6 @@ Ce projet possède plusieurs pistes d'amélioration, voici quelques-unes que nou
 
 * **Lecteur vidéo** : possibilité d'utiliser un lecteur vidéo, cependant quelques modifications sont à prévoir pour le rendre fonctionnel.
 * **Liste fichiers récemment ouvert** : base de données qui stocke les noms des derniers fichiers ouverts et les affiches à l'utilisateur. 
-* ...
-
 
 <div id='madewith'/> 
 
