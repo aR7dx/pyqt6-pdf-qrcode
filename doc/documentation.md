@@ -118,7 +118,7 @@ Une fois votre qrcode prêt enregistrez-le, il permettra d'ouvrir votre fichier 
 
 > Vous devez impérativement avoir créé un qrcode pour votre fichier PDF. Voir [Créer un qrcode](#qrcode)
 
-Les fichiers PDF que vous souhaitez ouvrir doivent être placé dans un dossier spécifique [dossier des PDF](../sources/web/pdf) :
+Les fichiers PDF que vous souhaitez ouvrir doivent être placés dans un dossier spécifique [dossier des PDF](../sources/web/pdf) :
 
 ```py
 "pyqt6-pdf-qrcode/sources/web/pdf/votre_fichier.pdf"
