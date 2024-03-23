@@ -14,7 +14,7 @@ Bienvenue sur la documentation du projet "pyqt6-pdf-qrcode", à l'intérieur de 
  7. [Utilisation et Navigation (joystick)](#usejoy)
  8. [Utilisation et Navigation (clavier/souris)](#usekey)
  9. [Problèmes connus](#knowissue)
- 10. [Amélioration possible](#improvements)
+ 10. [Améliorations possibles](#improvements)
  11. [Réalisé avec](#madewith)
  12. [References](#ref)
 
@@ -168,7 +168,7 @@ Voici une liste des problèmes connus :
 
 <div id='improvements'/> 
 
-## Amélioration possible
+## Améliorations possibles
 
 Ce projet possède plusieurs pistes d'amélioration, voici quelques-unes que nous avons imaginées:
 
