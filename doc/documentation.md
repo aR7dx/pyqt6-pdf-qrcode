@@ -48,8 +48,8 @@ Le projet fonctionne également sur `Windows 10` et `Windows 11`.
 Pour installer le projet rendez-vous sur la [page d'accueil](https://github.com/SneaKxyz/pyqt6-pdf-qrcode/tree/main) et téléchargez le fichier ZIP de la derniere publication en date.  
 Situés sur la partie gauche de l'écran vous devriez voir les dernières publications `(ex: v0.1.0-beta)`.
 
-Une fois le fichier ZIP récupérer et extrait, il ne vous reste plus qu'à installer les modules nécessaires.  
-Pour ce faire la liste des modules requis par le programme sont dispoibles dans le fichier [requirements.txt](../requirements.txt).
+Une fois le fichier ZIP récupéré et extrait, il ne vous reste plus qu'à installer les modules nécessaires.  
+Pour ce faire, la liste des modules requis par le programme est disponible dans le fichier [requirements.txt](../requirements.txt).
 
 Pour installer les modules, il est **_recommandé d'utiliser_** : [PIP](https://github.com/pypa/pip) !
 
