@@ -6,9 +6,9 @@ Ce projet a été créer pour faciliter la présentation des spécialités du ba
 
 ## À propos du Projet
 
-> Présentation à venir
+Il est impératif de consulter la documentation du projet si vous voulez utiliser le programme : [*DOCUMENTATION*](./doc/documentation.md).
 
-Pour toute information complémentaire, réferez-vous à la documentation du projet [*DOCUMENTATION*](./doc/documentation.md).
+> Présentation à venir
 
 ## Réalisé avec
 
