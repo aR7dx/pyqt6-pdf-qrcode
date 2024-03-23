@@ -136,8 +136,8 @@ Version for joystick and buttons :
 
  3. Then place yourself in the field of vision of the camera and scan the QR code of a speciality with our integrated reader.
 
- > If you want to return to the previous page, press the red button.  
- > Press the black button to close the application.
+ > - If you want to return to the previous page, press the red button.  
+ > - Press the black button to close the application.
 
 <div id='usekey'/> 
 
