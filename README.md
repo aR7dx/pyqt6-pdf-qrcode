@@ -8,7 +8,7 @@ Ce projet a été créer pour faciliter la présentation des spécialités du ba
 
 > Présentation à venir
 
-Pour toute information complémentaire, réferez-vous à la documentation du projet dans [*doc/documentation.md*](./doc/documentation.md).
+Pour toute information complémentaire, réferez-vous à la documentation du projet [*DOCUMENTATION*](./doc/documentation.md).
 
 ## Réalisé avec
 
