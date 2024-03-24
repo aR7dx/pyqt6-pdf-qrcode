@@ -15,6 +15,8 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) # t
 
 from config import PYAUTOGUI_PAUSE, SCROLL_SPEED, LISTE_ACCUEIL, LISTE_SELECTION, LISTE_CREDITS # importation de la variable "SCROLL_SPEED" qui permet de savoir si la vitesse de defilement sur une page, la liste des coordonnées de chaque page et "PYAUTOGUI_PAUSE" le délai entre chaque action du module pyautogui
 
+assert SCROLL_SPEED > 0, "You must provide a value greater than zero."
+
 pyautogui.PAUSE = PYAUTOGUI_PAUSE # variable du module pyautogui qui permet de choisir le délai entre chaque action du module
 j = 0 # compteur (sert pour savoir quel action effectuer)
 data_file = None # donnée récupérée par la caméra
