@@ -289,7 +289,7 @@ class Window(QMainWindow): # création de la classe (fenêtre)
     #####################################
 
     
-    # style CSS sur l'application pour les pages pdf
+    # style CSS sur l'application pour les pages standards
     def default_style_sheet(self):
         self.setStyleSheet('''
             QWidget{
@@ -326,7 +326,7 @@ class Window(QMainWindow): # création de la classe (fenêtre)
                             ''')
 
 
-    # style CSS sur l'application pour les pages vidéo
+    # style CSS sur l'application pour les pages PDF
     def pdf_page_style_sheet(self):
         self.setStyleSheet('''
             QWidget{
