@@ -240,14 +240,14 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         elif (j == 0 and titre_page == 'Séléction...'):
             self.close_current_tab() # supprime l'onglet actif en recuperant son index
             self.add_new_tab(QUrl.fromLocalFile(os.path.split(os.path.abspath(__file__))[0]+rf'/web/pdf/{data_file}.pdf'))
-            self.moveCursor(LISTE_SELECTION[j][0],LISTE_SELECTION[j][1])
+            self.moveCursor(LISTE_ACCUEIL[j][0],LISTE_ACCUEIL[j][1])
             self.pdf_page_style_sheet()
         
         # si l'on se situe sur la page de séléction de fichiers et que l'on clique sur le bouton 1 alors on ferme la page de séléction et on ouvre le fichier vidéo dans le moteur de rendu puis on place le curseur sur le premier bouton de la page tout en appliquant le style pour les pages vidéo
         elif (j == 1 and titre_page == 'Séléction...'):
             self.close_current_tab() # supprime l'onglet actif en recuperant son index
             self.add_new_tab(QUrl.fromLocalFile(os.path.split(os.path.abspath(__file__))[0]+rf'/web/pdf/{data_file}.mp4'))
-            self.moveCursor(LISTE_SELECTION[j][0],LISTE_SELECTION[j][1])
+            self.moveCursor(LISTE_ACCUEIL[j][0],LISTE_ACCUEIL[j][1])
         
         # si rien ne correspond au cas énoncer ci-dessus, alors le programme passe la requête.
         else:
