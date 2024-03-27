@@ -194,7 +194,8 @@ There are a number of ways in which this project could be improved, and here are
 > Do you have an idea? Don't hesitate to let us know!
 
 * **Video player**: a video player can be used, but a few changes are needed to make it work.
-* **Recently opened files list**: database that stores the names of the most recently opened files and displays them to the user. 
+* **Recently opened files list**: database that stores the names of the most recently opened files and displays them to the user.
+* **Site to generate qrcodes**: create a website for the application to generate qrcodes, which can be opened locally as the application supports html files.
 
 <div id='madewith'/> 
 
