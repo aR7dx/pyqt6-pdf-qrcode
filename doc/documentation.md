@@ -46,6 +46,25 @@ Le projet fonctionne également sur `Windows 10` et `Windows 11`.
 
 ## Installation
 
+L'installation du projet ce fait en deux partie:
+
+- La Raspberry Pi-Pico (contient un mini-programme qui écrit une trame en boucle)
+- L'application (ne se situe pas sur la raspberry pi-pico)
+
+### Raspberry Pi-Pico:
+
+> Cette partie est facultative si vous êtes [passer du joystick au clavier/souris](#switchjoytokey), si c'est le cas nous vous renvoyons à [l'installation de l'application](#installproject), sinon suivez les instructions ci-dessous !
+
+Le fichier `main.py` contenu dans le [dossier pi-pico](../pi-pico) doit être téléchargé dans une raspberry pi-pico de sorte à ce que le fichier `main.py` ce lance au démarrage de cette dernière.
+
+Ce mini-programme sert à écrire une trame pour le joystick et les boutons qui sera lu par le programme, il permet de connaître l'etat du joystick ou d'un bouton.
+
+<div id='installproject'/>
+
+### L'application:
+
+> L'application quant à elle peut être placée n'importe où (tant que l'ensemble des fichiers reste groupés) hormis le même emplacement que celui où se situe le fichier `main.py` du [dossier pi-pico](../pi-pico) !
+
 Pour installer le projet rendez-vous sur la [page d'accueil](https://github.com/SneaKxyz/pyqt6-pdf-qrcode/tree/main) et téléchargez le fichier ZIP de la dernière publication en date.  
 Situés sur la partie gauche de l'écran vous devriez voir les dernières publications `(ex: v0.1.0-beta)`.
 
