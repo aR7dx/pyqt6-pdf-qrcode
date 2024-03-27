@@ -48,7 +48,7 @@ Le projet fonctionne également sur `Windows 10` et `Windows 11`.
 
 L'installation du projet ce fait en deux partie:
 
-- La Raspberry Pi-Pico (contient un mini-programme qui écrit une trame en boucle)
+- La Raspberry Pi-Pico (contient un mini-programme qui écrit une trame USB en boucle)
 - L'application (ne se situe pas sur la raspberry pi-pico)
 
 ### Raspberry Pi-Pico:
@@ -57,7 +57,7 @@ L'installation du projet ce fait en deux partie:
 
 Le fichier `main.py` contenu dans le [dossier pi-pico](../pi-pico) doit être téléchargé dans une raspberry pi-pico de sorte à ce que le fichier `main.py` ce lance au démarrage de cette dernière.
 
-Ce mini-programme sert à écrire une trame pour le joystick et les boutons qui sera lu par le programme, il permet de connaître l'etat du joystick ou d'un bouton.
+Ce mini-programme sert à écrire une trame USB pour le joystick et les boutons qui sera lu par le programme, il permet de connaître l'etat du joystick ou d'un bouton.
 
 <div id='installproject'/>
 
