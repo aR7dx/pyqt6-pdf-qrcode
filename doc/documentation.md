@@ -126,7 +126,7 @@ Une fois sur le site que vous avez choisi, renseigner la chaîne de caractères 
 `Attention votre chaîne de caractère doit respecter un certain format (ex pour le fichier cv_2024.pdf)`:
 
 ```py
-"cv_2024" # La chaîne de caractère doit être égale au nom du fichier pdf (vous ne devez pas renseigner l'extension de votre fichier).
+"cv_2024.pdf" -> "cv_2024" # La chaîne de caractère doit être égale au nom du fichier pdf (vous ne devez pas renseigner l'extension de votre fichier).
 ```
 
 Une fois votre qrcode prêt enregistrez-le, il permettra d'ouvrir votre fichier une fois scanner par la caméra.
