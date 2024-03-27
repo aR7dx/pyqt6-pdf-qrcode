@@ -46,6 +46,23 @@ The project also runs on `Windows 10` and `Windows 11`.
 
 ## Installation
 
+The project is installed in two parts:
+
+- The Raspberry Pi-Pico (contains a mini-program that writes a USB frame in a loop)
+- The application (not located on the raspberry pi-pico)
+
+### Raspberry Pi-Pico:
+
+> This part is optional if you have [switched from joystick to keyboard/mouse](#switchjoytokey), if so we refer you to the [application installation](#installproject), otherwise follow the instructions below !
+
+The `main.py` file contained in the [pi-pico folder](../pi-pico) must be downloaded to a raspberry pi-pico so that the `main.py` file is launched when the raspberry pi-pico is started.
+
+This mini-program is used to write a USB frame for the joystick and buttons that will be read by the program, it allows you to know the state of the joystick or a button.
+
+### The application:
+
+> As for the application, it can be placed anywhere (as long as all the files remain grouped together) apart from the same location as the `main.py` file in the [pi-pico folder](../pi-pico) !
+
 To install the project go to the [home page](https://github.com/SneaKxyz/pyqt6-pdf-qrcode/tree/main) and download the ZIP file for the latest release.  
 On the left-hand side of the screen you should see the latest releases (e.g. v0.1.0-beta).
 
@@ -107,7 +124,7 @@ Once on the site you have chosen, enter the character string that will be contai
 `Note that your character string does not respect the format and will be case sensitive (e.g. for the file cv_2024.pdf)`:
 
 ```py
-"cv_2024" # The string must be equal to the name of the pdf file (you do not need to enter the file extension).
+"cv_2024.pdf" -> "cv_2024" # The string must be equal to the name of the pdf file (you do not need to enter the file extension).
 ```
 
 Once your qrcode is ready, save it so that your file can be opened once it has been scanned by the camera.
