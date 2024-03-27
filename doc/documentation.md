@@ -196,7 +196,8 @@ Ce projet possède plusieurs pistes d'amélioration, voici quelques-unes que nou
 > Vous avez une idée ? N'hésitez pas à nous le faire savoir !
 
 * **Lecteur vidéo** : possibilité d'utiliser un lecteur vidéo, cependant quelques modifications sont à prévoir pour le rendre fonctionnel.
-* **Liste fichiers récemment ouvert** : base de données qui stocke les noms des derniers fichiers ouverts et les affiches à l'utilisateur. 
+* **Liste fichiers récemment ouvert** : base de données qui stocke les noms des derniers fichiers ouverts et les affiches à l'utilisateur.
+* **Site pour générer des qrcodes** : créer un site web pour a l'application pour générer des qrcodes, il pourra être ouvert localement puisque que l'app supporte les fichiers html.
 
 <div id='madewith'/> 
 
