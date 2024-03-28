@@ -44,10 +44,10 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         self.addToolBar(Qt.ToolBarArea.BottomToolBarArea, self.toolbar) # ajout de la ToolBar sur la fenêtre et la place en pied de page
 
         # Création des QActions ("texte d'affichage") qui iront dans la QToolBar
-        self.toolbar.addAction(QIcon('./utils/img/joystick.png'), 'Navigation')
-        self.toolbar.addAction(QIcon('./utils/img/button_vert.png'), 'Intéragir')
-        self.toolbar.addAction(QIcon('./utils/img/button_bleu.png'), 'Scanner QR-Code')
-        self.toolbar.addAction(QIcon('./utils/img/button_rouge.png'), 'Retour')
+        self.toolbar.addAction(QIcon('./sources/utils/img/joystick.png'), 'Navigation')
+        self.toolbar.addAction(QIcon('./sources/utils/img/button_vert.png'), 'Intéragir')
+        self.toolbar.addAction(QIcon('./sources/utils/img/button_bleu.png'), 'Scanner QR-Code')
+        self.toolbar.addAction(QIcon('./sources/utils/img/button_rouge.png'), 'Retour')
 
         self.tabs.currentChanged.connect(self.update_current_browser) # met a jour la page lorsque qu'une nouvelle est ouverte (sert au fonctionnement du scroll)
         self.current_browser = self.tabs.currentWidget()
