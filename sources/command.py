@@ -14,7 +14,10 @@ class Worker(QObject): # création du gestionnaire de commande
     super().__init__()
     self.window_instance = window_instance # création une instance de la classe
 
-  def run(self): # fonction qui s'execute lors de l'activation du thread
+  def run(self):
+    """
+    Fonction qui s'execute lors de l'activation du thread.
+    """
     portSerie = serial.Serial("/dev/ttyACM0") # port sur lequel la trame entre le joystick et la carte ce fait
     
     while True:
@@ -59,7 +62,10 @@ class Worker4Keyboard(QObject): # création du gestionnaire de commande
     super().__init__()
     self.window_instance = window_instance # création une instance de la classe
 
-  def run(self): # fonction qui s'execute lors de l'activation du thread
+  def run(self):
+    """
+    Fonction qui s'execute lors de l'activation du thread.
+    """
     while True:
   
       if keyboard.is_pressed('q'): # si la touche q est actionnée
