@@ -9,8 +9,6 @@ from threading import Thread # importation du module Thread qui permet de créer
 from window import Window # importation de l'interface graphique
 from command import Worker, Worker4Keyboard # importation du gestionnaire des commandes
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) # trouve le chemin absolu du fichier, et os.path.dirname() l'appelle une seconde fois pour obtenir le chemin du dossier parent. Ensuite, ce chemin est ajouté à sys.path, ce qui permet à Python de trouver et d'importer le module config.
-
 from config import NAVIGATION_MODE, APP_VERSION, OLD_APP_VERSION, APP_NAME # importation de la variable "NAVIGATION_MODE" qui permet de savoir si l'on utilise le joystick ou le clavier/souris, de la variable "APP_VERSION" pour recuperer la version de l'application, "ODL_APP_VERSION" la version precedente et "APP_NAME" le nom de l'application
 
 # ASSERTIONS
