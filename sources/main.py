@@ -1,6 +1,5 @@
 # fichier principal/central du programme: son rôle est d'ordonner la création des différents composants de l'application.
 
-import os # importation du module os
 import sys # importation du module sys
 from PyQt6.QtWidgets import QApplication # importation pour PyQt6 qui permet de créer une application
 from PyQt6.QtCore import Qt # importation pour PyQt6
