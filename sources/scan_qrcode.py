@@ -1,5 +1,7 @@
-import cv2
-# importation du module PyQt6
+# Ce fichier gère la caméra, la reconnaissance des qrcodes et la récupération de leur donnée.
+
+import cv2 # importation du module opencv-contrib-python
+# importation du module PyQt6 et de ses composants
 from PyQt6.QtWidgets import QMainWindow, QLabel
 from PyQt6.QtCore import Qt, QTimer, pyqtSignal
 from PyQt6.QtGui import QImage, QPixmap
@@ -16,10 +18,13 @@ from PyQt6.QtGui import QImage, QPixmap
 
 class CameraApp(QMainWindow):
 
-    data_available = pyqtSignal(str)
+    data_available = pyqtSignal(str) # déclaration d'un signal "data_available" qui émettra une chaîne de caractères lorsqu'un QR code sera détecté.
 
     def __init__(self):
         QMainWindow.__init__(self)
+        """
+        Initialisation de la classe CameraApp. Cette méthode configure l'interface graphique et initialise les paramètres de la caméra.
+        """
         
         self.setWindowTitle('CameraApp')
 
@@ -31,6 +36,7 @@ class CameraApp(QMainWindow):
         _, img = self.camera.read()
         self.hauteur_video, self.largeur_video, _ = img.shape
 
+        # Un timer est configuré pour appeler périodiquement la fonction scan pour détecter les QR codes.
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.scan)
         self.data = None
@@ -46,10 +52,17 @@ class CameraApp(QMainWindow):
 
 
     def start_camera(self, callback):
+        """
+        Méthode pour démarrer la caméra. Elle démarre le timer pour commencer la capture vidéo et connecte le signal data_available à une fonction de rappel spécifiée.
+        """
         self.timer.start(30)
         self.data_available.connect(callback)
 
     def scan(self):
+        """
+        Cette méthode scanne les images provenant de la caméra. Elle crée un objet QImage à partir de cette image pour l'afficher dans l'interface graphique.
+        Ensuite, elle détecte les QR codes dans l'image. Si un QR code est détecté, les données sont émises via le signal "data_available".
+        """
         ret, frame = self.camera.read()
 
         if ret:
@@ -74,15 +87,23 @@ class CameraApp(QMainWindow):
                     
 
     def closeEvent(self, event):
-        # Arrete la camera lorsque l'on ferme l'application
+        """
+        Cette méthode est appelée lorsque l'application se ferme. Elle arrête la capture vidéo de la caméra.
+        """
         self.camera.release()
         event.accept()
         
     def keyPressEvent(self, event):
+        """
+        Cette méthode est appelée lorsqu'une touche est pressée. Si la touche "B" est pressée, le signal "data_available" est émis avec la valeur None, ce qui est utilisé pour arrêter l'application CameraApp.
+        """
         if (event.key() == Qt.Key.Key_B):
             self.data_available.emit(None) # si la touche B est pressée cela arrete le programme car on renvoi None
 
     def get_data(self):
+        """
+        Méthode pour obtenir les données du dernier QR code détecté.
+        """
         return self.data
     
     
