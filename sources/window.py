@@ -25,6 +25,7 @@ data_file = None # donnée récupérée par la caméra
 ###############################
 
 
+
 # utilisation de la programmation orienté objet (POO)
 # creation de la fenêtre
 class Window(QMainWindow): # création de la classe (fenêtre)
@@ -73,8 +74,10 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         self.scanner.start_camera(self.open_web_file) # lance la fonction qui gère la caméra
 
 
-    # fonction permettant l'ajout de nouveaux onglets
     def add_new_tab(self, qurl=None, label='chargement...'):
+        """
+        Fonction permettant l'ajout de nouveaux onglets.
+        """
         global j # importation de la variable j en tant que variable global
 
         if qurl is None: # on vérifie si l'url n'est pas vide
@@ -127,12 +130,16 @@ class Window(QMainWindow): # création de la classe (fenêtre)
 
 
     def update_current_browser(self, i):
-        # Actualise la valeur de self.current_browser quand l'onglet actif change
+        """
+        Actualise la valeur de 'self.current_browser' quand l'onglet actif change
+        """
         self.current_browser = self.tabs.widget(i)
 
 
-    # permet de fermer un onglet
     def close_current_tab(self):
+        """
+        Permet de fermer un onglet.
+        """
         if self.tabs.count() < 2: # Garde au moins un onglet ouvert
             return # ne retourne rien pour faire aucune action et ne pas arreter le programme
 
@@ -148,14 +155,23 @@ class Window(QMainWindow): # création de la classe (fenêtre)
 
 
     def moveCursor(self, x, y):
-        self.cursor.setPos(x, y) # permet de choisir une positon précise pour le curseur sur la fenêtre
+        """
+        Permet de choisir une positon précise pour le curseur sur la fenêtre
+        """
+        self.cursor.setPos(x, y)
 
 
     def page_name(self):
-        return str(self.current_browser.page().title()) # renvoie le titre de la page actuellement ouvert
+        """
+        Renvoie le titre de la page actuellement ouvert.
+        """
+        return str(self.current_browser.page().title())
 
 
     def moveLeft(self):
+        """
+        Déplace le curseur sur la gauche (bouton précédent).
+        """
         global j # importation de la variable j en tant que variable global
         titre_page = self.page_name() # sauvegarde du nom de la page 
 
@@ -187,6 +203,9 @@ class Window(QMainWindow): # création de la classe (fenêtre)
 
 
     def moveRight(self):
+        """
+        Déplace le curseur sur la droite (bouton suivant).
+        """
         global j # importation de la variable j en tant que variable global
         titre_page = self.page_name() # sauvegarde du nom de la page 
         
@@ -249,18 +268,22 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         # si rien ne correspond au cas énoncer ci-dessus, alors le programme passe la requête.
         else:
             return
-        
+    
+    
     
     ################################
     #### GESTIONS DES COMMANDES ####
     ################################
         
+
     
     # Programmation Evénementielle
-    # Fonctions qui détecte lorsque qu'une touche spécifique est pressée ou qu'une action précise est réalisée
     # Les actions proviennent du fichier command.py suite à l'activation d'un bouton ou du joystick
-        
+    
     def command_handler(self, command):
+        """
+        Fonction qui détecte lorsque qu'une touche spécifique est pressée ou qu'une action précise est réalisée.
+        """
         if command == 'z':
             pyautogui.scroll(SCROLL_SPEED) # on monte la page vers le haut (scroll vers le haut)
         elif command == 's':
@@ -278,16 +301,19 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         elif command == 'e':
             self.close() # ferme la fenetre actuel
             raise Exception('You have just left the application.') # affiche un message d'arrêt et quitte l'application (en faisant crash)
-            
+
             
             
     #####################################
     #### CUSTOMISATION DE LA FENETRE ####
     #####################################
 
+
     
-    # style CSS sur l'application pour les pages standards
     def default_style_sheet(self):
+        """
+        Style CSS sur l'application pour les pages standards.
+        """
         self.setStyleSheet('''
             QWidget{
                 background-color: rgb(24,24,24);
@@ -323,8 +349,10 @@ class Window(QMainWindow): # création de la classe (fenêtre)
                             ''')
 
 
-    # style CSS sur l'application pour les pages PDF
     def pdf_page_style_sheet(self):
+        """
+        Style CSS sur l'application pour les pages pdf.
+        """
         self.setStyleSheet('''
             QWidget{
                 background-color: rgb(24,24,24);
