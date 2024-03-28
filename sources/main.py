@@ -22,10 +22,10 @@ def main():
     """
     app = QApplication(sys.argv) # création de l'application
     app.setOverrideCursor(QCursor(Qt.CursorShape.BlankCursor)) # rend invisible le curseur dans l'application
-    app.setApplicationName(APP_NAME) # défini le nom de l'application
+    app.setApplicationName(f'{APP_NAME}  ({APP_VERSION})') # défini le nom de l'application
     
     win = Window() # création la fenetre
-    win.show() # affichage en mode plein écran
+    win.showFullScreen() # affichage en mode plein écran
     print('Thread : window           |   Statut : opérationnel') # affichage du statut du thread 'window'
 
     if NAVIGATION_MODE == 'JOYSTICK':
