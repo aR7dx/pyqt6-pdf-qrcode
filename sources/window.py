@@ -1,6 +1,5 @@
 # Ce fichier contient l'interface graphique de l'application
 
-import sys # importation du module sys
 import os  # importation du module os
 import pyautogui # importation du module pyautogui pour effectuer des actions graphiques notamment
 
