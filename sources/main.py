@@ -16,7 +16,10 @@ assert APP_VERSION != '' , 'Please give a version to the app in config.py set fo
 assert NAVIGATION_MODE == 'JOYSTICK' or NAVIGATION_MODE == 'KEYBOARD_MOUSE' , 'Error in config.py file about NAVIGATION_MODE can only be "JOYSTICK" or "KEYBOARD_MOUSE", change this setting and then restart program.'
 
 
-def main(): # création de la fonction main qui gère le lancement et la création de l'application
+def main():
+    """
+    Fonction main qui gère le lancement et la création de l'application.
+    """
     app = QApplication(sys.argv) # création de l'application
     app.setOverrideCursor(QCursor(Qt.CursorShape.BlankCursor)) # rend invisible le curseur dans l'application
     app.setApplicationName(APP_NAME) # défini le nom de l'application
