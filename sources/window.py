@@ -11,8 +11,6 @@ from PyQt6.QtCore import QUrl, Qt
 from PyQt6.QtWebEngineWidgets import QWebEngineView # composant du module PyQt6 qui créer un moteur de rendu pour les fichers html et pdf
 from scan_qrcode import CameraApp # composant qui gère les qrcodes
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) # trouve le chemin absolu du fichier, et os.path.dirname() l'appelle une seconde fois pour obtenir le chemin du dossier parent. Ensuite, ce chemin est ajouté à sys.path, ce qui permet à Python de trouver et d'importer le module config.
-
 from config import PYAUTOGUI_PAUSE, SCROLL_SPEED, LISTE_ACCUEIL, LISTE_SELECTION, LISTE_CREDITS # importation de la variable "SCROLL_SPEED" qui permet de savoir si la vitesse de defilement sur une page, la liste des coordonnées de chaque page et "PYAUTOGUI_PAUSE" le délai entre chaque action du module pyautogui
 
 assert SCROLL_SPEED > 0, "You must provide a value greater than zero."
