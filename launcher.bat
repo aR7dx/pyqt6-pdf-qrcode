@@ -46,6 +46,5 @@ if %PYTHON_RESULT% equ 0 (
 
 )
 
-rem Si vous souhaitez visualiser le démarrage de l'application retirer le mot rem qui précede l'instruction pause
 pause
 endlocal
