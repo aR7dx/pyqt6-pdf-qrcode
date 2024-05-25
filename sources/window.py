@@ -41,6 +41,7 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         self.toolbar.addAction(QIcon('./sources/images/icon/button_rouge.png'), 'Retour')
 
         self.add_file('index.html', 'html') # page d'accueil au demarrage de l'application
+        self.default_style() # applique le style css pour la toolbar
 
     def __repr__(self): # representation de la classe
         return str(self.tabs) #on affiche la liste des pages dans le dico
@@ -128,6 +129,18 @@ class Window(QMainWindow): # création de la classe (fenêtre)
             self.close() # ferme la fenetre actuel
             print('Vous venez de quitter l\'application.')
             raise Exception('You have just left the application.')
+
+    def default_style(self):
+        """
+        Style CSS sur l'application concerne la toolbar.
+        """
+        self.setStyleSheet('''
+            QWidget{
+                background-color: rgb(24,24,24);
+                border-color: transparent;
+                color: #f2f2f9;
+            }
+                            ''')
 
 
 ############################
