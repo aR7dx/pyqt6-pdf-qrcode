@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Qrcode Generator</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/qrcode.css">
+    <script src="../js/qrcode.js"></script>
+    <script src="../js/script.js"></script>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="navbar">
+        <img src="../../images/img/logo-curie.png" alt="logo-curie">
+
+        <nav class="navbar_btn">
+          <a href="./index.html">Accueil</a>
+          <a href="./qrcode.html">Créer</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="qrcode_panel">
+        <div class="side_menu_left">
+          <section>
+            <dl>
+              <dt>
+                <a href="#" id="generateQRLink">générer qrcode</a>
+              </dt>
+              <dt><a href="#" style="opacity: 0.5; color: red; font-style: italic; pointer-events: none;">charger un qrcode</a></dt>
+              <dt><a href="#" id="saveQrLink" class="disabled">sauvergarder un qrcode</a></dt>
+              <dt><a href="#" id="removeInputLink" class="disabled">supprimer le qrcode</a></dt>
+              <br>
+              <br>
+              <dt>
+                <a  href="#" id="fileSelectorLink">créer un qrcode à partir d'un fichier</a>
+                <input type="file" id="hiddenFileInput" style="display: none;" accept=".pdf,.mp4">
+              </dt>
+              <dt>
+                <a href="#" id="openPdfFolderLink" style="opacity: 0.5; color: red; font-style: italic; pointer-events: none;">ouvrir le dossier des pdf</a>
+              </dt>
+            </dl>
+          </section>
+        </div>
+
+
+        <div class="content">
+          <div class="qrcode_frame">
+            <section>
+              <h1>Création de Qrcode</h1>
+    
+              <div id="qrcode"></div>
+    
+            </section>
+          </div>
+
+          <div class="input">
+            <section>
+              <input type="text" id="fileNameDisplayInput" placeholder="Écrivez ici..." spellcheck="false">
+            </section>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <div class="credits">
+        <p>2024.By SneaKxyz.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
