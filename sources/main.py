@@ -3,7 +3,7 @@
 import sys # importation du module sys
 from PyQt6.QtWidgets import QApplication # importation pour PyQt6 qui permet de créer une application
 from PyQt6.QtCore import Qt # importation pour PyQt6
-from PyQt6.QtGui import QCursor # importation du Cursor de PyQt6 afin d'avoir un contrôle sur ce dernier
+from PyQt6.QtGui import QCursor, QIcon # importation du Cursor de PyQt6 afin d'avoir un contrôle sur ce dernier
 from threading import Thread # importation du module Thread qui permet de créer et gérer des Threads
 from window import Window # importation de l'interface graphique
 from command import Worker, Worker4Keyboard # importation du gestionnaire des commandes
