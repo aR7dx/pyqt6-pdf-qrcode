@@ -118,7 +118,12 @@ Cela permettra d'utiliser le programme en version clavier/souris. Vous n'aurez d
 
 ## Créer un qrcode
 
-Pour créer un qrcode personnalisé, nous vous conseillons de vous rendre sur ce site : [QR Code Generator](https://fr.qr-code-generator.com/)
+
+
+Pour créer un qrcode personnalisé, vous pouvez utiliser le générateur de qrcode intégré de l'app en vous rendant sur l'onglet "créer" depuis la page d'accueil.
+Sinon nous vous conseillons de vous rendre sur ce site : [Qrcode Generator](https://sneakxyz.github.io/qrcode-generator-website/)
+Ce site est adapté aux ordinateurs et aux mobiles.
+
 
 > Libre à vous de choisir un autre site de création de qrcode.
 
@@ -126,7 +131,7 @@ Une fois sur le site que vous avez choisi, renseigner la chaîne de caractères 
 `Attention votre chaîne de caractère doit respecter un certain format (ex pour le fichier cv_2024.pdf)`:
 
 ```py
-"cv_2024.pdf" -> "cv_2024" # La chaîne de caractère doit être égale au nom du fichier pdf (vous ne devez pas renseigner l'extension de votre fichier).
+"cv_2024.pdf" # La chaîne de caractère doit être égale au nom du fichier pdf (vous devez renseigner l'extension de votre fichier).
 ```
 
 Une fois votre qrcode prêt enregistrez-le, il permettra d'ouvrir votre fichier une fois scanner par la caméra.
@@ -169,9 +174,9 @@ Voici la liste des contrôles au clavier et à la souris :
 * **'q'** ⇒ passer au bouton précédent
 * **'d'** ⇒ passer au bouton suivant
 * **'b'** ⇒ supprime l'onglet actif (retour arrière)
-* **'f'** ⇒ active la caméra pour permettre de scanner un qrcode
+* **'c'** ⇒ active la caméra pour permettre de scanner un qrcode
 * **'x'** ⇒ valider une action. Sur le bouton "commencer" cela lance la caméra.
-* **'e'** ⇒ fermer l'application
+* **'w'** ⇒ fermer l'application
 
 > Utilisez la molette de votre souris pour défiler de haut en bas une page.
 
