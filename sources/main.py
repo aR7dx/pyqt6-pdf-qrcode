@@ -48,8 +48,8 @@ def main():
     
     print('+--------------------------+---------------------------+') # séparateur
     print('| Application:             |   ' + APP_NAME + '        |') # nom de l'application
+    print('| Version:                 |   ' + APP_VERSION + '           |') # version de l'application
     print('| Statut:                  |   prêt                    |') # statut de l'application
-    print('| version:                 |   ' + APP_VERSION + '           |') # version de l'application
     print('+------------------------------------------------------+') # séparateur
     
     sys.exit(app.exec()) # execute l'application
