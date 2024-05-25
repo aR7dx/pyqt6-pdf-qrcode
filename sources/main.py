@@ -21,30 +21,36 @@ def main():
     Fonction main qui gère le lancement et la création de l'application.
     """
     app = QApplication(sys.argv) # création de l'application
-    app.setOverrideCursor(QCursor(Qt.CursorShape.BlankCursor)) # rend invisible le curseur dans l'application
     app.setApplicationName(f'{APP_NAME}  ({APP_VERSION})') # défini le nom de l'application
+    app.setWindowIcon(QIcon('./sources/images/icon/app_icon.svg'))
+
+    app.setOverrideCursor(QCursor(Qt.CursorShape.BlankCursor)) # rend invisible le curseur de la souris dans l'application
     
     win = Window() # création la fenetre
     win.showFullScreen() # affichage en mode plein écran
-    print('Thread : window           |   Statut : opérationnel') # affichage du statut du thread 'window'
+
+    print('+==================='+ APP_NAME + '===================+')
+    print('+--------------------------+---------------------------+')
+    print('| Thread : window          |   Statut : opérationnel   |') # affichage du statut du thread 'window'
 
     if NAVIGATION_MODE == 'JOYSTICK':
         worker = Worker(win) # gestionnaire des commandes
         worker.command_signal.connect(win.command_handler) # connexion/lien/pont avec le gestionnaire des commandes
     
     if NAVIGATION_MODE == 'KEYBOARD_MOUSE':
+        app.setOverrideCursor(QCursor(Qt.CursorShape.ArrowCursor)) # affiche le curseur de la souris
         worker = Worker4Keyboard(win)
         worker.command_signal.connect(win.command_handler)
    
     command_thread = Thread(target=worker.run) # création du thread des commandes
     command_thread.start() # lancement du thread des commandes
-    print('Thread : command_thread   |   Statut : opérationnel') # affichage du statut du thread 'command'
+    print('| Thread : command_thread  |   Statut : opérationnel   |') # affichage du statut du thread 'command'
     
-    print('=====') # séparateur
-    print('Application: ' + APP_NAME) # nom de l'application
-    print('Statut: chargée !') # statut de l'application
-    print('version: ' + APP_VERSION) # version de l'application
-    print('=====') # séparateur
+    print('+--------------------------+---------------------------+') # séparateur
+    print('| Application:             |   ' + APP_NAME + '        |') # nom de l'application
+    print('| Statut:                  |   prêt                    |') # statut de l'application
+    print('| version:                 |   ' + APP_VERSION + '           |') # version de l'application
+    print('+------------------------------------------------------+') # séparateur
     
     sys.exit(app.exec()) # execute l'application
 
