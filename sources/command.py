@@ -2,9 +2,10 @@
 
 from PyQt6.QtCore import QObject, pyqtSignal  # importation du module PyQt6 et des ses composants
 import serial # importation du module serial pour détecter et utiliser la trame des ports usb de la raspberry 4 pour le fonctionnement du joystick
-import keyboard # importation du module keyboard qui sert a récupérer un input du clavier
+from pynput import keyboard # importation du module pynput qui sert a récupérer un input du clavier
 from time import sleep # importation du module sleep qui permet de faire des "temps de pause" dans le code
 
+from config import SCROLL_SPEED
 
 class Worker(QObject): # création du gestionnaire de commande
   command_signal = pyqtSignal(str) # variable qui permet la reception du signal apres émission de celui-ci
@@ -24,31 +25,24 @@ class Worker(QObject): # création du gestionnaire de commande
       message=trame.decode('utf8') # on précise que le message sera décodé en utf8
       donnees = message.split(',') # on utilise la virgule comme séparateur entre les informations de la trame
       
-      if donnees[5] == 'haut':  # joystick vers le haut
-        self.command_signal.emit('z') # on emet le signal 'z' pour signifier que le joystick est vers le haut
+      if donnees[5] == 'haut':
+        self.command_signal.emit('z') # signal 'z' joystick vers le haut
+      elif donnees[5] == 'bas':
+        self.command_signal.emit('s') # signal 's' joystick vers le bas
+      elif donnees[5] == 'gauche':
+        self.command_signal.emit('q') # signal 'q'  joystick vers le gauche
+      elif donnees[5] == 'droite':
+        self.command_signal.emit('d') # signal 'd' joystick vers le droite
+      elif donnees[4] == 'True':
+        self.command_signal.emit('c') # signal 'c' active la caméra
+      elif donnees[3] == 'True':
+        self.command_signal.emit('x') # signal 'x' séléctionne/valide une action
+      elif donnees[2] == 'True':
+        self.command_signal.emit('b') # signal 'b' retour en arrière lorsque cela est possible
+      elif donnees[1] == 'True':
+        self.command_signal.emit('w') # signal 'w' quitte l'application 
       
-      elif donnees[5] == 'bas': # joystick vers le bas
-        self.command_signal.emit('s') # on emet le signal 's' pour signifier que le joystick est vers le bas
-      
-      elif donnees[5] == 'gauche': # joystick vers le gauche
-        self.command_signal.emit('q') # on emet le signal 'q' pour signifier que le joystick est vers le gauche
-
-      elif donnees[5] == 'droite': # joystick vers le droite
-        self.command_signal.emit('d') # on emet le signal 'd' pour signifier que le joystick est vers le droite
-
-      elif donnees[4] == 'True': # signal correspondant au bouton bleu de notre boîte
-        self.command_signal.emit('c') # on emet le signal 'f' pour signifier que le bouton bleu est actionné, cela permet d'activer la caméra afin de scanner un qrcode sans passer par les boutons qui sont sur les pages
-
-      elif donnees[3] == 'True': # signal correspond au bouton vert de notre boîte
-        self.command_signal.emit('x') # on emet le signal 'x' pour signifier que le bouton vert est actionné, cela permet de séléctionner/valider une action
-
-      elif donnees[2] == 'True': # signal correspond au bouton rouge de notre boîte
-        self.command_signal.emit('b') # on emet le signal 'b' pour signifier que le bouton rouge est actionné, cela permet de faire un retour en arrière lorsque cela est possible
-        
-      elif donnees[1] == 'True': # signal correspond au bouton noir de notre boîte
-        self.command_signal.emit('w') # on emet le signal 'e' pour signifier que le bouton noir est actionné, cela permet de quitter l'application en provoquant une erreur, ce qui va interrompt le programme
-      
-      sleep(0.1) # "temps de pause" entre les actions des boutons et du joystick
+      sleep(0.1) # "temps de pause" entre les actions
 
 
 
@@ -60,29 +54,50 @@ class Worker4Keyboard(QObject): # création du gestionnaire de commande
   def __init__(self, window_instance):
     super().__init__()
     self.window_instance = window_instance # création une instance de la classe
+    self.key_state = {
+        'z': False, # signal 'z' joystick vers le haut
+        's': False, # signal 's' joystick vers le bas
+        'q': False, # signal 'q'  joystick vers le gauche
+        'd': False, # signal 'd' joystick vers le droite
+        'x': False, # signal 'x' séléctionne/valide une action
+        'c': False, # signal 'c' active la caméra
+        'b': False, # signal 'b' retour en arrière lorsque cela est possible
+        'w': False # signal 'w' quitte l'application
+    }
+    self.listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release)
+    self.listener.start()
+
+  def on_press(self, key):
+    try:
+      if key.char in self.key_state:
+        self.key_state[key.char] = True
+    except AttributeError:
+      pass
+
+  def on_release(self, key):
+    try:
+      if key.char in self.key_state:
+        self.key_state[key.char] = False
+    except AttributeError:
+      pass
 
   def run(self):
     """
     Fonction qui s'execute lors de l'activation du thread.
     """
     while True:
-  
-      if keyboard.is_pressed('q'): # si la touche q est actionnée
-        self.command_signal.emit('q') # on emet le signal 'q' pour signifier que l'on appuie sur la touche q, afin de passer au bouton précédent
- 
-      elif keyboard.is_pressed('d'): # si la touche d est actionnée
-        self.command_signal.emit('d') # on emet le signal 'd' pour signifier que l'on appuie sur la touche d, afin de passer au bouton suivant
-
-      elif keyboard.is_pressed('c'): # si la touche f est actionnée
-        self.command_signal.emit('c') # on emet le signal 'f' pour signifier que l'on appuie sur la touche f, cela permet d'activer la caméra afin de scanner un qrcode sans passer par les boutons qui sont sur les pages
-
-      elif keyboard.is_pressed('x'): # si la touche x est actionnée
-        self.command_signal.emit('x') # on emet le signal 'x' pour signifier que l'on appuie sur la touche x, cela permet de séléctionner/valider une action
-
-      elif keyboard.is_pressed('b'): # si la touche b est actionnée
-        self.command_signal.emit('b') # on emet le signal 'b' pour signifier que l'on appuie sur la touche b, cela permet de faire un retour en arrière lorsque cela est possible
-        
-      elif keyboard.is_pressed('w'): # si la touche e est actionnée
-        self.command_signal.emit('w') # on emet le signal 'e' pour signifier que l'on appuie sur la touche e, cela permet de quitter l'application en provoquant une erreur dans l'application, ce qui interrompt le programme
-      
-      sleep(0.1) # "temps de pause" entre les actions des boutons et du joystick
+      for key, pressed in self.key_state.items():
+        if pressed:
+          self.command_signal.emit(key)
+          if key in ['q', 'd']:
+            time = 0.3
+          elif key in ['z', 's']:
+            time = SCROLL_SPEED
+          elif key in ['c', 'w']:
+            time = 3
+          else:
+            time = 0.1
+          sleep(time)
+          break
+      else:
+        sleep(0.1) # évite une surcharge de signaux
