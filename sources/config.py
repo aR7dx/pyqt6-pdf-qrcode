@@ -1,5 +1,5 @@
-OLD_APP_VERSION='v0.1.1-beta' # previous version of the app
-APP_VERSION='v1.0.0-stable' # version of the app
-APP_NAME='pyqt6-pdf-qrcode' # name of the application
-NAVIGATION_MODE='JOYSTICK' # change between 'JOYSTICK' or 'KEYBOARD_MOUSE'
-# SCROLL_SPEED=1 # adjust the speed of scroll as you want (only with joystick)
+OLD_APP_VERSION='v0.1.1-beta' # version précedente de l'application
+APP_VERSION='v1.0.0-stable' # version de l'application
+APP_NAME='pyqt6-pdf-qrcode' # nom de l'application
+NAVIGATION_MODE='JOYSTICK' # altérner entre 'JOYSTICK' et 'KEYBOARD_MOUSE'
+SCROLL_SPEED=0.04 # ajuster la vitesse de défilement (la valeur 0 est la plus rapide) (ne fonctionne qu'avec le mode joystick)
