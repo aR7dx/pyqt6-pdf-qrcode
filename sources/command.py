@@ -55,11 +55,6 @@ class Worker4Keyboard(QObject): # création du gestionnaire de commande
     super().__init__()
     self.window_instance = window_instance # création une instance de la classe
     self.key_state = {
-        'z': False, # signal 'z' joystick vers le haut
-        's': False, # signal 's' joystick vers le bas
-        'q': False, # signal 'q'  joystick vers le gauche
-        'd': False, # signal 'd' joystick vers le droite
-        'x': False, # signal 'x' séléctionne/valide une action
         'c': False, # signal 'c' active la caméra
         'b': False, # signal 'b' retour en arrière lorsque cela est possible
         'w': False # signal 'w' quitte l'application
