@@ -1,8 +1,6 @@
 # Ce fichier contient l'interface graphique de l'application
 
 import os  # importation du module os
-import keyboard # importation du module keyboard
-from time import sleep # importation du module sleep
 
 # importation des composants du module PyQt6
 from PyQt6.QtWidgets import QMainWindow, QTabWidget, QToolBar
@@ -10,6 +8,10 @@ from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import QUrl, Qt
 from PyQt6.QtWebEngineWidgets import QWebEngineView # composant du module PyQt6 qui créer un moteur de rendu pour les fichers html et pdf
 from scan_qrcode import CameraApp # composant qui gère les qrcodes
+
+from pynput.keyboard import Key, Controller
+
+keyboard = Controller()
 
 ###############################
 #### CREATION DE LA CLASSE ####
@@ -109,26 +111,34 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         """
         Fonction qui détecte lorsque qu'une touche spécifique est pressée ou qu'une action précise est réalisée.
         """
-        if command == 'z':
-            keyboard.press_and_release('up') # on monte la page vers le haut (scroll vers le haut)
-        elif command == 's':
-            keyboard.press_and_release('down') # on descend la page (scroll versle bas)
-        elif command == 'q':
-            keyboard.press_and_release('shift+tab') # déplace le curseur sur la gauche pour passer au bouton précédent
-            sleep(0.2)
-        elif command == 'd':
-            keyboard.press_and_release('tab') # déplace le curseur sur la droite pour passer au bouton suivant
-            sleep(0.2) 
-        elif command == 'b':
-            self.close_tab() # supprime l'onglet actif
-        elif command == 'c':
-            self.open_scan() # active la caméra
-        elif command == 'x':
-            keyboard.press_and_release('enter') # presse la touche entrer pour valider une action
-        elif command == 'w':
-            self.close() # ferme la fenetre actuel
-            print('Vous venez de quitter l\'application.')
-            raise Exception('You have just left the application.')
+        if command == 'z': # on monte la page vers le haut (scroll vers le haut)
+            keyboard.press(Key.up)
+            keyboard.release(Key.up)
+        elif command == 's': # on descend la page (scroll vers le bas)
+            keyboard.press(Key.down)
+            keyboard.release(Key.down)
+        elif command == 'q': # déplace le curseur sur la gauche pour passer au bouton précédent
+            keyboard.press(Key.shift)
+            keyboard.press(Key.tab)
+            keyboard.release(Key.tab)
+            keyboard.release(Key.shift)
+        elif command == 'd': # déplace le curseur sur la droite pour passer au bouton suivant
+            keyboard.press(Key.tab)
+            keyboard.release(Key.tab)
+        elif command == 'b': # supprime l'onglet actif
+            self.close_tab()
+        elif command == 'c': # active la caméra
+            self.open_scan()
+        elif command == 'x': # presse la touche entrer pour valider une action
+            keyboard.press(Key.enter)
+            keyboard.release(Key.enter)
+        elif command == 'w': # quitte l'application
+            self.close()
+            print("+======================================================+\n")
+            print('/!\ Vous venez de quitter l\'application.')
+            print('/!\ Veuillez fermer ce terminal.')
+            print("\n/!\ Ne pas tenir compte de l'erreur ci-dessous.\n")
+            raise Exception('Vous venez de quitter l\'application.')
 
     def default_style(self):
         """
