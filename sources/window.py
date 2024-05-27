@@ -112,26 +112,22 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         Fonction qui détecte lorsque qu'une touche spécifique est pressée ou qu'une action précise est réalisée.
         """
         if command == 'z': # on monte la page vers le haut (scroll vers le haut)
-            keyboard.press(Key.up)
-            keyboard.release(Key.up)
+            keyboard.tap(Key.up)
         elif command == 's': # on descend la page (scroll vers le bas)
-            keyboard.press(Key.down)
-            keyboard.release(Key.down)
+            keyboard.tap(Key.down)
         elif command == 'q': # déplace le curseur sur la gauche pour passer au bouton précédent
             keyboard.press(Key.shift)
             keyboard.press(Key.tab)
             keyboard.release(Key.tab)
             keyboard.release(Key.shift)
         elif command == 'd': # déplace le curseur sur la droite pour passer au bouton suivant
-            keyboard.press(Key.tab)
-            keyboard.release(Key.tab)
+            keyboard.tap(Key.tab)
         elif command == 'b': # supprime l'onglet actif
             self.close_tab()
         elif command == 'c': # active la caméra
             self.open_scan()
         elif command == 'x': # presse la touche entrer pour valider une action
-            keyboard.press(Key.enter)
-            keyboard.release(Key.enter)
+            keyboard.tap(Key.enter)
         elif command == 'w': # quitte l'application
             self.close()
             print("+======================================================+\n")
