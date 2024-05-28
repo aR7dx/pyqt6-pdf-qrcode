@@ -5,8 +5,6 @@ import serial # importation du module serial pour détecter et utiliser la trame
 from pynput import keyboard # importation du module pynput qui sert a récupérer un input du clavier
 from time import sleep # importation du module sleep qui permet de faire des "temps de pause" dans le code
 
-from config import SCROLL_SPEED
-
 class Worker(QObject): # création du gestionnaire de commande
   command_signal = pyqtSignal(str) # variable qui permet la reception du signal apres émission de celui-ci
 
@@ -87,7 +85,7 @@ class Worker4Keyboard(QObject): # création du gestionnaire de commande
           if key in ['q', 'd']:
             time = 0.3
           elif key in ['z', 's']:
-            time = SCROLL_SPEED
+            time = 0.04
           elif key in ['c', 'w']:
             time = 3
           else:
