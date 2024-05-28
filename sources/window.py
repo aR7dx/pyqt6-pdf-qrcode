@@ -1,6 +1,7 @@
 # Ce fichier contient l'interface graphique de l'application
 
 import os  # importation du module os
+import pynput # importation du module pynput
 
 # importation des composants du module PyQt6
 from PyQt6.QtWidgets import QMainWindow, QTabWidget, QToolBar
@@ -9,9 +10,12 @@ from PyQt6.QtCore import QUrl, Qt
 from PyQt6.QtWebEngineWidgets import QWebEngineView # composant du module PyQt6 qui créer un moteur de rendu pour les fichers html et pdf
 from scan_qrcode import CameraApp # composant qui gère les qrcodes
 
-from pynput.keyboard import Key, Controller
+from config import SCROLL_SPEED
 
-keyboard = Controller()
+from pynput.keyboard import Key
+
+keyboard = pynput.keyboard.Controller() # creation d'un objet pour le clavier
+mouse = pynput.mouse.Controller() # creation d'un objet pour la souris
 
 ###############################
 #### CREATION DE LA CLASSE ####
@@ -112,9 +116,9 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         Fonction qui détecte lorsque qu'une touche spécifique est pressée ou qu'une action précise est réalisée.
         """
         if command == 'z': # on monte la page vers le haut (scroll vers le haut)
-            keyboard.tap(Key.up)
+            mouse.scroll(0,SCROLL_SPEED)
         elif command == 's': # on descend la page (scroll vers le bas)
-            keyboard.tap(Key.down)
+            mouse.scroll(0,-SCROLL_SPEED)
         elif command == 'q': # déplace le curseur sur la gauche pour passer au bouton précédent
             keyboard.press(Key.shift)
             keyboard.press(Key.tab)
