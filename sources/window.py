@@ -116,9 +116,9 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         Fonction qui détecte lorsque qu'une touche spécifique est pressée ou qu'une action précise est réalisée.
         """
         if command == 'z': # on monte la page vers le haut (scroll vers le haut)
-            mouse.scroll(0,SCROLL_SPEED)
+            mouse.scroll(0,SCROLL_SPEED) # if dont work replace the line by 'keyboard.tap(Key.up)'
         elif command == 's': # on descend la page (scroll vers le bas)
-            mouse.scroll(0,-SCROLL_SPEED)
+            mouse.scroll(0,-SCROLL_SPEED) # if dont work replace the line by 'keyboard.tap(Key.down)'
         elif command == 'q': # déplace le curseur sur la gauche pour passer au bouton précédent
             keyboard.press(Key.shift)
             keyboard.press(Key.tab)
