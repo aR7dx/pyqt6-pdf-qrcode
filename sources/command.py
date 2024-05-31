@@ -82,7 +82,7 @@ class Worker4Keyboard(QObject): # création du gestionnaire de commande
       for key, pressed in self.key_state.items():
         if pressed:
           self.command_signal.emit(key)
-          elif key in ['c', 'w']:
+          if key in ['c', 'w']:
             time = 3
           else:
             time = 0.1
