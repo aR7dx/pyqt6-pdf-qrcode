@@ -21,7 +21,9 @@ It is essential to consult the project documentation if you want to use the prog
 
 This project was carried out by students in Terminale (final year of secondary school) during the hours devoted to teaching the "digital and computer sciences" (NSI) speciality, and is their project for the Terminale year.
 
-The project was presented at the Lycée Curie-Corot open days.
+> The project was presented during the Lycée Curie-Corot open days.
+
+> This project is also a Normandy winner in the “originality prize” category in the “NSI Trophies” competition, 2024 edition.
 
 
 <!-- MARKDOWN -->
