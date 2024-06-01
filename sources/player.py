@@ -46,7 +46,7 @@ class Player(QMainWindow): # création de la classe (fenêtre)
         self.toolbar.addAction(QIcon('./sources/images/icon/button_bleu.png'), 'Scanner QR-Code')
         self.toolbar.addAction(QIcon('./sources/images/icon/button_rouge.png'), 'Retour')
 
-        self.add_file('index.html', 'html') # page d'accueil au demarrage de l'application
+        self.add_file('index.html') # page d'accueil au demarrage de l'application
         self.default_style() # applique le style css pour la toolbar
 
     def __repr__(self): # representation de la classe
@@ -66,7 +66,7 @@ class Player(QMainWindow): # création de la classe (fenêtre)
         del self.scanner # destruction de l'objet camera
         self.add_file(data) # la data vers la fonction add_file
 
-    def add_file(self, data, dir='pdf'):
+    def add_file(self, data):
         """
         Fonction permettant l'ajout de nouveaux onglets
         """
@@ -77,7 +77,9 @@ class Player(QMainWindow): # création de la classe (fenêtre)
         page = Page(str(data)) # creer un objet de type Page 
 
         def createUrl(page):
-            page.url = os.path.split(os.path.abspath(__file__))[0]+r'/web/' + str(dir) + "/" + str(data) # creer l'url de la page et modifie la valeur de l'attribut url
+            dir = data.split('.')[-1]
+            
+            page.url = os.path.split(os.path.abspath(__file__))[0]+r'/content/' + str(dir) + "/" + str(data) # creer l'url de la page et modifie la valeur de l'attribut url
             self.tabs[page.name] = page.url # creer un clé et une valeur pour la page dans le dico tabs
             
         def createBrowser(page, label='chargement...'):
