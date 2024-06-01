@@ -144,7 +144,7 @@ class Player(QMainWindow): # création de la classe (fenêtre)
             keyboard.tap(Key.enter)
         elif command == 'w': # quitte l'application
             self.close()
-            print('\n/!\ Vous venez de quitter l\'application.')
+            print('/!\ Vous venez de quitter l\'application.')
             print('/!\ Veuillez fermer ce terminal.')
             print("\n/!\ Ne pas tenir compte de l'erreur ci-dessous.\n")
             raise Exception('Vous venez de quitter l\'application.')
