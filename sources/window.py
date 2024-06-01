@@ -63,14 +63,15 @@ class Window(QMainWindow): # création de la classe (fenêtre)
 
     def stopCamera(self, data):
         self.scanner.close() # arrete la camera
+        del self.scanner # destruction de l'objet camera
         self.add_file(data) # la data vers la fonction add_file
 
     def add_file(self, data, dir='pdf'):
         """
         Fonction permettant l'ajout de nouveaux onglets
         """
-        if (str(data) == '' or str(data) is None): # on vérifie si l'url n'est pas vide
-            print("Cette url n'existe pas : " + data + "(data=' ' ou data=None)")
+        if (str(data) == '') or (data is None): # on vérifie si l'url n'est pas vide
+            print('Donnée récupéré par la caméra : ' + str(data) + ', ce fichier n\'existe pas !')
             return
         
         page = Page(str(data)) # creer un objet de type Page 
@@ -98,9 +99,18 @@ class Window(QMainWindow): # création de la classe (fenêtre)
         """
         Permet de fermer un onglet.
         """
+        try:
+            # arrete et supprime l'objet camera si elle existe
+            if self.scanner.statut == True:
+                self.stopCamera(None)
+                return
+        except AttributeError:
+            pass
+        
         if self.tabMenu.count() < 2: # Garde au moins un onglet ouvert
             return # ne retourne rien pour faire aucune action et ne pas arreter le programme
-        
+
+        # supprime une fenetre
         current_tab_index = self.tabMenu.currentIndex() # recupere l'indice de l'onglet actuel
         self.tabMenu.removeTab(current_tab_index) # supprime l'onglet actuel
     
@@ -134,8 +144,7 @@ class Window(QMainWindow): # création de la classe (fenêtre)
             keyboard.tap(Key.enter)
         elif command == 'w': # quitte l'application
             self.close()
-            print("+======================================================+\n")
-            print('/!\ Vous venez de quitter l\'application.')
+            print('\n/!\ Vous venez de quitter l\'application.')
             print('/!\ Veuillez fermer ce terminal.')
             print("\n/!\ Ne pas tenir compte de l'erreur ci-dessous.\n")
             raise Exception('Vous venez de quitter l\'application.')
