@@ -25,6 +25,8 @@ class CameraApp(QMainWindow):
         """
         Initialisation de la classe CameraApp. Cette méthode configure l'interface graphique et initialise les paramètres de la caméra.
         """
+
+        self.statut = False
         
         self.setWindowTitle('CameraApp')
 
@@ -63,6 +65,8 @@ class CameraApp(QMainWindow):
         Cette méthode scanne les images provenant de la caméra. Elle crée un objet QImage à partir de cette image pour l'afficher dans l'interface graphique.
         Ensuite, elle détecte les QR codes dans l'image. Si un QR code est détecté, les données sont émises via le signal "data_available".
         """
+        self.statut = True
+        
         ret, frame = self.camera.read()
 
         if ret:
@@ -92,13 +96,6 @@ class CameraApp(QMainWindow):
         """
         self.camera.release()
         event.accept()
-        
-    def keyPressEvent(self, event):
-        """
-        Cette méthode est appelée lorsqu'une touche est pressée. Si la touche "B" est pressée, le signal "data_available" est émis avec la valeur None, ce qui est utilisé pour arrêter l'application CameraApp.
-        """
-        if (event.key() == Qt.Key.Key_B):
-            self.data_available.emit(None) # si la touche B est pressée cela arrete le programme car on renvoi None
 
     def get_data(self):
         """
