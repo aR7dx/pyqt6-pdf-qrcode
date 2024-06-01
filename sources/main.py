@@ -34,23 +34,24 @@ def main():
     print('| Thread : window          |   Statut : opérationnel   |') # affichage du statut du thread 'window'
 
     if NAVIGATION_MODE == 'JOYSTICK':
-        worker = Worker(win) # gestionnaire des commandes
-        worker.command_signal.connect(win.command_handler) # connexion/lien/pont avec le gestionnaire des commandes
+        worker = Worker(win) # gestionnaire des commandes pour joystick
+        worker.command_signal.connect(win.command_handler) # connecte les signaux du fichier command.py avec la fonction command_handler du fichier window.py
     
     if NAVIGATION_MODE == 'KEYBOARD_MOUSE':
         app.setOverrideCursor(QCursor(Qt.CursorShape.ArrowCursor)) # affiche le curseur de la souris
-        worker = Worker4Keyboard(win)
-        worker.command_signal.connect(win.command_handler)
+        worker = Worker4Keyboard(win) # gestionnaire des commandes pour clavier/souris
+        worker.command_signal.connect(win.command_handler) # connecte les signaux du fichier command.py avec la fonction command_handler du fichier window.py
    
     command_thread = Thread(target=worker.run) # création du thread des commandes
     command_thread.start() # lancement du thread des commandes
     print('| Thread : command_thread  |   Statut : opérationnel   |') # affichage du statut du thread 'command'
     
-    print('+--------------------------+---------------------------+') # séparateur
+    print('+--------------------------+---------------------------+')
     print('| Application:             |   ' + APP_NAME + '        |') # nom de l'application
     print('| Version:                 |   ' + APP_VERSION + '           |') # version de l'application
     print('| Statut:                  |   prêt                    |') # statut de l'application
-    print('+------------------------------------------------------+') # séparateur
+    print('+------------------------------------------------------+')
+    print('+======================================================+')
     
     sys.exit(app.exec()) # execute l'application
 
