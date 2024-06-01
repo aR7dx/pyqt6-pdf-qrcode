@@ -3,7 +3,7 @@
 import cv2 # importation du module opencv-contrib-python
 # importation du module PyQt6 et de ses composants
 from PyQt6.QtWidgets import QMainWindow, QLabel
-from PyQt6.QtCore import Qt, QTimer, pyqtSignal
+from PyQt6.QtCore import QTimer, pyqtSignal
 from PyQt6.QtGui import QImage, QPixmap
 
 
