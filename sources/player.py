@@ -8,7 +8,7 @@ from PyQt6.QtWidgets import QMainWindow, QTabWidget, QToolBar
 from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import QUrl, Qt
 from PyQt6.QtWebEngineWidgets import QWebEngineView # composant du module PyQt6 qui créer un moteur de rendu pour les fichers html et pdf
-from scan_qrcode import CameraApp # composant qui gère les qrcodes
+from camera import CameraApp # composant qui gère les qrcodes
 
 from config import SCROLL_SPEED
 
@@ -23,9 +23,9 @@ mouse = pynput.mouse.Controller() # creation d'un objet pour la souris
 
 # utilisation de la programmation orienté objet (POO)
 # creation de la fenêtre
-class Window(QMainWindow): # création de la classe (fenêtre)
+class Player(QMainWindow): # création de la classe (fenêtre)
     def __init__(self):
-        super(Window, self).__init__()
+        super(Player, self).__init__()
 
         self.tabs = {}
         
