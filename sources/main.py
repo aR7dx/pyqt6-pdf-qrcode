@@ -52,7 +52,7 @@ def main():
     print('| Version:                 |   ' + APP_VERSION + '           |') # version de l'application
     print('| Statut:                  |   prêt                    |') # statut de l'application
     print('+------------------------------------------------------+')
-    print('+======================================================+')
+    print('+======================================================+\n')
     
     sys.exit(app.exec()) # execute l'application
 
