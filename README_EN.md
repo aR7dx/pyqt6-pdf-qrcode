@@ -8,8 +8,6 @@ This project was created to make it easier to present the specialities of the ba
 
 It is essential to consult the project documentation if you want to use the program :  [*DOCUMENTATION* in english](./doc/documentation_EN.md)
 
-> Presentation coming soon
-
 ## Created with
 
 * [![Python][Python.org]][Python-url]
