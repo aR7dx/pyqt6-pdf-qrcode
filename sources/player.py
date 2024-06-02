@@ -160,6 +160,20 @@ class Player(QMainWindow): # création de la classe (fenêtre)
                 border-color: transparent;
                 color: #f2f2f9;
             }
+            QTabBar::tab{
+                background: black;
+                border-top-left-radius: 7px;
+                border-top-right-radius: 7px;
+                padding: 1px 6px 2px 6px;
+                margin-right: 1.5px;
+            }
+            QTabBar::tab:selected {
+                border: 2px solid rgb(169, 173, 197);
+            }
+            QTabBar::tab:!selected {
+                margin-top: 3px;
+                border: 1.5px solid rgba(160, 160, 160, 0.9);
+            }
                             ''')
 
 
