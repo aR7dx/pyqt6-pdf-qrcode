@@ -25,7 +25,7 @@ Bienvenue sur la documentation du projet "pyqt6-pdf-qrcode", à l'intérieur de 
 
 Ce projet a été réalisé par des élèves de Terminale durant les heures consacrées à l'enseignement de la spécialité numérique et sciences informatiques (NSI), il constitue leur projet de l'année de Terminale.  
 
-> Le projet participe au concours *[Les Throphées NSI](https://trophees-nsi.fr/)* qui récompense les meilleures créations des élèves participants.
+> Le projet est lauréat Normandie dans la catégorie "prix de l'originalité" à l'édition 2024 du concours *[Les Throphées NSI](https://trophees-nsi.fr/)* qui récompense les meilleures créations des élèves participants.
   
 *L'objectif de ce projet est de rendre la découverte des spécialités du bac aussi informatif que ludique au travers de l'utilisation d'un joystick, 4 boutons et d'une interface "moderne".  -Équipe de développement.*   
   
@@ -91,7 +91,9 @@ sudo apt-get install python3-[<module-name>]
 
 > *Libre à vous de choisir la façon dont vous installez vos modules.*
 
-Une fois toutes ces étapes faites, il ne vous reste plus qu'à ouvrir les fichiers télécharger dans votre IDE préféré, de vous placer dans le fichier `main.py` et de démarrer le programme.
+Une fois toutes ces étapes faites, il ne vous reste plus qu'à lancer les fichiers télécharger en éxécutant le fichier `launcher.bat` sur Windows ou `launcher.sh` sur Linux.  
+
+Autrement dans votre IDE préféré, placez-vous dans le fichier `main.py` et démarrez le programme.
 
 > Suggestions d'IDE : [Microsoft Visual Studio Code](https://code.visualstudio.com/), [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/), [Thonny](https://thonny.org/), etc...
 
@@ -104,7 +106,7 @@ Si vous ne disposez pas de ces prérequis :
 * 4 Boutons
 * 1 Microcontrôleur
 
-Dirigez-vous dans le fichier `config.py` et remplacez :
+Dirigez-vous dans le fichier `./sources/config.py` et remplacez :
 ```py
 NAVIGATION_MODE='JOYSTICK' # change between 'JOYSTICK' or 'KEYBOARD_MOUSE'
 ```
@@ -120,8 +122,9 @@ Cela permettra d'utiliser le programme en version clavier/souris. Vous n'aurez d
 
 
 
-Pour créer un qrcode personnalisé, vous pouvez utiliser le générateur de qrcode intégré de l'app en vous rendant sur l'onglet "créer" depuis la page d'accueil.
-Sinon nous vous conseillons de vous rendre sur ce site : [Qrcode Generator](https://sneakxyz.github.io/qrcode-generator-website/)
+Pour créer un qrcode personnalisé, vous pouvez utiliser le générateur de qrcode intégré de l'app en vous rendant sur l'onglet "créer" depuis la page d'accueil.  
+
+Sinon nous vous conseillons de vous rendre sur ce site : [Qrcode Generator](https://sneakxyz.github.io/qrcode-generator-website/).  
 Ce site est adapté aux ordinateurs et aux mobiles.
 
 
@@ -131,10 +134,10 @@ Une fois sur le site que vous avez choisi, renseigner la chaîne de caractères 
 `Attention votre chaîne de caractère doit respecter un certain format (ex pour le fichier cv_2024.pdf)`:
 
 ```py
-"cv_2024.pdf" # La chaîne de caractère doit être égale au nom du fichier pdf (vous devez renseigner l'extension de votre fichier).
+"cv_2024.pdf" # La chaîne de caractère doit être égale au nom du fichier (vous devez renseigner l'extension de votre fichier).
 ```
 
-Une fois votre qrcode prêt enregistrez-le, il permettra d'ouvrir votre fichier une fois scanner par la caméra.
+Une fois votre qrcode prêt enregistrez-le, il permettra d'ouvrir votre fichier une fois le qrcode scanné par la caméra.
 
 <div id='pdf'/> 
 
@@ -142,10 +145,10 @@ Une fois votre qrcode prêt enregistrez-le, il permettra d'ouvrir votre fichier 
 
 > Vous devez impérativement avoir créé un qrcode pour votre fichier PDF. Voir [Créer un qrcode](#qrcode)
 
-Les fichiers PDF que vous souhaitez ouvrir doivent être placés dans un dossier spécifique [dossier des PDF](../sources/web/pdf) :
+Les fichiers PDF que vous souhaitez ouvrir doivent être placés dans un dossier spécifique [dossier des PDF](../sources/content/pdf) :
 
 ```py
-"pyqt6-pdf-qrcode/sources/web/pdf/votre_fichier.pdf"
+"./sources/content/pdf/votre_fichier.pdf"
 ```
 
 <div id='usejoy'/> 
@@ -156,7 +159,7 @@ Version pour joystick et boutons :
 
  1. Utilisez le joystick pour naviguer à travers les menus affichés à l'écran en l'orientant vers le haut, le bas, la gauche et la droite.
 
- 2. Pour scanner un QR code appuyez sur le **bouton bleu** ou sur **la page d'acceuil** appuyez sur " commencer " avec le bouton vert.
+ 2. Pour scanner un QR code appuyez sur le **bouton bleu** ou sur **la page d'acceuil** appuyez sur " scanner " avec le bouton vert.
 
  3. Ensuite placez-vous dans le champ de vision de la caméra et scannez le QR code d'une spécialité avec notre lecteur intégré.
 
@@ -171,14 +174,12 @@ Version pour joystick et boutons :
 
 Voici la liste des contrôles au clavier et à la souris : 
 
-* **'q'** ⇒ passer au bouton précédent
-* **'d'** ⇒ passer au bouton suivant
 * **'b'** ⇒ supprime l'onglet actif (retour arrière)
 * **'c'** ⇒ active la caméra pour permettre de scanner un qrcode
-* **'x'** ⇒ valider une action. Sur le bouton "commencer" cela lance la caméra.
 * **'w'** ⇒ fermer l'application
 
 > Utilisez la molette de votre souris pour défiler de haut en bas une page.
+> Cliquer avec les boutons de votre souris pour intéragir avec l'application
 
 <div id='knowissue'/> 
 
@@ -188,9 +189,10 @@ Voici la liste des contrôles au clavier et à la souris :
 
 Voici une liste des problèmes connus :
 
-* Sur Windows, il se peut qu'au démarrage une page blanche apparaisse, il vous suffit de monter et descendre la page pour actualiser.
+* ~~Sur Windows, il se peut qu'au démarrage une page blanche apparaisse, il vous suffit de monter et descendre la page pour actualiser.~~
 
-* Il se peut que le défilement des boutons ne se passe pas correctement, essayez d'appuyer moins vite sur les touches de déplacement.
+* Il se peut que le défilement des boutons ne se passe pas correctement, essayez d'appuyer moins vite sur les touches de déplacement.  
+* Il se peut que la caméra croit reconnaitre un qrcode et s'arrete car elle ne recupere aucune donnée.
 
 <div id='improvements'/> 
 
@@ -200,9 +202,11 @@ Ce projet possède plusieurs pistes d'amélioration, voici quelques-unes que nou
 
 > Vous avez une idée ? N'hésitez pas à nous le faire savoir !
 
-* **Lecteur vidéo** : possibilité d'utiliser un lecteur vidéo, cependant quelques modifications sont à prévoir pour le rendre fonctionnel.
+* ~~**Lecteur vidéo** : possibilité d'utiliser un lecteur vidéo, cependant quelques modifications sont à prévoir pour le rendre fonctionnel.~~
+* ~~**Site pour générer des qrcodes** : créer un site web pour a l'application pour générer des qrcodes, il pourra être ouvert localement puisque que l'app supporte les fichiers html.~~
 * **Liste fichiers récemment ouvert** : base de données qui stocke les noms des derniers fichiers ouverts et les affiches à l'utilisateur.
-* **Site pour générer des qrcodes** : créer un site web pour a l'application pour générer des qrcodes, il pourra être ouvert localement puisque que l'app supporte les fichiers html.
+* **Menu de démarrage/admin**: un menu qui permettrait que servir de pré-accueil afin d'ajouter des fichiers ou tout autre prérequis au programme.
+* **Console de log intégré**: une console de log intégré au programme qui s'affiche lors d'une certaine action afin d'afficher les logs sans quitter l'application.
 
 <div id='madewith'/> 
 
@@ -224,6 +228,8 @@ Ce projet possède plusieurs pistes d'amélioration, voici quelques-unes que nou
 * [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/)
 * [Thonny](https://thonny.org/)
 * [QR Code Generator](https://fr.qr-code-generator.com/)
+
+> QR Code is a registered trademark of DENSO WAVE INCORPORATED
 
 *******
 
