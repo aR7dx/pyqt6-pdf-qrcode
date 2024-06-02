@@ -74,12 +74,11 @@ class Player(QMainWindow): # création de la classe (fenêtre)
             print('Donnée récupéré par la caméra : ' + str(data) + ', ce fichier n\'existe pas !')
             return
         
-        page = Page(str(data)) # creer un objet de type Page 
+        page = Page(str(data)) # creer un objet de type Page
+        page.dir = data.split('.')[-1]
 
         def createUrl(page):
-            dir = data.split('.')[-1]
-            
-            page.url = os.path.split(os.path.abspath(__file__))[0]+r'/content/' + str(dir) + "/" + str(data) # creer l'url de la page et modifie la valeur de l'attribut url
+            page.url = os.path.split(os.path.abspath(__file__))[0]+r'/content/' + str(page.dir) + "/" + str(data) # creer l'url de la page et modifie la valeur de l'attribut url
             self.tabs[page.name] = page.url # creer un clé et une valeur pour la page dans le dico tabs
             
         def createBrowser(page, label='chargement...'):
@@ -120,7 +119,7 @@ class Player(QMainWindow): # création de la classe (fenêtre)
     #### GESTIONS DES COMMANDES ####
     ################################     
 
-    # Programmation Evénementielle
+    # Programmation Evenementielle
     # Les actions proviennent du fichier command.py suite à l'activation d'un bouton ou du joystick
     
     def command_handler(self, command):
@@ -170,8 +169,9 @@ class Player(QMainWindow): # création de la classe (fenêtre)
         
 class Page():
     def __init__(self, name):
-        self.name = name # attribut du nom de la page
-        self.url = None # attribut de l'url de la page
+        self.name = name # nom du fichier cible
+        self.url = None # chemin du fichier cible
+        self.dir = None # dossier du fichier cible
         
     def __repr__(self):
         return self.name # affiche le nom de la page
