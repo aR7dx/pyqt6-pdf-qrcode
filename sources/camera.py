@@ -7,13 +7,9 @@ from PyQt6.QtCore import QTimer, pyqtSignal
 from PyQt6.QtGui import QImage, QPixmap
 
 
-
-
 ###############################
 #### CREATION DE LA CLASSE ####
 ###############################
-
-
 
 
 class CameraApp(QMainWindow):
@@ -43,15 +39,14 @@ class CameraApp(QMainWindow):
         self.timer.timeout.connect(self.scan)
         self.data = None
 
-
+    def __repr__(self):
+        return str('CameraApp')
 
 
     #################################
     #### CREATIONS DES FONCTIONS ####
     #################################
         
-
-
 
     def start_camera(self, callback):
         """
