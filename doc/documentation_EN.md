@@ -25,7 +25,7 @@ Welcome to the documentation for the "pyqt6-pdf-qrcode" project. In it you will 
 
 This project was created by Terminale (Year 12) students during the hours devoted to teaching the Digital and Computer Science (NSI) speciality, and is their project for the Terminale year.  
 
-> The project is part of the *[Les Throphées NSI](https://trophees-nsi.fr/)* competition, which rewards the best creations by participating students.
+> The project is a Normandy winner in the “originality prize” category of the 2024 edition of the *[Les Throphées NSI](https://trophees-nsi.fr/)* competition, which rewards the best creations of participating students.
   
 *The goal of this project is to make discovering the baccalaureate specialities as informative as it is fun by using a joystick, 4 buttons and a "modern" interface.  -Development team*   
   
@@ -89,7 +89,9 @@ sudo apt-get install python3-[<module-name>]
 
 > *It's up to you how you install your modules.*
 
-Once you've done all these steps, all you have to do is open the download files in your favourite IDE, place yourself in the `main.py` file and start the program.
+Once all these steps have been completed, all that's left to do is launch the download files by executing the `launcher.bat` file on Windows or `launcher.sh` on Linux.  
+
+Alternatively, in your favorite IDE, go to the `main.py` file and start the program.  
 
 > IDE suggestions : [Microsoft Visual Studio Code](https://code.visualstudio.com/), [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/), [Thonny](https://thonny.org/), etc...
 
@@ -102,7 +104,7 @@ If you do not have these requirements :
 * 4 buttons
 * 1 Microcontroller
 
-Go to the `config.py` file and replace :
+Go to the `./sources/config.py` file and replace :
 ```py
 NAVIGATION_MODE='JOYSTICK' # change between 'JOYSTICK' or 'KEYBOARD_MOUSE'
 ```
@@ -116,7 +118,9 @@ This will allow the program to be used as a keyboard/mouse version. So you won't
 
 ## Create a qrcode
 
-To create a personalised qrcode, we recommend you visit this site: [QR Code Generator](https://fr.qr-code-generator.com/)
+To create a custom qrcode, you can use the app's built-in qrcode generator by going to the “create” tab on the home page.  
+
+Alternatively, we recommend you visit this site: [Qrcode Generator](https://sneakxyz.github.io/qrcode-generator-website/).  
 
 > You are free to choose another qrcode creation site.
 
@@ -124,10 +128,10 @@ Once on the site you have chosen, enter the character string that will be contai
 `Note that your character string does not respect the format and will be case sensitive (e.g. for the file cv_2024.pdf)`:
 
 ```py
-"cv_2024.pdf" -> "cv_2024" # The string must be equal to the name of the pdf file (you do not need to enter the file extension).
+"cv_2024.pdf" # The string must be equal to the name of the file (you do need to enter the file extension).
 ```
 
-Once your qrcode is ready, save it so that your file can be opened once it has been scanned by the camera.
+Once your qrcode is ready, save it so that your file can be opened once the qrcode has been scanned by the camera.
 
 <div id='pdf'/> 
 
@@ -135,10 +139,10 @@ Once your qrcode is ready, save it so that your file can be opened once it has b
 
 > You must have created a qrcode for your PDF file. See [Create a qrcode](#qrcode)
 
-The PDF files you want to open must be placed in a specific folder [PDF folder](../sources/web/pdf) :
+The PDF files you want to open must be placed in a specific folder [PDF folder](../sources/content/pdf) :
 
 ```py
-"pyqt6-pdf-qrcode/sources/web/pdf/votre_fichier.pdf"
+"./sources/content/pdf/your_file.pdf"
 ```
 
 <div id='usejoy'/> 
@@ -149,7 +153,7 @@ Version for joystick and buttons :
 
  1. Use the joystick to navigate the on-screen menus by pointing up, down, left and right.
 
- 2. To scan a QR code press the **blue button** or on the **home page** press "start" with the green button.
+ 2. To scan a QR code press the **blue button** or on the **home page** press " scan " with the green button.
 
  3. Then place yourself in the field of vision of the camera and scan the QR code of a speciality with our integrated reader.
 
@@ -164,14 +168,12 @@ Version for joystick and buttons :
 
 Here is the list of keyboard and mouse controls: 
 
-* **'q'** ⇒ previous button
-* **'d'** ⇒ next button
 * **'b'** ⇒ delete the active tab (back)
-* **'f'** ⇒ activate the camera to scan a qrcode
-* **'x'** ⇒ validate an action. Press the "commencer" button on home page to launch the camera.
-* **'e'** ⇒ close the application
+* **'c'** ⇒ activate the camera to scan a qrcode
+* **'w'** ⇒ close the application
 
-> Use your mouse wheel to scroll up and down a page.
+> Use your mouse wheel to scroll up and down a page.  
+> Click your mouse buttons to interact with the application.  
 
 <div id='knowissue'/> 
 
@@ -181,9 +183,11 @@ Here is the list of keyboard and mouse controls:
 
 Here's a list of known problems:
 
-* On Windows, a blank page may appear at start-up. Simply scroll up and down the page to refresh.
+* ~~On Windows, a blank page may appear at start-up. Simply scroll up and down the page to refresh.~~  
 
 * If the buttons don't scroll properly, try pressing the arrow keys more slowly.
+
+* The camera may think it recognizes a qrcode, but stop because it can't retrieve any data.
 
 <div id='improvements'/> 
 
@@ -193,9 +197,11 @@ There are a number of ways in which this project could be improved, and here are
 
 > Do you have an idea? Don't hesitate to let us know!
 
-* **Video player**: a video player can be used, but a few changes are needed to make it work.
+* ~~**Video player**: a video player can be used, but a few changes are needed to make it work.~~
+* ~~**Site to generate qrcodes**: create a website for the application to generate qrcodes, which can be opened locally as the application supports html files.~~
 * **Recently opened files list**: database that stores the names of the most recently opened files and displays them to the user.
-* **Site to generate qrcodes**: create a website for the application to generate qrcodes, which can be opened locally as the application supports html files.
+* **Startup/admin menu**: a menu that can be used as a pre-home to add files or other prerequisites to the program.
+* **Integrated log console**: a program-integrated log console that appears when a certain action is performed, to display logs without leaving the application.
 
 <div id='madewith'/> 
 
@@ -217,6 +223,8 @@ There are a number of ways in which this project could be improved, and here are
 * [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/)
 * [Thonny](https://thonny.org/)
 * [QR Code Generator](https://fr.qr-code-generator.com/)
+
+> QR Code is a registered trademark of DENSO WAVE INCORPORATED
 
 *******
 
