@@ -23,7 +23,6 @@ def main():
     app = QApplication(sys.argv) # création de l'application
     app.setApplicationName(f'{APP_NAME}  ({APP_VERSION})') # défini le nom de l'application
     app.setWindowIcon(QIcon('./sources/images/icon/app_icon.svg'))
-
     app.setOverrideCursor(QCursor(Qt.CursorShape.BlankCursor)) # rend invisible le curseur de la souris dans l'application
     
     player = Player() # création la fenetre
@@ -44,6 +43,7 @@ def main():
    
     command_thread = Thread(target=worker.run) # création du thread des commandes
     command_thread.start() # lancement du thread des commandes
+    
     print('+--------------------------+---------------------------+')
     print('| Thread : command         |   Statut : opérationnel   |') # affichage du statut du thread 'command'
     
