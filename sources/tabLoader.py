@@ -124,7 +124,7 @@ class TabLoader(QMainWindow): # création de la classe (fenêtre)
             pass
 
         try:
-            self.videoTab.stop()
+            self.videoTab.stop() # arrete la video, si une vidéo est entrain d'être jouée
         except Exception:
             pass
         
