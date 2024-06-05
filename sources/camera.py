@@ -23,6 +23,7 @@ class CameraApp(QMainWindow):
         """
 
         self.statut = False
+        self.data = None
         
         self.setWindowTitle('CameraApp')
 
@@ -37,7 +38,6 @@ class CameraApp(QMainWindow):
         # Un timer est configuré pour appeler périodiquement la fonction scan pour détecter les QR codes.
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.scan)
-        self.data = None
 
     def __repr__(self):
         return str('CameraApp')
