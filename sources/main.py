@@ -5,7 +5,7 @@ from PyQt6.QtWidgets import QApplication # importation pour PyQt6 qui permet de 
 from PyQt6.QtCore import Qt # importation pour PyQt6
 from PyQt6.QtGui import QCursor, QIcon # importation du Cursor de PyQt6 afin d'avoir un contrôle sur ce dernier
 from threading import Thread # importation du module Thread qui permet de créer et gérer des Threads
-from player import Player # importation de l'interface graphique
+from tabLoader import TabLoader # importation de l'interface graphique
 from command import Worker, Worker4Keyboard # importation du gestionnaire des commandes
 
 from config import NAVIGATION_MODE, APP_VERSION, OLD_APP_VERSION, APP_NAME # importation de la variable "NAVIGATION_MODE" qui permet de savoir si l'on utilise le joystick ou le clavier/souris, de la variable "APP_VERSION" pour recuperer la version de l'application, "ODL_APP_VERSION" la version precedente et "APP_NAME" le nom de l'application
@@ -25,21 +25,21 @@ def main():
     app.setWindowIcon(QIcon('./sources/images/icon/app_icon.svg'))
     app.setOverrideCursor(QCursor(Qt.CursorShape.BlankCursor)) # rend invisible le curseur de la souris dans l'application
     
-    player = Player() # création la fenetre
-    player.showFullScreen() # affichage en mode plein écran
+    tabLoader = TabLoader() # création la fenetre
+    tabLoader.showFullScreen() # affichage en mode plein écran
 
     print('+==================='+ APP_NAME + '===================+')
     print('+--------------------------+---------------------------+')
-    print('| Thread : player          |   Statut : opérationnel   |') # affichage du statut du thread 'player'
+    print('| Thread : tabLoader          |   Statut : opérationnel   |') # affichage du statut du thread 'tabLoader'
 
     if NAVIGATION_MODE == 'JOYSTICK':
-        worker = Worker(player) # gestionnaire des commandes pour joystick
-        worker.command_signal.connect(player.command_handler) # connecte les signaux du fichier command.py avec la fonction command_handler du fichier player.py
+        worker = Worker(tabLoader) # gestionnaire des commandes pour joystick
+        worker.command_signal.connect(tabLoader.command_handler) # connecte les signaux du fichier command.py avec la fonction command_handler du fichier player.py
     
     if NAVIGATION_MODE == 'KEYBOARD_MOUSE':
         app.setOverrideCursor(QCursor(Qt.CursorShape.ArrowCursor)) # affiche le curseur de la souris
-        worker = Worker4Keyboard(player) # gestionnaire des commandes pour clavier/souris
-        worker.command_signal.connect(player.command_handler) # connecte les signaux du fichier command.py avec la fonction command_handler du fichier player.py
+        worker = Worker4Keyboard(tabLoader) # gestionnaire des commandes pour clavier/souris
+        worker.command_signal.connect(tabLoader.command_handler) # connecte les signaux du fichier command.py avec la fonction command_handler du fichier player.py
    
     command_thread = Thread(target=worker.run) # création du thread des commandes
     command_thread.start() # lancement du thread des commandes
