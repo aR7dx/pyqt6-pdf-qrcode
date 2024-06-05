@@ -8,9 +8,12 @@ from PyQt6.QtWidgets import QMainWindow, QTabWidget, QToolBar
 from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import QUrl, Qt
 from PyQt6.QtWebEngineWidgets import QWebEngineView # composant du module PyQt6 qui créer un moteur de rendu pour les fichers html et pdf
+from videoPlayer import VideoPlayer # composant qui gère les vidéos
 from camera import CameraApp # composant qui gère les qrcodes
 
-from config import SCROLL_SPEED
+from config import SCROLL_SPEED, SUPPORTED_DOCUMENT_EXTENSIONS, SUPPORTED_VIDEO_EXTENSIONS
+
+assert SCROLL_SPEED > 0, 'Veuillez fournir une valeur supérieur à zéro.'
 
 from pynput.keyboard import Key
 
@@ -23,16 +26,16 @@ mouse = pynput.mouse.Controller() # creation d'un objet pour la souris
 
 # utilisation de la programmation orienté objet (POO)
 # creation de la fenêtre
-class Player(QMainWindow): # création de la classe (fenêtre)
+class TabLoader(QMainWindow): # création de la classe (fenêtre)
     def __init__(self):
-        super(Player, self).__init__()
+        super().__init__()
 
         self.tabs = {}
         
-        self.tabMenu = QTabWidget() # création du Widget des onglets
+        self.tabMenu = QTabWidget(self) # création du Widget des onglets
+        self.setCentralWidget(self.tabMenu) # défini la barre d'onglet comme element central de la fenetre
         self.tabMenu.setDocumentMode(True) # supprime le cadre blanc autour des pages
         self.tabMenu.setTabsClosable(False) # autorise la fermeture des onglets
-        self.setCentralWidget(self.tabMenu) # défini la barre d'onglet comme element central de la fenetre
 
         self.toolbar = QToolBar() # Création de la toolbar
         self.toolbar.setMovable(False) # empêche de pouvoir déplacer la toolbar
@@ -46,7 +49,7 @@ class Player(QMainWindow): # création de la classe (fenêtre)
         self.toolbar.addAction(QIcon('./sources/images/icon/button_bleu.png'), 'Scanner QR-Code')
         self.toolbar.addAction(QIcon('./sources/images/icon/button_rouge.png'), 'Retour')
 
-        self.add_file('index.html') # page d'accueil au demarrage de l'application
+        self.add_tab('index.html') # page d'accueil au demarrage de l'application
         self.default_style() # applique le style css pour la toolbar
 
     def __repr__(self): # representation de la classe
@@ -56,17 +59,19 @@ class Player(QMainWindow): # création de la classe (fenêtre)
     #### CREATIONS DES FONCTIONS ####
     #################################
 
-    def open_scan(self):
+    def open_scan(self, label='Scanner'):
         self.scanner = CameraApp() # créer une variable qui corresond à la caméra
-        self.scanner.show() # affice le retour vidéo de la caméra
         self.scanner.start_camera(self.stopCamera) # lance la fonction qui gère la caméra et renvoie la sortie sur la fonction stopCamera
+
+        i = self.tabMenu.addTab(self.scanner, label)
+        self.tabMenu.setCurrentIndex(i)
 
     def stopCamera(self, data):
         self.scanner.close() # arrete la camera
         del self.scanner # destruction de l'objet camera
-        self.add_file(data) # la data vers la fonction add_file
+        self.add_tab(data) # la data vers la fonction add_tab
 
-    def add_file(self, data):
+    def add_tab(self, data):
         """
         Fonction permettant l'ajout de nouveaux onglets
         """
@@ -90,22 +95,37 @@ class Player(QMainWindow): # création de la classe (fenêtre)
             
             i = self.tabMenu.addTab(browser, label) # attribut l'onglet actuel à une variable
             self.tabMenu.setCurrentIndex(i) # fixe l'indice de l'onglet
-
+            
             browser.loadFinished.connect(lambda _, i=i, browser=browser: self.tabMenu.setTabText(i, browser.page().title()))
             
+        def createViewer(page, label='Lecteur Video'):
+            self.videoTab = VideoPlayer()
+            self.videoTab.play(page)
+            
+            i = self.tabMenu.addTab(self.videoTab, label)
+            self.tabMenu.setCurrentIndex(i)
+        
         createUrl(page) # fonction pour créer l'url d'une page
-        createBrowser(page) # creer le moteur de rendu de la page (charge l'url et l'affiche)
+        
+        # Aberration 
+        # (decide si il faut créer une page ou un lecteur pour vidéo)
+        [createBrowser(page) if len([x for x in SUPPORTED_DOCUMENT_EXTENSIONS if x == page.dir]) > 0 else [createViewer(page) if len([x for x in SUPPORTED_VIDEO_EXTENSIONS if x == page.dir]) > 0 else print(f'extension du fichier inconnu par le logiciel: "{page.name}"\n')]]
 
     def close_tab(self):
         """
         Permet de fermer un onglet.
         """
         try:
-            # arrete et supprime l'objet camera si elle existe
+            # arrete et supprime l'objet camera si il existe
             if self.scanner.statut == True:
                 self.stopCamera(None)
                 return
         except AttributeError:
+            pass
+
+        try:
+            self.videoTab.stop()
+        except Exception:
             pass
         
         if self.tabMenu.count() < 2: # Garde au moins un onglet ouvert
@@ -137,12 +157,12 @@ class Player(QMainWindow): # création de la classe (fenêtre)
             keyboard.release(Key.shift)
         elif command == 'd': # déplace le curseur sur la droite pour passer au bouton suivant
             keyboard.tap(Key.tab)
+        elif command == 'x': # presse la touche entrer pour valider une action
+            keyboard.tap(Key.enter)
         elif command == 'b': # supprime l'onglet actif
             self.close_tab()
         elif command == 'c': # active la caméra
             self.open_scan()
-        elif command == 'x': # presse la touche entrer pour valider une action
-            keyboard.tap(Key.enter)
         elif command == 'w': # quitte l'application
             self.close()
             print('/!\ Vous venez de quitter l\'application.')
