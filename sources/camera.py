@@ -1,20 +1,20 @@
 # Ce fichier gère la caméra, la reconnaissance des qrcodes et la récupération de leur donnée.
 
 import cv2 # importation du module opencv-contrib-python
-from PyQt6.QtWidgets import QMainWindow, QLabel
-from PyQt6.QtCore import QTimer, pyqtSignal
+from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout
+from PyQt6.QtCore import QTimer, pyqtSignal, Qt
 from PyQt6.QtGui import QImage, QPixmap
 
 ###############################
 #### CREATION DE LA CLASSE ####
 ###############################
 
-class CameraApp(QMainWindow):
+class CameraApp(QWidget):
 
     data_available = pyqtSignal(str) # déclaration d'un signal "data_available" qui émettra une chaîne de caractères lorsqu'un QR code sera détecté.
 
-    def __init__(self):
-        QMainWindow.__init__(self)
+    def __init__(self, parent=None):
+        super(QWidget, self).__init__(parent)
         """
         Initialisation de la classe CameraApp. Cette méthode configure l'interface graphique et initialise les paramètres de la caméra.
         """
@@ -25,12 +25,14 @@ class CameraApp(QMainWindow):
         self.camera = cv2.VideoCapture(0)
         self.detector = cv2.QRCodeDetector()
         self.lecteur_video = QLabel()
-        
-        self.setWindowTitle('CameraApp')
-        self.setCentralWidget(self.lecteur_video)
 
-        _, img = self.camera.read()
-        self.hauteur_video, self.largeur_video, _ = img.shape
+        self.lecteur_cam.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        layout = QVBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0) # retire le cadre autour de la camera
+        layout.addWidget(self.lecteur_cam)
+        
+        self.setLayout(layout)
 
         self.timer = QTimer(self) # Un timer est configuré pour appeler périodiquement la fonction scan pour détecter les QR codes.
         self.timer.timeout.connect(self.scan)
@@ -77,9 +79,6 @@ class CameraApp(QMainWindow):
             # 'bbox' contient les coordonnées de la boîte englobant le QR code détecté.
         
             if(bbox is not None): # Vérifie si un QR code a été détecté
-                for i in range(len(bbox)):
-                    cv2.line(frame, tuple(map(int, bbox[i][0])), tuple(map(int, bbox[(i+1) % len(bbox)][0])), color=(255, 0, 0), thickness=2) # affiche le carré bleu autour de qrcode
-                
                 if data: # Vérifie si des données ont été extraites du QR code.
                     self.data = data # Met à jour l'attribut 'data' avec les données du QR code détecté.
                     self.data_available.emit(data) # Émet le signal 'data_available' avec les données du QR code.
