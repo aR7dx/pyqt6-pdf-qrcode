@@ -23,7 +23,6 @@ def main():
     app = QApplication(sys.argv) # création de l'application
     app.setApplicationName(f'{APP_NAME}  ({APP_VERSION})') # défini le nom de l'application
     app.setWindowIcon(QIcon('./sources/images/icon/app_icon.svg'))
-    app.setOverrideCursor(QCursor(Qt.CursorShape.BlankCursor)) # rend invisible le curseur de la souris dans l'application
     
     tabLoader = TabLoader() # création la fenetre
     tabLoader.showFullScreen() # affichage en mode plein écran
@@ -33,11 +32,11 @@ def main():
     print('| Thread : tabLoader          |   Statut : opérationnel   |') # affichage du statut du thread 'tabLoader'
 
     if NAVIGATION_MODE == 'JOYSTICK':
+        app.setOverrideCursor(QCursor(Qt.CursorShape.BlankCursor)) # rend invisible le curseur de la souris dans l'application
         worker = Worker(tabLoader) # gestionnaire des commandes pour joystick
         worker.command_signal.connect(tabLoader.command_handler) # connecte les signaux du fichier command.py avec la fonction command_handler du fichier player.py
     
     if NAVIGATION_MODE == 'KEYBOARD_MOUSE':
-        app.setOverrideCursor(QCursor(Qt.CursorShape.ArrowCursor)) # affiche le curseur de la souris
         worker = Worker4Keyboard(tabLoader) # gestionnaire des commandes pour clavier/souris
         worker.command_signal.connect(tabLoader.command_handler) # connecte les signaux du fichier command.py avec la fonction command_handler du fichier player.py
    
