@@ -116,12 +116,14 @@ class TabLoader(QMainWindow): # création de la classe (fenêtre)
         Permet de fermer un onglet.
         """
         try:
-            self.videoTab.stop() # arrete le lecteur video, si une vidéo est entrain d'être jouée
-        except Exception:
-            pass
-
-        if self.scanner.statut == True:
             self.stopCamera(None) # arrete et supprime l'objet camera si il existe
+        except AttributeError:
+            pass
+        
+        try:
+            self.videoTab.stop() # arrete le lecteur video, si une vidéo est entrain d'être jouée
+        except AttributeError:
+            pass
         
         if self.tabMenu.count() < 2: # Garde au moins un onglet ouvert
             return # ne retourne rien pour faire aucune action et ne pas arreter le programme
