@@ -67,8 +67,7 @@ class TabLoader(QMainWindow): # création de la classe (fenêtre)
         self.tabMenu.setCurrentIndex(i)
 
     def stopCamera(self, data):
-        self.scanner.close() # arrete la camera
-        del self.scanner # destruction de l'objet camera
+        self.close_tab() # ferme l'onglet de la caméra et l'arrête par conséquent
         self.add_tab(data) # la data vers la fonction add_tab
 
     def add_tab(self, data):
@@ -115,8 +114,9 @@ class TabLoader(QMainWindow): # création de la classe (fenêtre)
         """
         Permet de fermer un onglet.
         """
-        try:
-            self.stopCamera(None) # arrete et supprime l'objet camera si il existe
+        try: # si l'objet caméra existe
+            self.scanner.close() # on l'arrete
+            del self.scanner # on le supprime
         except AttributeError:
             pass
         
