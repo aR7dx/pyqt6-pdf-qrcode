@@ -71,7 +71,7 @@ class CameraApp(QWidget):
             q_image = QImage(rgb_image.data, width, height, bytes_per_line, QImage.Format.Format_RGB888) # Crée un objet QImage à partir des données de l'image RGB.
             pixmap = QPixmap.fromImage(q_image) # Convertit l'objet QImage en QPixmap
             
-            self.lecteur_video.setPixmap(pixmap) # Met à jour l'affichage du QLabel avec la nouvelle image capturée et traitée.
+            self.lecteur_cam.setPixmap(pixmap) # Met à jour l'affichage du QLabel avec la nouvelle image capturée et traitée.
 
             data, bbox, _ = self.detector.detectAndDecode(frame)
             # Utilise le détecteur de QR code pour détecter et décoder les QR codes dans l'image capturée.
