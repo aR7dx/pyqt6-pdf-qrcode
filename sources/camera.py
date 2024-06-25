@@ -24,7 +24,7 @@ class CameraApp(QWidget):
 
         self.camera = cv2.VideoCapture(0)
         self.detector = cv2.QRCodeDetector()
-        self.lecteur_video = QLabel()
+        self.lecteur_cam = QLabel()
 
         self.lecteur_cam.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
