@@ -1,3 +1,5 @@
+# ce fichier gère la lecture des vidéos via un lecteur intégré
+
 from PyQt6.QtMultimedia import QMediaPlayer, QAudioOutput
 from PyQt6.QtMultimediaWidgets import QVideoWidget
 from PyQt6.QtCore import QUrl
@@ -8,6 +10,9 @@ from config import VIDEOPLAYER_VOLUME # variable du volume du lecteur video
 class VideoPlayer(QWidget):
   def __init__(self, parent=None):
     super(VideoPlayer, self).__init__(parent)
+    """
+      Initialisation de la classe VideoPlayer. Cette méthode configure les composants audio et vidéo et créer une surface pour afficher la vidéo.
+    """
     
     self.mediaPlayer = QMediaPlayer(self)
     self.video = QVideoWidget(self)
