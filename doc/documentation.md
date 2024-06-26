@@ -204,6 +204,7 @@ Ce projet possède plusieurs pistes d'amélioration, voici quelques-unes que nou
 
 * ~~**Lecteur vidéo** : possibilité d'utiliser un lecteur vidéo, cependant quelques modifications sont à prévoir pour le rendre fonctionnel.~~
 * ~~**Site pour générer des qrcodes** : créer un site web pour a l'application pour générer des qrcodes, il pourra être ouvert localement puisque que l'app supporte les fichiers html.~~
+* ~~**Système de log**: permet d'enregistrer chaque erreur de l'application et est capable de relancer l'application~~
 * **Liste fichiers récemment ouvert** : base de données qui stocke les noms des derniers fichiers ouverts et les affiches à l'utilisateur.
 * **Menu de démarrage/admin**: un menu qui permettrait de servir de pré-accueil afin d'ajouter des fichiers ou tout autre prérequis au programme.
 * **Console de log intégré**: une console de log intégré au programme qui s'affiche lors d'une certaine action afin d'afficher les logs sans quitter l'application.
