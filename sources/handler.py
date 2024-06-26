@@ -2,20 +2,17 @@
 
 import os  # importation du module os
 import pynput # importation du module pynput
-
+from pynput.keyboard import Key
 # importation des composants du module PyQt6
 from PyQt6.QtWidgets import QMainWindow, QTabWidget, QToolBar
 from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import QUrl, Qt
 from PyQt6.QtWebEngineWidgets import QWebEngineView # composant du module PyQt6 qui créer un moteur de rendu pour les fichers html et pdf
-from videoPlayer import VideoPlayer # composant qui gère les vidéos
-from camera import CameraApp # composant qui gère les qrcodes
+from packages.videoPlayer import VideoPlayer # composant qui gère les vidéos
+from packages.camera import CameraApp # composant qui gère les qrcodes
 
 from config import SCROLL_SPEED, SUPPORTED_DOCUMENT_EXTENSIONS, SUPPORTED_VIDEO_EXTENSIONS
-
 assert SCROLL_SPEED > 0, 'Veuillez fournir une valeur supérieur à zéro.'
-
-from pynput.keyboard import Key
 
 keyboard = pynput.keyboard.Controller() # creation d'un objet pour le clavier
 mouse = pynput.mouse.Controller() # creation d'un objet pour la souris
@@ -26,7 +23,7 @@ mouse = pynput.mouse.Controller() # creation d'un objet pour la souris
 
 # utilisation de la programmation orienté objet (POO)
 # creation de la fenêtre
-class TabLoader(QMainWindow): # création de la classe (fenêtre)
+class Handler(QMainWindow): # création de la classe (fenêtre)
     def __init__(self):
         super().__init__()
 
