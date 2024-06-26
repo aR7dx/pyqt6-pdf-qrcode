@@ -22,7 +22,7 @@ def main():
     """
     app = QApplication(sys.argv) # création de l'application
     app.setApplicationName(f'{APP_NAME}  ({APP_VERSION})') # défini le nom de l'application
-    app.setWindowIcon(QIcon('./sources/images/icon/app_icon.svg'))
+    app.setWindowIcon(QIcon('./sources/content/images/icon/app_icon.svg'))
     
     handler = Handler() # création la fenetre
     handler.showFullScreen() # affichage en mode plein écran
