@@ -199,6 +199,7 @@ There are a number of ways in which this project could be improved, and here are
 
 * ~~**Video player**: a video player can be used, but a few changes are needed to make it work.~~
 * ~~**Site to generate qrcodes**: create a website for the application to generate qrcodes, which can be opened locally as the application supports html files.~~
+* ~~**Logs system**: save every error and can restart the application.~~
 * **Recently opened files list**: database that stores the names of the most recently opened files and displays them to the user.
 * **Startup/admin menu**: a menu that can be used as a pre-home to add files or other prerequisites to the program.
 * **Integrated log console**: a program-integrated log console that appears when a certain action is performed, to display logs without leaving the application.
