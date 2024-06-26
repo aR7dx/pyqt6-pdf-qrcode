@@ -1,7 +1,9 @@
 @echo off
 chcp 65001 > nul
 
+rem defini le titre de la fenetre
 title Launcher (pyqt6-pdf-qrcode)
+rem met le texte du terminal en violet
 color D
 
 :create_log
