@@ -76,7 +76,7 @@ class CameraApp(QWidget):
             data, bbox, _ = self.detector.detectAndDecode(frame)
             # Utilise le détecteur de QR code pour détecter et décoder les QR codes dans l'image capturée.
             # 'data' contient les données du QR code si un QR code est détecté.
-            # 'bbox' contient les coordonnées de la boîte englobant le QR code détecté.
+            # 'bbox' contient les coordonnées de la surface englobant le QR code détecté.
         
             if(bbox is not None): # Vérifie si un QR code a été détecté
                 if data: # Vérifie si des données ont été extraites du QR code.
