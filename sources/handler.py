@@ -41,10 +41,10 @@ class Handler(QMainWindow): # création de la classe (fenêtre)
         self.addToolBar(Qt.ToolBarArea.BottomToolBarArea, self.toolbar) # ajout de la ToolBar sur la fenêtre et la place en pied de page
 
         # Création des QActions ("texte d'affichage") qui iront dans la QToolBar
-        self.toolbar.addAction(QIcon('./sources/images/icon/joystick.png'), 'Navigation')
-        self.toolbar.addAction(QIcon('./sources/images/icon/button_vert.png'), 'Intéragir')
-        self.toolbar.addAction(QIcon('./sources/images/icon/button_bleu.png'), 'Scanner QR-Code')
-        self.toolbar.addAction(QIcon('./sources/images/icon/button_rouge.png'), 'Retour')
+        self.toolbar.addAction(QIcon('./sources/content/images/icon/joystick.png'), 'Navigation')
+        self.toolbar.addAction(QIcon('./sources/content/images/icon/button_vert.png'), 'Intéragir')
+        self.toolbar.addAction(QIcon('./sources/content/images/icon/button_bleu.png'), 'Scanner QR-Code')
+        self.toolbar.addAction(QIcon('./sources/content/images/icon/button_rouge.png'), 'Retour')
 
         self.add_tab('index.html') # page d'accueil au demarrage de l'application
         self.default_style() # applique le style css pour la toolbar
