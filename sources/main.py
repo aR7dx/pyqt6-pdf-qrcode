@@ -28,8 +28,7 @@ def main():
     handler.showFullScreen() # affichage en mode plein écran
 
     print('+==================='+ APP_NAME + '===================+')
-    print('+--------------------------+---------------------------+')
-    print('| Thread : handler         |   Statut : opérationnel   |') # affichage du statut du thread 'tabLoader'
+    print('| Thread : handler         |   Statut : opérationnel   |') # affichage du statut du thread 'handler'
 
     if NAVIGATION_MODE == 'JOYSTICK':
         app.setOverrideCursor(QCursor(Qt.CursorShape.BlankCursor)) # rend invisible le curseur de la souris dans l'application
@@ -45,12 +44,10 @@ def main():
     
     print('+--------------------------+---------------------------+')
     print('| Thread : command         |   Statut : opérationnel   |') # affichage du statut du thread 'command'
-    
     print('+--------------------------+---------------------------+')
     print('| Application:             |   ' + APP_NAME + '        |') # nom de l'application
     print('| Version:                 |   ' + APP_VERSION + '           |') # version de l'application
     print('| Statut:                  |   prêt                    |') # statut de l'application
-    print('+------------------------------------------------------+')
     print('+======================================================+\n')
     
     sys.exit(app.exec()) # execute l'application
