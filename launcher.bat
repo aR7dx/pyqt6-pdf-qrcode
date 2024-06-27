@@ -50,8 +50,8 @@ if not %PYTHON_RESULT% equ 0 (
     echo +========================================Erreur====================================================+
     echo ^| Consulter le fichier %TEMP_LOG_FILE% situé dans le dossier %TEMP_FOLDER% à la racine du projet. ^|
     echo +==================================================================================================+
-    timeout /t 3
     echo.
+    timeout /t 3
     set /a ID_SESSION=%ID_SESSION%+1
     goto start
 )
