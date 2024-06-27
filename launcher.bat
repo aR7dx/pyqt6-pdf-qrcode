@@ -6,7 +6,10 @@ title Launcher (pyqt6-pdf-qrcode)
 rem met le texte du terminal en violet
 color D
 
-:log
+set ID_SESSION=0
+
+:start
+
 setlocal enabledelayedexpansion
 for /f "tokens=1-6 delims=/:. " %%a in ("%date% %time%") do (
     set "DD=%%a"
@@ -18,12 +21,7 @@ for /f "tokens=1-6 delims=/:. " %%a in ("%date% %time%") do (
 )
 set "Sec=!Sec:~0,2!"
 set "TEMP_LOG_FILE=LOG_%DD%%MM%%YYYY%_%HH%%Min%%Sec%.log"
-goto next
 
-:start
-call :log
-
-:next
 echo ===============Initialisation=================
 echo Initialisation du programme.
 echo =================Chargement===================
@@ -42,19 +40,16 @@ rem Exécution du script Python et capture de la sortie
 python "%PYTHON_SCRIPT%" 2>> "%TEMP_FOLDER%\%TEMP_LOG_FILE%"
 set PYTHON_RESULT=%errorlevel%
 
-
 rem Vérification du code de retour du script Python
-if %PYTHON_RESULT% equ 0 (
-    echo.
-) else (
+if not %PYTHON_RESULT% equ 0 (
     rem Affichage du message d'échec
     echo +========================================Erreur====================================================+
     echo ^| Consulter le fichier %TEMP_LOG_FILE% situé dans le dossier %TEMP_FOLDER% à la racine du projet. ^|
     echo +==================================================================================================+
     timeout /t 3
     echo.
+    set /a ID_SESSION=%ID_SESSION%+1
     goto start
-
 )
 
 pause
