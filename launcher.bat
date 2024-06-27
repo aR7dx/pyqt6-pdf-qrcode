@@ -30,7 +30,9 @@ for /f "tokens=1-6 delims=/:. " %%a in ("%date% %time%") do (
     set "Min=%%e"
     set "Sec=%%f"
 )
+# Extraction des secondes (on ignore les centièmes)
 set "Sec=%Sec:~0,2%"
+rem Génération du nom de fichier de log basé sur le timestamp
 set "TEMP_LOG_FILE=LOG_%DD%%MM%%YYYY%_%HH%%Min%%Sec%.log"
 
 echo ===============Initialisation=================
