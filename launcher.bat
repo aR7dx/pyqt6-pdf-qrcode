@@ -21,7 +21,6 @@ if %ID_SESSION% equ 0 (
 rem Vérification de l'existence du dossier temporaire
 if not exist "%TEMP_FOLDER%" mkdir "%TEMP_FOLDER%"
 
-setlocal enabledelayedexpansion
 for /f "tokens=1-6 delims=/:. " %%a in ("%date% %time%") do (
     set "DD=%%a"
     set "MM=%%b"
@@ -30,7 +29,7 @@ for /f "tokens=1-6 delims=/:. " %%a in ("%date% %time%") do (
     set "Min=%%e"
     set "Sec=%%f"
 )
-set "Sec=!Sec:~0,2!"
+set "Sec=%Sec:~0,2%"
 set "TEMP_LOG_FILE=LOG_%DD%%MM%%YYYY%_%HH%%Min%%Sec%.log"
 
 echo ===============Initialisation=================
