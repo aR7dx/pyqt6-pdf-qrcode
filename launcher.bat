@@ -21,7 +21,7 @@ if %ID_SESSION% equ 0 (
 rem Vérification de l'existence du dossier temporaire
 if not exist "%TEMP_FOLDER%" mkdir "%TEMP_FOLDER%"
 
-# Obtention de la date et de l'heure actuelles
+rem Obtention de la date et de l'heure actuelles
 for /f "tokens=1-6 delims=/:. " %%a in ("%date% %time%") do (
     set "DD=%%a"
     set "MM=%%b"
