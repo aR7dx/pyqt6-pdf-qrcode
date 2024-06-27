@@ -6,7 +6,7 @@ title Launcher (pyqt6-pdf-qrcode)
 rem met le texte du terminal en violet
 color D
 
-:create_log
+:log
 setlocal enabledelayedexpansion
 for /f "tokens=1-6 delims=/:. " %%a in ("%date% %time%") do (
     set "DD=%%a"
@@ -21,7 +21,7 @@ set "TEMP_LOG_FILE=LOG_%DD%%MM%%YYYY%_%HH%%Min%%Sec%.log"
 goto next
 
 :start
-call :create_log
+call :log
 
 :next
 echo ===============Initialisation=================
