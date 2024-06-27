@@ -18,12 +18,12 @@ for /f "tokens=1-6 delims=/:. " %%a in ("%date% %time%") do (
 )
 set "Sec=!Sec:~0,2!"
 set "TEMP_LOG_FILE=LOG_%DD%%MM%%YYYY%_%HH%%Min%%Sec%.log"
-goto jump
+goto next
 
 :start
 call :create_log
 
-:jump
+:next
 echo ===============Initialisation=================
 echo Initialisation du programme.
 echo =================Chargement===================
