@@ -7,8 +7,19 @@ rem met le texte du terminal en violet
 color D
 
 set ID_SESSION=0
+rem Chemin vers le dossier temporaire des logs
+set TEMP_FOLDER=".\temp"
+rem Chemin vers le fichier Python à executer
+set PYTHON_SCRIPT=".\sources\main.py"
 
 :start
+
+if %ID_SESSION% equ 0 (
+    rd /s /q "%TEMP_FOLDER%"
+)
+
+rem Vérification de l'existence du dossier temporaire
+if not exist "%TEMP_FOLDER%" mkdir "%TEMP_FOLDER%"
 
 setlocal enabledelayedexpansion
 for /f "tokens=1-6 delims=/:. " %%a in ("%date% %time%") do (
@@ -26,15 +37,6 @@ echo ===============Initialisation=================
 echo Initialisation du programme.
 echo =================Chargement===================
 echo Chargement du programme en cours...
-
-rem Chemin vers le dossier temporaire permanent
-set TEMP_FOLDER=".\temp"
-
-rem Vérification de l'existence du dossier temporaire
-if not exist "%TEMP_FOLDER%" mkdir "%TEMP_FOLDER%"
-
-rem Chemin vers le fichier Python
-set PYTHON_SCRIPT=".\sources\main.py"
 
 rem Exécution du script Python et capture de la sortie
 python "%PYTHON_SCRIPT%" 2>> "%TEMP_FOLDER%\%TEMP_LOG_FILE%"
