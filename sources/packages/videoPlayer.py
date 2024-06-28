@@ -5,8 +5,6 @@ from PyQt6.QtMultimediaWidgets import QVideoWidget
 from PyQt6.QtCore import QUrl
 from PyQt6.QtWidgets import QVBoxLayout, QWidget
 
-from config import VIDEOPLAYER_VOLUME # variable du volume du lecteur video
-
 class VideoPlayer(QWidget):
   def __init__(self, parent=None):
     super(VideoPlayer, self).__init__(parent)
@@ -29,7 +27,7 @@ class VideoPlayer(QWidget):
   
   def play(self, page):
     self.mediaPlayer.setSource(QUrl.fromLocalFile(page.url)) # charge le fichier a partir de son chemin d'emplacement
-    self.audio.setVolume(VIDEOPLAYER_VOLUME) # volume du lecteur de video
+    self.audio.setVolume(0.8) # volume du lecteur de video
     self.mediaPlayer.play() # joue le contenu du lecteur video
     
   def stop(self):
