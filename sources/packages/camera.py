@@ -90,11 +90,5 @@ class CameraApp(QWidget):
         """
         self.camera.release()
         event.accept()
-
-    def get_data(self):
-        """
-        Méthode pour obtenir les données du dernier QR code détecté.
-        """
-        return self.data
     
     
