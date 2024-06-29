@@ -29,6 +29,7 @@
 .side_menu_left dt:hover {
   background: var(--hover-2);
   padding-left: var(--spacing);
+  cursor: pointer;
 }
 
 .side_menu_left dt:hover p {
@@ -37,12 +38,7 @@
 
 .side_menu_left p {
   text-decoration: none;
-  background: inherit;
-}
-
-.side_menu_left p:hover {
-  transition: 0s;
-  cursor: pointer;
+  background: transparent;
 }
 
 .content {
