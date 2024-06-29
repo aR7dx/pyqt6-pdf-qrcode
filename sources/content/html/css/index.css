@@ -5,15 +5,19 @@
   padding: 0;
   box-sizing: border-box;
   color: #fff;
-  background: hsl(270 70% 6%);
-  font-family: "Montserrat", sans-serif;
+  background: var(--bg-2);
+  font-family: var(--font);
 }
 
 body {
+  padding: var(--spacing);
+  gap: var(--spacing);
+  background: var(--bg-1);
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  min-width: 530px;
   min-height: 100vh;
-  overflow-x: hidden;
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
       -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
@@ -21,15 +25,42 @@ body {
             animation: fadein 2s;
 }
 
+header, section {
+  border-radius: var(--roundness-xl);
+}
+
+:root {
+  --font: 'Montserrat';
+
+  --scan-color: #DF2050;
+  --scrollbar-thumb: #75777B;
+
+  --bg-1: #1c1f26;
+  --bg-2: #16181d;
+  --hover: hsl(165 75% 50%);
+
+  --spacing: 12px;
+
+  --roundness-xl: 22px;
+	--roundness-m: 16px;
+	--roundness-s: 12px;
+
+  --font-xl: 70px;
+	--font-l: 60px;
+	--font-m: 40px;
+  --font-sm: 35px;
+	--font-s: 30px;
+	--font-xs: 20px;
+
+}
+
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 30px 100px;
+  position: relative;
   display: flex;
+  padding: 30px 100px;
   justify-content: space-between;
   align-items: center;
+  border-radius: inherit;
 }
 
 .navbar img {
@@ -42,9 +73,10 @@ body {
   position: relative;
   padding: 5px;
   margin-left: 35px;
-  font-size: 30px;
+  font-size: var(--font-s);
   font-weight: 500;
   text-decoration: none;
+  transition: .3s ease-in-out;
 }
 
 .navbar a::before {
@@ -55,12 +87,12 @@ body {
   width: 0;
   height: 2px;
   border-radius: 2px;
-  background: hsl(165 75% 50%);
+  background: var(--hover);
   transition: .3s;
 }
 
 .navbar a:hover {
-  color: hsl(165 75% 50%);
+  color: var(--hover);
 }
 
 .navbar a:hover::before {
@@ -68,22 +100,22 @@ body {
 }
 
 .section_0 {
-  overflow-y: auto;
-  padding: 150px 0px 0px 100px;
+  margin: 50px 100px;
   justify-content: center;
   align-items: center;
 }
 
-.title h2 {
+.section_0 h2 {
   font-style: italic;
   font-weight: 600;
   font-size: 25px;
 }
 
-.title h1 {
-  font-weight: 500;
-  font-size: 70px;
+.section_0 h1 {
   width: 800px;
+  font-weight: 500;
+  font-size: var(--font-l);
+  transition: .3s ease-in-out;
 }
 
 .line {
@@ -91,104 +123,57 @@ body {
   padding-bottom: 50px;
 }
 
-.text_presentation {
-  padding-top: 20px;
+.description {
+  width: 50%;
+  margin-top: 20px;
   font-size: 25px;
-}
-
-.menu-btn {
-  display: flex;
-  justify-content: left;
+  transition: .3s ease-in-out;
 }
 
 .scan_btn {
-  padding-top: 115px;
+  margin-top: 115px;
 }
 
 .scan_btn button {
-  background: #DF2050;
+  background: var(--scan-color);
   padding: 20px 80px 20px 80px;
+  border: none;
   border-radius: 100px;
-  font-size: 30px;
+  font-size: var(--font-s);
 }
 
-.down_arrow {
-  padding: 50px 0px 50px 930px;
+.section_1, .section_2, .credits {
+  display: flex;
+  margin: 50px 100px;
+  font-size: var(--font-xl);
+  gap: 30px;
+  flex-direction: column;
 }
 
-.down_arrow img {
-  width: 50px;
+.section_1 h1, .section_2 h1{
+  font-size: var(--font-m);
 }
 
-.section_1 {
-  overflow-y: auto;
-  padding: 100px 100px;
-  text-align: center;
-  font-size: x-large;
-}
-
-.section_1 img {
-  padding: 50px;
-}
-
-.section_1 p {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 60%;
+.section_1 p, .section_2 p, .credits p {
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: var(--font-xs);
 }
-
-.section_2 {
-  overflow-y: auto;
-  padding: 100px 100px;
-  text-align: center;
-  font-size: x-large;
-}
-
-.section_2 img {
-  padding: 50px;
-}
-
-.section_2 p {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 65%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.section_3 {
-  overflow-y: auto;
-  padding: 250px 0px 150px 0px;
-  text-align: center;
-  font-size: x-large;
-}
-
-
-
-
-
-
 
 
 
 
 ::-moz-selection {
-  color: #fff;
-  background-color: hsla(340, 100%, 75%, 0.5);
+  background-color: transparent;
 }
 
 ::selection {
-  color: #fff;
-  background-color: hsla(340, 100%, 75%, 0.5);
+  background-color: transparent;
 }
-
 
 /* scrollbar total (fond et curseur) */
 ::-webkit-scrollbar {
-  width: 8px;
-  background: transparent;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-track {
@@ -197,17 +182,13 @@ body {
 
 /* background */
 ::-webkit-scrollbar-track-piece {
-  background: transparent;
-  border-radius: 60px;
-  margin-top: auto;
-  margin-bottom: auto;
+  background: var(--bg-1);
 }
 
 /* cursor */
 ::-webkit-scrollbar-thumb {
-  background: hsl(45 90% 65%);
-  border-radius: 60px;
-  outline: 1px solid black;
+  background: var(--scrollbar-thumb);
+  border-radius: var(--roundness-xl);
 } 
 
 
@@ -242,20 +223,32 @@ body {
 
 
 
-@media only screen and (max-width: 1300px) {
+
+
+@media only screen and (max-width: 1050px) {
+  .navbar {
+    padding: 30px 50px;
+  }
+
+  .navbar a{
+    font-size: var(--font-s);
+  }
 
   .section_0 {
     display: flex;
     flex-direction: column;
-    margin: 55px 0 0 0;
-    padding-top: 95px;
     justify-content: center;
     align-items: center;
   }
 
+  .section_0 h2 {
+    font-size: var(--font-xs);
+  }
+
   .section_0 h1 {
     width: 500px;
-    font-size:45px;
+    font-size: var(--font-m);
+    text-align: center;
   }
 
   .description {
@@ -272,48 +265,42 @@ body {
     margin: 70px 0px 0px 0px;
   }
 
-  .down_arrow {
-    display: flex;
-    margin-top: 80px;
-    margin-left: 0;
-    margin-right: 0;
-    justify-content: center;
-    align-items: center;
+  .scan_btn button {
+    font-size: var(--font-xs);
   }
 
-  .section_2 {
-    margin-top: 200px;
+  .section_1, .section_2 {
+    margin: 50px;
+  }
+
+  .section_1 h1, .section_2 h1 {
+    font-size: var(--font-s);
+  }
+
+  .credits {
+    margin: 25px 50px 25px 50px;
   }
 }
 
-@media only screen and (max-width: 840px) {
+@media only screen and (max-width: 650px) {
   .navbar {
-    padding: 30px 50px;
+    padding: 18px 50px;
   }
 
   .navbar a{
-    font-size: 23px;
-  }
-  
-  .section_0 h2 {
-    font-size: 20px;
-  }
-  
-  .section_0 h1 {
-    font-size: 37px;
-    text-align: center;
+    font-size: var(--font-xs);
   }
 
-  .description {
-    width: 60%;
+  .section_0 h1 {
+    font-size: var(--font-sm);
+  }
+
+  .scan_btn button {
+    font-size: var(--font-xs);
   }
 }
 
 @media only screen and (max-height: 750px) {
-  .section_0 {
-    margin: 25px 0px 0px 0px;
-  }
-
   .description {
     display: none;
   }
