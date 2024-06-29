@@ -15,17 +15,34 @@
   border-radius: var(--roundness-xl);
 }
 
+.side_menu_left dl {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .side_menu_left dt {
-  padding-top: 15px;
+  padding: 8px;
+  border-radius: var(--roundness-xs);
 }
 
-.side_menu_left a:hover {
-  color: hsl(45 90% 65%);
-  transition: .3s;
+.side_menu_left dt:hover {
+  background: var(--hover-2);
+  padding-left: var(--spacing);
 }
 
-.side_menu_left a {
+.side_menu_left dt:hover p {
+  color: var(--text-2);
+}
+
+.side_menu_left p {
   text-decoration: none;
+  background: inherit;
+}
+
+.side_menu_left p:hover {
+  transition: 0s;
+  cursor: pointer;
 }
 
 .content {
@@ -70,7 +87,6 @@ input:focus {
 .disabled {
   color: grey;
   font-style: italic;
-  pointer-events: none;
 }
 
 
