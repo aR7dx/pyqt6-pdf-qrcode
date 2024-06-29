@@ -105,7 +105,7 @@ class Handler(QMainWindow): # création de la classe (fenêtre)
         
         # Aberration 
         # (decide si il faut créer une page ou un lecteur pour vidéo)
-        [createBrowser(page) if len([x for x in SUPPORTED_DOCUMENT_EXTENSIONS if x == page.dir]) > 0 else [createViewer(page) if len([x for x in SUPPORTED_VIDEO_EXTENSIONS if x == page.dir]) > 0 else print(f'extension du fichier inconnu par le logiciel: "{page.name}"\n')]]
+        [createBrowser(page) if len([x for x in SUPPORTED_DOCUMENT_EXTENSIONS if x == page.dir]) > 0 else [createViewer(page) if len([x for x in SUPPORTED_VIDEO_EXTENSIONS if x == page.dir]) > 0 else print(f'extension du fichier inconnu par le logiciel: ".{page.dir}"\n')]]
 
     def close_tab(self):
         """
