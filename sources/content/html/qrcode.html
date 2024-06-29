@@ -22,50 +22,49 @@
       </div>
     </header>
 
-    <main>
-      <div class="qrcode_panel">
-        <div class="side_menu_left">
+    <div class="qrcode_panel">
+      <div class="side_menu_left">
+        <dl>
+          <dt>
+            <a href="#" id="generateQRLink">générer qrcode</a>
+          </dt>
+          <dt><a href="#" style="opacity: 0.5; color: red; font-style: italic; pointer-events: none;">charger un qrcode</a></dt>
+          <dt><a href="#" id="saveQrLink" class="disabled">sauvergarder un qrcode</a></dt>
+          <dt><a href="#" id="removeInputLink" class="disabled">supprimer le qrcode</a></dt>
+          <br>
+          <br>
+          <dt>
+            <a  href="#" id="fileSelectorLink">créer un qrcode à partir d'un fichier</a>
+            <input type="file" id="hiddenFileInput" style="display: none;" accept=".pdf,.mp4">
+          </dt>
+          <dt>
+            <a href="#" id="openPdfFolderLink" style="opacity: 0.5; color: red; font-style: italic; pointer-events: none;">ouvrir le dossier des pdf</a>
+          </dt>
+        </dl>
+      </div>
+
+      <div class="content">
+        <div class="qrcode_frame">
           <section>
-            <dl>
-              <dt>
-                <a href="#" id="generateQRLink">générer qrcode</a>
-              </dt>
-              <dt><a href="#" style="opacity: 0.5; color: red; font-style: italic; pointer-events: none;">charger un qrcode</a></dt>
-              <dt><a href="#" id="saveQrLink" class="disabled">sauvergarder un qrcode</a></dt>
-              <dt><a href="#" id="removeInputLink" class="disabled">supprimer le qrcode</a></dt>
-              <br>
-              <br>
-              <dt>
-                <a  href="#" id="fileSelectorLink">créer un qrcode à partir d'un fichier</a>
-                <input type="file" id="hiddenFileInput" style="display: none;" accept=".pdf,.mp4">
-              </dt>
-              <dt>
-                <a href="#" id="openPdfFolderLink" style="opacity: 0.5; color: red; font-style: italic; pointer-events: none;">ouvrir le dossier des pdf</a>
-              </dt>
-            </dl>
+            <h1>Création de Qrcode</h1>
+            <div id="qrcode"></div>
           </section>
         </div>
 
-
-        <div class="content">
-          <div class="qrcode_frame">
-            <section>
-              <h1>Création de Qrcode</h1>
-    
-              <div id="qrcode"></div>
-    
-            </section>
-          </div>
-
-          <div class="input">
-            <section>
-              <input type="text" id="fileNameDisplayInput" placeholder="Écrivez ici..." spellcheck="false">
-            </section>
-          </div>
+        <div class="input">
+          <section>
+            <input type="text" id="fileNameDisplayInput" placeholder="Écrivez ici..." spellcheck="false">
+          </section>
         </div>
-
       </div>
-    </main>
+    </div>
+
+    <section>
+      <div class="credits">
+        <p>Équipe de développement de la Borne Informative des Spécialité du Bac.</p>
+        <p>© Lycée Curie-Corot 2024</p>
+      </div>
+    </section>
 
   </body>
 </html>
