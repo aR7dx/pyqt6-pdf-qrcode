@@ -3,6 +3,7 @@
 import os  # importation du module os
 import pynput # importation du module pynput
 from pynput.keyboard import Key
+
 # importation des composants du module PyQt6
 from PyQt6.QtWidgets import QMainWindow, QTabWidget, QToolBar
 from PyQt6.QtGui import QIcon
@@ -17,9 +18,22 @@ assert SCROLL_SPEED > 0, 'Veuillez fournir une valeur supérieur à zéro.'
 keyboard = pynput.keyboard.Controller() # creation d'un objet pour le clavier
 mouse = pynput.mouse.Controller() # creation d'un objet pour la souris
 
-###############################
-#### CREATION DE LA CLASSE ####
-###############################
+#############################
+#### CREATION DE CLASSES ####
+#############################
+        
+class Page():
+    def __init__(self, name):
+        self.name = name # nom du fichier cible
+        self.ext = None # extension du fichier cible
+        self.dir = None # chemin du dossier du fichier cible
+        self.url = None # chemin du fichier cible
+        
+    def __repr__(self):
+        return str(self.name) # affiche le nom de la page
+    
+    def __str__(self):
+        return str(self.name) + ', ' + str(self.url) # affiche le nom et l'url de la page
 
 # utilisation de la programmation orienté objet (POO)
 # creation de la fenêtre
@@ -71,15 +85,24 @@ class Handler(QMainWindow): # création de la classe (fenêtre)
         """
         Fonction permettant l'ajout de nouveaux onglets
         """
-        if (str(data) == '') or (data is None): # on vérifie si l'url n'est pas vide
+        if (str(data) == '') or (data is None): # on verifie si la data scannée n'est pas vide
             print('Donnée récupéré par la caméra : ' + str(data) + ', ce fichier n\'existe pas !')
             return
         
         page = Page(str(data)) # creer un objet de type Page
-        page.dir = data.split('.')[-1]
+        page.ext = data.split('.')[-1]
+
+        # on verifie si le fichier cible existe
+        def checkUp(page):
+            for _, _, file in os.walk(page.dir):
+                if page.name in file:
+                    return True
+            print(f'Le fichier {page.name} n\'existe pas !\n')
+            return False
 
         def createUrl(page):
-            page.url = os.path.split(os.path.abspath(__file__))[0]+r'/content/' + str(page.dir) + "/" + str(data) # creer l'url de la page et modifie la valeur de l'attribut url
+            page.dir = os.path.split(os.path.abspath(__file__))[0]+r'/content/' + str(page.ext) + "/"
+            page.url = str(page.dir) + str(page.name) # creer l'url de la page et modifie la valeur de l'attribut url
             self.tabs[page.name] = page.url # creer un clé et une valeur pour la page dans le dico tabs
             
         def createBrowser(page, label='chargement...'):
@@ -101,12 +124,14 @@ class Handler(QMainWindow): # création de la classe (fenêtre)
             i = self.tabMenu.addTab(self.videoTab, label)
             self.tabMenu.setCurrentIndex(i)
         
-        createUrl(page) # fonction pour créer l'url d'une page
+        createUrl(page) # creer une url pour le fichier
+        if checkUp(page) == False: # si le fichier n'existe pas alors on ne créer pas d'onglet
+            return
         
         # Aberration 
         # (decide si il faut créer une page ou un lecteur pour vidéo)
         # renvoi un message si l'extension du fichier est inconnu du logiciel
-        [createBrowser(page) if len([x for x in SUPPORTED_DOCUMENT_EXTENSIONS if x == page.dir]) > 0 else [createViewer(page) if len([x for x in SUPPORTED_VIDEO_EXTENSIONS if x == page.dir]) > 0 else print(f'extension du fichier inconnu par le logiciel: ".{page.dir}"\n')]]
+        [createBrowser(page) if len([x for x in SUPPORTED_DOCUMENT_EXTENSIONS if x == page.ext]) > 0 else [createViewer(page) if len([x for x in SUPPORTED_VIDEO_EXTENSIONS if x == page.ext]) > 0 else print(f'extension du fichier inconnu par le logiciel: ".{page.ext}"\n')]]
 
     def close_tab(self):
         """
@@ -190,21 +215,4 @@ class Handler(QMainWindow): # création de la classe (fenêtre)
                 border: 1.5px solid rgba(160, 160, 160, 0.9);
             }
                             ''')
-
-
-############################
-#### CREATION DE CLASSE ####
-############################
-        
-class Page():
-    def __init__(self, name):
-        self.name = name # nom du fichier cible
-        self.url = None # chemin du fichier cible
-        self.dir = None # dossier du fichier cible
-        
-    def __repr__(self):
-        return self.name # affiche le nom de la page
-    
-    def __str__(self):
-        return self.name + ', ' + self.url # affiche le nom et l'url de la page
 
