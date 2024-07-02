@@ -46,7 +46,7 @@ class CameraApp(QWidget):
     #################################
         
 
-    def start_camera(self, callback):
+    def start(self, callback):
         """
         Méthode pour démarrer la caméra. Elle démarre le timer pour commencer la capture vidéo et connecte le signal data_available à une fonction de rappel spécifiée.
         """
