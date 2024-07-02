@@ -34,11 +34,11 @@
   cursor: pointer;
 }
 
-.side_menu_left dt:hover p {
+.side_menu_left dt:hover a {
   color: var(--text-1);
 }
 
-.side_menu_left p {
+.side_menu_left a {
   text-decoration: none;
   background: transparent;
 }
