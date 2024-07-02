@@ -4,8 +4,6 @@
 
 // QRCODE PANEL
 
-
-
 document.addEventListener('DOMContentLoaded', (event) => {
   const generateQRLink = document.getElementById('generateQRLink'); // genere le qrcode en fonction de l'input générer
   const saveQRCodeLink  = document.getElementById('saveQrLink'); // propose d'enregistrer le qrcode 
@@ -14,13 +12,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const hiddenFileInput = document.getElementById('hiddenFileInput');
   // const openPdfFolderLink = document.getElementById('openPdfFolderLink'); // ouvre le dossier des pdf
   // const hiddenFolderInput = document.getElementById('hiddenFolderInput');
-
   const fileNameDisplayInput = document.getElementById('fileNameDisplayInput'); // Visible Input Field
   const qrCodeContainer = document.getElementById('qrcode');
 
+
+  // reset input to prevent remnants of previous generations
+  resetInput();
+
+
+  // generate qrcode button
   fileNameDisplayInput.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
-      fileNameDisplayInput.classList.add('disabled');
       generateQRCode();
     }
   });
@@ -33,16 +35,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const value = fileNameDisplayInput.value;
     if (value.trim() !== '') {
         qrCodeContainer.innerHTML = ''; // Efface le précédent QR code
-        new QRCode(qrCodeContainer, value); // Genere un nouveau QR code
 
-        saveQRCodeLink .classList.remove('disabled');
-        removeInputLink.classList.remove('disabled');
+        try {
+          new QRCode(qrCodeContainer, value); // Genere un nouveau QR code
+
+          saveQRCodeLink .classList.remove('disabled');
+          removeInputLink.classList.remove('disabled');
+          
+        } catch {
+          alert('Veuillez télécharger le fichier qrcode.js pour générer des qrcodes :\nhttps://github.com/davidshimjs/qrcodejs\n\nUne fois ce fichier téléchargé, placer-le dans le répertoire : ./sources/content/html/js/');
+        }
     } else {
-        alert('Veuillez entrer une valeur afin de pouvoir générer un qrcode.');
+      alert('Veuillez entrer une valeur afin de pouvoir générer un qrcode.');
     }
   }
 
 
+
+  // save qrcode button
   saveQRCodeLink.addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -61,13 +71,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         URL.revokeObjectURL(link.href);
 
-      });
+    });
   });
 
 
+
+  // remove qrcode button
   removeInputLink.addEventListener('click', function(event) {
     event.preventDefault();
-    resetInput();
+    if (removeInputLink.classList.contains('disabled')) {
+      //pass
+    } else {
+      resetInput();
+    }
 
     qrCodeContainer.innerHTML = '';
 
@@ -82,6 +98,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     fileNameDisplayInput.removeEventListener('focus', preventFocus);
   }
 
+
+
+  // generate from file button
   fileSelectorLink.addEventListener('click', (e) => {
     e.preventDefault(); // Prevent the link from navigating.
     hiddenFileInput.click(); // Trigger file selection dialog.
