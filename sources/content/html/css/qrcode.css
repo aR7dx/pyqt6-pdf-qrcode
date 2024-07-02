@@ -10,9 +10,11 @@
 }
 
 .side_menu_left {
+  min-width: 325px;
   padding: 100px 50px 100px 50px;
   text-align: left;
   border-radius: var(--roundness-xl);
+  font-size: var(--font-xxxs);
 }
 
 .side_menu_left dl {
@@ -33,7 +35,7 @@
 }
 
 .side_menu_left dt:hover p {
-  color: var(--text-2);
+  color: var(--text-1);
 }
 
 .side_menu_left p {
@@ -45,14 +47,21 @@
   width: 100%;
   border-radius: var(--roundness-xl);
   text-align: center;
+  padding-bottom: calc(25px + var(--spacing));
 }
 
 .content h1 {
+  width: 400px;
   font-size: var(--font-m);
+  background-color: transparent;
 }
 
 .qrcode_frame {
-  margin: 10px 15% 10px 15%;
+  display: flex;
+  margin: 10px 15% 60px 15%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .qrcode_frame h1 {
@@ -66,10 +75,10 @@
 }
 
 .input input {
-  width: 70%;
+  width: inherit;
   padding: 15px 25px;
   border-radius: var(--roundness-s);
-  font-size: var(--font-xs);
+  font-size: var(--font-xxs);
   text-align: left;
 }
 
@@ -85,14 +94,35 @@ input:focus {
   font-style: italic;
 }
 
+@media only screen and (max-width: 1900px) {
+  .content h1{
+    font-size: var(--font-xs);
+  }
+}
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1700px) {
+  .content {
+    width: 65%;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .content {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
   .side_menu_left {
     display: none;
   }
 
+  .content {
+    width: 100%;
+  }
+
   .content h1 {
     padding: 25px 0px 50px 0px;
-    font-size: var(--font-s);
+    font-size: var(--font-xs);
   }
 }
