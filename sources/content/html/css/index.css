@@ -40,8 +40,7 @@ header, section, .qrcode_panel {
   --scrollbar-thumb: #75777B;
 
   --text-0: #fff;
-  /*--text-1:;*/
-  --text-2: #818CF8;
+  --text-1: #818CF8;
 
   --bg-1: #1c1f26;
   --bg-2: #16181d;
@@ -56,12 +55,14 @@ header, section, .qrcode_panel {
   --roundness-s: 12px;
   --roundness-xs: 10px;
 
-  --font-xl: 70px;
-  --font-l: 60px;
+  --font-xxl: 70px;
+  --font-xl: 60px;
+  --font-l: 50px;
   --font-m: 40px;
-  --font-sm: 35px;
-  --font-s: 30px;
-  --font-xs: 20px;
+  --font-s: 35px;
+  --font-xs: 30px;
+  --font-xxs: 20px;
+  --font-xxxs: 17px;
 
 }
 
@@ -79,12 +80,18 @@ header, section, .qrcode_panel {
   height: 35px;
 }
 
+.navbar_btn {
+  display: flex;
+  margin: 0;
+  text-align: right;
+}
+
 .navbar_btn a {
   background: transparent;
   position: relative;
   padding: 5px;
   margin-left: 35px;
-  font-size: var(--font-s);
+  font-size: var(--font-xs);
   font-weight: 500;
   text-decoration: none;
   transition: .3s ease-in-out;
@@ -98,12 +105,12 @@ header, section, .qrcode_panel {
   width: 0;
   height: 2px;
   border-radius: 2px;
-  background: var(--hover);
+  background: var(--hover-1);
   transition: .3s;
 }
 
 .navbar a:hover {
-  color: var(--hover);
+  color: var(--hover-1);
 }
 
 .navbar a:hover::before {
@@ -120,43 +127,41 @@ header, section, .qrcode_panel {
   font-style: italic;
   font-weight: 600;
   font-size: 25px;
+  background-color: transparent;
 }
 
 .section_0 h1 {
   width: 800px;
-  font-weight: 500;
+  background-color: transparent;
   font-size: var(--font-l);
   transition: .3s ease-in-out;
 }
 
-.line {
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
 .description {
-  width: 50%;
+  width: 95%;
   margin-top: 20px;
   font-size: 25px;
   transition: .3s ease-in-out;
 }
 
 .scan_btn {
-  margin-top: 115px;
+  margin-top: 15px;
 }
 
 .scan_btn button {
   background: var(--scan-color);
+  margin-top: 30px;
   padding: 20px 80px 20px 80px;
   border: none;
   border-radius: 100px;
-  font-size: var(--font-s);
+  font-size: var(--font-xxs);
+  cursor: pointer;
 }
 
 .section_1, .section_2, .credits {
   display: flex;
   margin: 50px 100px;
-  font-size: var(--font-xl);
+  font-size: var(--font-xxl);
   gap: 30px;
   flex-direction: column;
 }
@@ -168,7 +173,7 @@ header, section, .qrcode_panel {
 .section_1 p, .section_2 p, .credits p {
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: var(--font-xs);
+  font-size: var(--font-xxs);
 }
 
 
@@ -234,15 +239,27 @@ header, section, .qrcode_panel {
 
 
 
+@media only screen and (max-width: 1450px) {
+  header, section, .qrcode_panel {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+}
 
+@media only screen and (max-width: 1230px) {
+  header, section, .qrcode_panel {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+}
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1100px) {
   .navbar {
     padding: 30px 50px;
   }
 
-  .navbar a{
-    font-size: var(--font-s);
+  .navbar a {
+    font-size: 25px;
   }
 
   .section_0 {
@@ -253,7 +270,9 @@ header, section, .qrcode_panel {
   }
 
   .section_0 h2 {
-    font-size: var(--font-xs);
+    width: 500px;
+    font-size: var(--font-xxs);
+    text-align: center;
   }
 
   .section_0 h1 {
@@ -263,9 +282,8 @@ header, section, .qrcode_panel {
   }
 
   .description {
-    width: 60%;
-    margin-top: 7px;
-    font-size: 20px;
+    width: 100%;
+    font-size: var(--font-xxs);
     text-align: center;
   }
 
@@ -273,11 +291,11 @@ header, section, .qrcode_panel {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 70px 0px 0px 0px;
+    margin: 0;
   }
 
   .scan_btn button {
-    font-size: var(--font-xs);
+    font-size: var(--font-xxs);
   }
 
   .section_1, .section_2 {
@@ -285,11 +303,29 @@ header, section, .qrcode_panel {
   }
 
   .section_1 h1, .section_2 h1 {
-    font-size: var(--font-s);
+    font-size: var(--font-xs);
   }
 
   .credits {
     margin: 25px 50px 25px 50px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  header, section, .qrcode_panel {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .description {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  header, section, .qrcode_panel {
+    margin-left: 50px;
+    margin-right: 50px;
   }
 }
 
@@ -299,15 +335,15 @@ header, section, .qrcode_panel {
   }
 
   .navbar a{
-    font-size: var(--font-xs);
+    font-size: var(--font-xxs);
   }
 
   .section_0 h1 {
-    font-size: var(--font-sm);
+    font-size: var(--font-s);
   }
 
   .scan_btn button {
-    font-size: var(--font-xs);
+    font-size: var(--font-xxs);
   }
 }
 
@@ -317,6 +353,7 @@ header, section, .qrcode_panel {
   }
 
   .scan_btn {
+    margin-top: 115px;
     margin: 0;
   }
 }
