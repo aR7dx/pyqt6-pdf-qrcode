@@ -12,11 +12,12 @@
 body {
   padding: var(--spacing);
   gap: var(--spacing);
-  background: var(--bg-1);
+  background-color: var(--bg-1);
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  min-width: 530px;
+  min-width: 550px;
   min-height: 100vh;
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
       -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -25,39 +26,42 @@ body {
             animation: fadein 2s;
 }
 
-header, section {
+header, section, .qrcode_panel {
   border-radius: var(--roundness-xl);
+  margin-left: 250px;
+  margin-right: 250px;
+  transition: .3s ease-in-out;
 }
 
 :root {
-	--font: 'Montserrat';
-	
-	--scan-color: #DF2050;
-	--scrollbar-thumb: #75777B;
+  --font: 'Montserrat';
 
-	--text-0: #fff;
-  	/*--text-1:;*/
-  	--text-2: #818CF8;
-	
-	--bg-1: #1c1f26;
-	--bg-2: #16181d;
-	
-	--hover-1: hsl(165 75% 50%);
-	--hover-2: #1E1B4B;
-	
-	--spacing: 12px;
-	
-	--roundness-xl: 22px;
-	--roundness-m: 16px;
-	--roundness-s: 12px;
-	--roundness-xs: 10px;
-	
-	--font-xl: 70px;
-	--font-l: 60px;
-	--font-m: 40px;
-	--font-sm: 35px;
-	--font-s: 30px;
-	--font-xs: 20px;
+  --scan-color: #DF2050;
+  --scrollbar-thumb: #75777B;
+
+  --text-0: #fff;
+  /*--text-1:;*/
+  --text-2: #818CF8;
+
+  --bg-1: #1c1f26;
+  --bg-2: #16181d;
+
+  --hover-1: hsl(165 75% 50%);
+  --hover-2: #1E1B4B;
+
+  --spacing: 12px;
+
+  --roundness-xl: 22px;
+  --roundness-m: 16px;
+  --roundness-s: 12px;
+  --roundness-xs: 10px;
+
+  --font-xl: 70px;
+  --font-l: 60px;
+  --font-m: 40px;
+  --font-sm: 35px;
+  --font-s: 30px;
+  --font-xs: 20px;
 
 }
 
