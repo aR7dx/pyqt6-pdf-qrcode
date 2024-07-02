@@ -70,9 +70,9 @@ class Handler(QMainWindow): # création de la classe (fenêtre)
     #### CREATIONS DES FONCTIONS ####
     #################################
 
-    def open_scan(self, label='Scanner'):
+    def startCamera(self, label='Scanner'):
         self.scanner = CameraApp() # créer une variable qui corresond à la caméra
-        self.scanner.start_camera(self.stopCamera) # lance la fonction qui gère la caméra et renvoie la sortie sur la fonction stopCamera
+        self.scanner.start(self.stopCamera) # lance la fonction qui gère la caméra et renvoie la sortie sur la fonction stopCamera
 
         i = self.tabMenu.addTab(self.scanner, label)
         self.tabMenu.setCurrentIndex(i)
@@ -182,7 +182,7 @@ class Handler(QMainWindow): # création de la classe (fenêtre)
         elif command == 'b': # supprime l'onglet actif
             self.close_tab()
         elif command == 'c': # active la caméra
-            self.open_scan()
+            self.startCamera()
         elif command == 'w': # quitte l'application
             self.close()
             print('/!\ Vous venez de quitter l\'application.')
