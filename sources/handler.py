@@ -91,11 +91,11 @@ class Handler(QMainWindow): # création de la classe (fenêtre)
             browser.loadFinished.connect(lambda _, i=i, browser=browser: self.tabMenu.setTabText(i, browser.page().title()))
             
         def createPlayer(file, label='Lecteur Video'):
-            self.videoTab = VideoPlayer()
-            self.videoTab.play(file)
+            self.videoTab = VideoPlayer() # créer l'objet VideoPlayer qui est le lecteur vidéo
+            self.videoTab.play(file) # lance la lecture du fichier vidéo
             
-            i = self.tabMenu.addTab(self.videoTab, label)
-            self.tabMenu.setCurrentIndex(i)
+            i = self.tabMenu.addTab(self.videoTab, label) # attribut l'onglet actuel à une variable
+            self.tabMenu.setCurrentIndex(i) # fixe l'indice de l'onglet
         
         # Aberration 
         # (decide si il faut créer une page pour un fichier ou un lecteur pour une vidéo)
