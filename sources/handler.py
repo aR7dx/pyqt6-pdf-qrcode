@@ -73,7 +73,7 @@ class Handler(QMainWindow): # création de la classe (fenêtre)
         file = File(str(data)) # creer un objet de type File
 
         # on verifie si le fichier cible existe
-        if file.isExisting == False: 
+        if file.isExisting() == False: 
             return
 
         self.tabs[file.name] = file.path # creer un clé et une valeur pour le fichier dans le dico tabs
