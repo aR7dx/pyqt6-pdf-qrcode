@@ -98,7 +98,7 @@ class Handler(QMainWindow): # création de la classe (fenêtre)
             self.tabMenu.setCurrentIndex(i)
         
         # Aberration 
-        # (decide si il faut créer une page ou un lecteur pour vidéo)
+        # (decide si il faut créer une page pour un fichier ou un lecteur pour une vidéo)
         # renvoi un message si l'extension du fichier est inconnu du logiciel
         [createBrowser(file) if len([x for x in SUPPORTED_DOCUMENT_EXTENSIONS if x == file.ext]) > 0 else [createPlayer(file) if len([x for x in SUPPORTED_VIDEO_EXTENSIONS if x == file.ext]) > 0 else print(f'\nLe fichier "{file.name}" n\'existe pas !\n')]]
 
