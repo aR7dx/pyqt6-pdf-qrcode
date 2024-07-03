@@ -22,7 +22,7 @@ class File():
       if self.name in file:
         return True
     print(f'\nLe fichier {self.name} n\'existe pas !\n')
-    raise False
+    return False
 
   def createPath(self):
     self.ext = (self.name).split('.')[-1]
