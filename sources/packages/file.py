@@ -15,7 +15,7 @@ class File():
     return str(self.name)
   
   def __str__(self):
-    return str(self.name) + ', ' + str(self.title)
+    return str(self.name) + ', ' + str(self.path)
   
   def isExisting(self):
     for _, _, file in os.walk(self.dir):
