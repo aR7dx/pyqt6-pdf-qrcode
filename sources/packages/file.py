@@ -1,3 +1,5 @@
+# Ce fichier permet de créer un objet fichier auquel s'applique différentes méthodes
+
 import os
 
 class File():
