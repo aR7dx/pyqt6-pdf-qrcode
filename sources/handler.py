@@ -1,17 +1,15 @@
 # Ce fichier contient l'interface graphique de l'application
 
-import os  # importation du module os
 import pynput # importation du module pynput
 from pynput.keyboard import Key
-
-# importation des composants du module PyQt6
-from PyQt6.QtWidgets import QMainWindow, QTabWidget, QToolBar
+from PyQt6.QtWidgets import QMainWindow, QTabWidget, QToolBar # importation des composants du module PyQt6
 from PyQt6.QtGui import QIcon
-from PyQt6.QtCore import QUrl, Qt
+from PyQt6.QtCore import Qt, QUrl
 from PyQt6.QtWebEngineWidgets import QWebEngineView # composant du module PyQt6 qui créer un moteur de rendu pour les fichers html et pdf
-from packages.videoPlayer import VideoPlayer # composant qui gère les vidéos
-from packages.camera import CameraApp # composant qui gère les qrcodes
 
+from sources.packages.file import File # composant pour créer un objet fichier
+from packages.camera import CameraApp # composant qui gère les qrcodes
+from packages.videoPlayer import VideoPlayer # composant qui gère les vidéos
 from config import SCROLL_SPEED, SUPPORTED_DOCUMENT_EXTENSIONS, SUPPORTED_VIDEO_EXTENSIONS
 assert SCROLL_SPEED > 0, 'Veuillez fournir une valeur supérieur à zéro.'
 
@@ -21,19 +19,6 @@ mouse = pynput.mouse.Controller() # creation d'un objet pour la souris
 #############################
 #### CREATION DE CLASSES ####
 #############################
-        
-class Page():
-    def __init__(self, name):
-        self.name = name # nom du fichier cible
-        self.ext = None # extension du fichier cible
-        self.dir = None # chemin du dossier du fichier cible
-        self.url = None # chemin du fichier cible
-        
-    def __repr__(self):
-        return str(self.name) # affiche le nom de la page
-    
-    def __str__(self):
-        return str(self.name) + ', ' + str(self.url) # affiche le nom et l'url de la page
 
 # utilisation de la programmation orienté objet (POO)
 # creation de la fenêtre
@@ -85,53 +70,37 @@ class Handler(QMainWindow): # création de la classe (fenêtre)
         """
         Fonction permettant l'ajout de nouveaux onglets
         """
-        if (str(data) == '') or (data is None): # on verifie si la data scannée n'est pas vide
-            print('Donnée récupéré par la caméra : ' + str(data) + ', ce fichier n\'existe pas !')
-            return
-        
-        page = Page(str(data)) # creer un objet de type Page
-        page.ext = data.split('.')[-1]
+        file = File(str(data)) # creer un objet de type File
 
         # on verifie si le fichier cible existe
-        def checkUp(page):
-            for _, _, file in os.walk(page.dir):
-                if page.name in file:
-                    return True
-            print(f'Le fichier {page.name} n\'existe pas !\n')
-            return False
+        if file.isExisting == False: 
+            return
 
-        def createUrl(page):
-            page.dir = os.path.split(os.path.abspath(__file__))[0]+r'/content/' + str(page.ext) + "/"
-            page.url = str(page.dir) + str(page.name) # creer l'url de la page et modifie la valeur de l'attribut url
-            self.tabs[page.name] = page.url # creer un clé et une valeur pour la page dans le dico tabs
+        self.tabs[file.name] = file.path # creer un clé et une valeur pour le fichier dans le dico tabs
             
-        def createBrowser(page, label='chargement...'):
+        def createBrowser(file, label='chargement...'):
             browser = QWebEngineView() # creation de la partie graphique "moteur de rendu" qui affichera les fichiers ouverts
             # paramètrage afin de supporter les documents pdf
             browser.settings().setAttribute(browser.settings().WebAttribute.PluginsEnabled, True) # autorisarion des plugins dans le moteur de rendu
             browser.settings().setAttribute(browser.settings().WebAttribute.PdfViewerEnabled, True) # autorisation des fichiers pdf dans le moteur de rendu
-            browser.setUrl(QUrl.fromLocalFile(page.url)) # ajoute la page avec l'url/fichier renseigner
+            browser.setUrl(QUrl.fromLocalFile(file.path)) # ajoute la page avec l'url/fichier renseigner
             
             i = self.tabMenu.addTab(browser, label) # attribut l'onglet actuel à une variable
             self.tabMenu.setCurrentIndex(i) # fixe l'indice de l'onglet
             
             browser.loadFinished.connect(lambda _, i=i, browser=browser: self.tabMenu.setTabText(i, browser.page().title()))
             
-        def createViewer(page, label='Lecteur Video'):
+        def createPlayer(file, label='Lecteur Video'):
             self.videoTab = VideoPlayer()
-            self.videoTab.play(page)
+            self.videoTab.play(file)
             
             i = self.tabMenu.addTab(self.videoTab, label)
             self.tabMenu.setCurrentIndex(i)
         
-        createUrl(page) # creer une url pour le fichier
-        if checkUp(page) == False: # si le fichier n'existe pas alors on ne créer pas d'onglet
-            return
-        
         # Aberration 
         # (decide si il faut créer une page ou un lecteur pour vidéo)
         # renvoi un message si l'extension du fichier est inconnu du logiciel
-        [createBrowser(page) if len([x for x in SUPPORTED_DOCUMENT_EXTENSIONS if x == page.ext]) > 0 else [createViewer(page) if len([x for x in SUPPORTED_VIDEO_EXTENSIONS if x == page.ext]) > 0 else print(f'extension du fichier inconnu par le logiciel: ".{page.ext}"\n')]]
+        [createBrowser(file) if len([x for x in SUPPORTED_DOCUMENT_EXTENSIONS if x == file.ext]) > 0 else [createPlayer(file) if len([x for x in SUPPORTED_VIDEO_EXTENSIONS if x == file.ext]) > 0 else print(f'\nLe fichier "{file.name}" n\'existe pas !\n')]]
 
     def close_tab(self):
         """
