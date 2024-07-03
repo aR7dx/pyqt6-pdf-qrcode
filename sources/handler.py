@@ -16,9 +16,9 @@ assert SCROLL_SPEED > 0, 'Veuillez fournir une valeur supérieur à zéro.'
 keyboard = pynput.keyboard.Controller() # creation d'un objet pour le clavier
 mouse = pynput.mouse.Controller() # creation d'un objet pour la souris
 
-#############################
-#### CREATION DE CLASSES ####
-#############################
+############################
+#### CREATION DE CLASSE ####
+############################
 
 # utilisation de la programmation orienté objet (POO)
 # creation de la fenêtre
