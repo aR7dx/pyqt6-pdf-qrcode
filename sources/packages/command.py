@@ -20,7 +20,7 @@ class Worker(QObject): # création du gestionnaire de commande
     
     while True:
       trame = portSerie.readline() # on lit la trame du port souhaité
-      message=trame.decode('utf8') # on précise que le message sera décodé en utf8
+      message = trame.decode('utf8') # on précise que le message sera décodé en utf8
       donnees = message.split(',') # on utilise la virgule comme séparateur entre les informations de la trame
       
       if donnees[5] == 'haut':
