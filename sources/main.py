@@ -5,9 +5,9 @@ from PyQt6.QtWidgets import QApplication # importation pour PyQt6 qui permet de 
 from PyQt6.QtCore import Qt # importation pour PyQt6
 from PyQt6.QtGui import QCursor, QIcon # importation du Cursor de PyQt6 afin d'avoir un contrôle sur ce dernier
 from threading import Thread # importation du module Thread qui permet de créer et gérer des Threads
-from handler import Handler # importation de l'interface graphique
-from packages.command import Worker, Worker4Keyboard # importation du gestionnaire des commandes
 
+from handler import Handler # importation de l'interface graphique
+from sources.packages.command import Worker, Worker4Keyboard # importation du gestionnaire des commandes
 from config import NAVIGATION_MODE, APP_VERSION, OLD_APP_VERSION, APP_NAME # importation de la variable "NAVIGATION_MODE" qui permet de savoir si l'on utilise le joystick ou le clavier/souris, de la variable "APP_VERSION" pour recuperer la version de l'application, "ODL_APP_VERSION" la version precedente et "APP_NAME" le nom de l'application
 
 # ASSERTIONS
