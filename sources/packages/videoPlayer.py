@@ -26,7 +26,7 @@ class VideoPlayer(QWidget):
     self.setLayout(layout) # applique le layout sur l'objet
   
   def play(self, page):
-    self.mediaPlayer.setSource(QUrl.fromLocalFile(page.url)) # charge le fichier a partir de son chemin d'emplacement
+    self.mediaPlayer.setSource(QUrl.fromLocalFile(page.path)) # charge le fichier a partir de son chemin d'emplacement
     self.audio.setVolume(0.8) # volume du lecteur de video
     self.mediaPlayer.play() # joue le contenu du lecteur video
     
