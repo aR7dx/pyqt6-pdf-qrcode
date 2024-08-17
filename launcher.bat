@@ -12,6 +12,8 @@ set TEMP_FOLDER=".\temp"
 rem Chemin vers le fichier Python à executer
 set PYTHON_SCRIPT=".\sources\main.py"
 
+set PYTHONPATH=%PYTHONPATH%;%cd%\src
+
 :start
 
 if %ID_SESSION% equ 0 (
