@@ -8,8 +8,8 @@ from PyQt6.QtCore import Qt, QUrl
 from PyQt6.QtWebEngineWidgets import QWebEngineView # composant du module PyQt6 qui créer un moteur de rendu pour les fichers html et pdf
 
 from sources.packages.file import File # composant pour créer un objet fichier
-from packages.camera import CameraApp # composant qui gère les qrcodes
-from packages.videoPlayer import VideoPlayer # composant qui gère les vidéos
+from sources.packages.camera import CameraApp # composant qui gère les qrcodes
+from sources.packages.videoPlayer import VideoPlayer # composant qui gère les vidéos
 from config import SCROLL_SPEED, SUPPORTED_DOCUMENT_EXTENSIONS, SUPPORTED_VIDEO_EXTENSIONS
 assert SCROLL_SPEED > 0, 'Veuillez fournir une valeur supérieur à zéro.'
 
