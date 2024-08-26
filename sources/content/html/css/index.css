@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
   margin: 0;
@@ -27,14 +27,15 @@ body {
 }
 
 header, section, .qrcode_panel {
-  border-radius: var(--roundness-xl);
   margin-left: 250px;
   margin-right: 250px;
+  border-radius: var(--roundness-xl);
+  border: #323134 solid .5px;
   transition: .3s ease-in-out;
 }
 
 :root {
-  --font: 'Montserrat';
+  --font: 'Poppins';
 
   --scan-color: #DF2050;
   --scrollbar-thumb: #75777B;
@@ -42,8 +43,8 @@ header, section, .qrcode_panel {
   --text-0: #fff;
   --text-1: #818CF8;
 
-  --bg-1: #1c1f26;
-  --bg-2: #16181d;
+  --bg-1: #101014;
+  --bg-2: #1C1C20;
 
   --hover-1: hsl(165 75% 50%);
   --hover-2: #1E1B4B;
@@ -162,7 +163,7 @@ header, section, .qrcode_panel {
   display: flex;
   margin: 50px 100px;
   font-size: var(--font-xxl);
-  gap: 30px;
+  gap: 10px;
   flex-direction: column;
 }
 
