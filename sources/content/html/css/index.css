@@ -149,6 +149,10 @@ header, section, .qrcode_panel {
   margin-top: 15px;
 }
 
+.scan_btn button:hover {
+  transform: scale(0.975);
+}
+
 .scan_btn button {
   background: var(--scan-color);
   margin-top: 30px;
@@ -157,6 +161,7 @@ header, section, .qrcode_panel {
   border-radius: 100px;
   font-size: var(--font-xxs);
   cursor: pointer;
+  transition: .3s;
 }
 
 .section_1, .section_2, .credits {
