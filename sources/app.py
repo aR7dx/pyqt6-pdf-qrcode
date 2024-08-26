@@ -22,7 +22,7 @@ mouse = pynput.mouse.Controller() # creation d'un objet pour la souris
 
 # utilisation de la programmation orienté objet (POO)
 # creation de la fenêtre
-class Handler(QMainWindow): # création de la classe (fenêtre)
+class App(QMainWindow): # création de la classe (fenêtre)
     def __init__(self):
         super().__init__()
 
