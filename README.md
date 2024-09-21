@@ -9,7 +9,7 @@
 </p>
 
 > [!IMPORTANT]\
-> Ce projet n'est plus maintenu à jour ! Cependant si vous aimeriez rajouter quelque chose n'hésitez pas à nous le faire savoir.
+> Ce projet n'est plus mis à jour ! Cependant si vous aimeriez rajouter quelque chose n'hésitez pas à nous le faire savoir.
 
 ## À propos du Projet
 
