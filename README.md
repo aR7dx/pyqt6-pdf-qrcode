@@ -9,7 +9,7 @@
 </p>
 
 > [!IMPORTANT]\
-> Ce projet n'est plus mis à jour !
+> Ce projet n'est plus maintenu à jour !
 
 ## À propos du Projet
 
