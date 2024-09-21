@@ -20,4 +20,4 @@ Il est impératif de consulter la documentation du projet si vous voulez utilise
 
 Ce projet a été réalisé par des élèves de Terminale durant les heures consacrées à l'enseignement de la spécialité numérique et sciences informatiques (NSI), il constitue leur projet de l'année de Terminale.
 
-> Le projet a eu l'occasion d'être présenté lors des portes ouvertes du Lycée Curie-Corot.
+> Le projet a eu l'occasion d'être présenté lors des portes ouvertes du Lycée Curie-Corot, Normandie, France.
