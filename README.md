@@ -1,6 +1,6 @@
 <p align="center">
   <h3 align="center">pyqt6-pdf6-qrcode</h3>
-  <p align="center">Ce projet a été créer pour faciliter la présentation des spécialités du baccalauréat à l'aide de qr-code. Il est également lauréat Normandie dans la catégorie "prix de l'originalité" au concours <a href="https://trophees-nsi.fr/">Les trophées NSI</a> édition 2024</p>
+  <p align="center">Ce projet a été créer pour présenter les spécialités du baccalauréat à l'aide de qr-code. Il est lauréat Normandie dans la catégorie "prix de l'originalité" au concours <a href="https://trophees-nsi.fr/">Les trophées NSI</a>, édition 2024</p>
 </p>
 
 <p align="center">
