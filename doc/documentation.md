@@ -124,7 +124,7 @@ Cela permettra d'utiliser le programme en version clavier/souris. Vous n'aurez d
 
 Pour créer un qrcode personnalisé, vous pouvez utiliser le générateur de qrcode intégré de l'app en vous rendant sur l'onglet "créer" depuis la page d'accueil.  
 
-Sinon nous vous conseillons de vous rendre sur ce site : [Qrcode Generator](https://sneakxyz.github.io/qrcode-generator-website/).  
+Sinon vous pouvez essayer ce site : [Qrcode Generator](https://artax01.github.io/qr-gen.xyz/).  
 Ce site est adapté aux ordinateurs et aux mobiles.
 
 
