@@ -1,5 +1,5 @@
 <p align="center">
-  <h3 align="center">pyqt6-pdf6-qrcode</h3>
+  <h3 align="center">pyqt6-pdf-qrcode</h3>
   <p align="center">This project was created to present the specialities of the baccalauréat using qr-codes. This project is also a Normandy (France) winner in the “originality prize” category in the <a href="https://trophees-nsi.fr/">Les trophées NSI</a>, competition, 2024 edition.</p>
 </p>
 
