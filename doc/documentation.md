@@ -48,8 +48,8 @@ Le projet fonctionne également sur `Windows 10` et `Windows 11`.
 
 L'installation du projet ce fait en deux partie:
 
-- La Raspberry Pi-Pico (contient un mini-programme qui écrit une trame USB en boucle)
-- L'application (ne se situe pas sur la raspberry pi-pico)
+- La Raspberry Pi-Pico (contient un mini-programme qui écrit une trame USB en boucle).
+- L'application (ne se situe pas sur la raspberry pi-pico).
 
 ### Raspberry Pi-Pico:
 
