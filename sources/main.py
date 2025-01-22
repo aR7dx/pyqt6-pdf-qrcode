@@ -24,7 +24,7 @@ def main():
     app_settings.setApplicationName(f'{APP_NAME}  ({APP_VERSION})') # défini le nom de l'application
     app_settings.setWindowIcon(QIcon('./sources/content/images/icon/app_icon.svg'))
     
-    app = Handler() # création la fenetre
+    app = App() # création la fenetre
     app.showFullScreen() # affichage en mode plein écran
 
     print('+==================='+ APP_NAME + '===================+')
