@@ -51,6 +51,9 @@ The project is installed in two parts:
 - The Raspberry Pi-Pico (contains a mini-program that writes a USB frame in a loop)
 - The application (not located on the raspberry pi-pico)
 
+To download the project go to the [home page](https://github.com/SneaKxyz/pyqt6-pdf-qrcode/tree/main) and download the ZIP file for the latest release.  
+On the left-hand side of the screen you should see the latest releases (e.g. v0.1.0-beta).
+
 ### Raspberry Pi-Pico:
 
 > This part is optional if you have [switched from joystick to keyboard/mouse](#switchjoytokey), if so we refer you to the [application installation](#installproject), otherwise follow the instructions below !
@@ -63,15 +66,12 @@ This mini-program is used to write a USB frame for the joystick and buttons that
 
 > As for the application, it can be placed anywhere (as long as all the files remain grouped together) apart from the same location as the `main.py` file in the [pi-pico folder](../pi-pico) !
 
-To install the project go to the [home page](https://github.com/SneaKxyz/pyqt6-pdf-qrcode/tree/main) and download the ZIP file for the latest release.  
-On the left-hand side of the screen you should see the latest releases (e.g. v0.1.0-beta).
-
 Once the ZIP file has been retrieved and extracted, all that's left to do is install the necessary modules.  
-To do this, the list of modules required by the programme is available in the file [requirements.txt](../requirements.txt).
-
-To install the modules, it is **_recommended to use_** : [PIP](https://github.com/pypa/pip) !
-
-With pip:
+To do this, the list of modules required by the programme is available in the file [requirements.txt](../requirements.txt).   
+   
+To install the modules, it is **_recommended to use_** : [PIP](https://github.com/pypa/pip) !   
+   
+**With pip**:
 ```cmd
 pip install [<module-name>]
 ```
@@ -82,7 +82,7 @@ python -m pip install [<module-name>]
 python3 -m pip install [<module-name>]
 ```
 
-On Linux without pip:
+**On Linux without pip**:
 ```bash
 sudo apt-get install python3-[<module-name>]
 ```

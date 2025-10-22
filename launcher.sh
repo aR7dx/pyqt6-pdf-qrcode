@@ -1,48 +1,41 @@
 #!/bin/bash
 
-echo "===============Initialisation================="
-echo "Initialisation du programme."
-echo "=================Chargement==================="
-echo "Chargement du programme en cours..."
-echo
-
 # Chemin vers le dossier des fichiers temporaires
-TEMP_FOLDER="./temp"
+LOGS_FOLDER="./logs"
 
 # Vérification de l'existence du dossier temporaire
-if [ ! -d "$TEMP_FOLDER" ]; then
-	mkdir "$TEMP_FOLDER"
+if [ ! -d "$LOGS_FOLDER" ]; then
+	mkdir "$LOGS_FOLDER"
 fi
 
-# Chemin vers le fichier temporaire de sortie
-TEMP_OUTPUT_FILE="$TEMP_FOLDER/temp_output.txt"
+# Génération du nom de fichier log avec la date et l'heure actuelles (format : LOG_DDMMYYYY_HHMMSS.log)
+LOG_FILE="$LOGS_FOLDER/LOG_$(date '+%d%m%Y_%H%M%S').log"
 
 # Suppression du fichier temporaire de sortie s'il existe
-if [ -f "$TEMP_OUTPUT_FILE" ]; then
-	rm "$TEMP_OUTPUT_FILE"
-fi
+#if [ -f "$LOG_FILE" ]; then
+#	rm "$LOG_FILE"
+#fi
 
 # Chemin vers le fichier Python
-PYTHON_SCRIPT="./sources/main.py"
+PYTHON_SCRIPT="./src/main.py"
 
 # Exécution du script Python et capture de la sortie
-python3 "$PYTHON_SCRIPT" 2> "$TEMP_OUTPUT_FILE"
+python3 "$PYTHON_SCRIPT" 2>> "$LOG_FILE"
 PYTHON_RESULT=$?
 
 
 # Vérification du code de retour du script Python
 if [ $PYTHON_RESULT -eq 0 ]; then
-    echo "+======================================================+"
-    echo
+    echo "Arrêt du programme."  
+    echo 
 else
     # Affichage du message d'échec
-    echo "+=======================Erreur============================+"
-    echo "^| Le chargement du programme a échoué. Essayez à nouveau. ^|"
-    echo "+=========================================================+"
+    echo "+----------------------------Erreur----------------------------+"
+    echo "Le chargement du programme a échoué."
+    echo 
+    echo "Fichier de log : $LOG_FILE"
+    echo "+--------------------------------------------------------------+"
     echo
-    echo "+========================================Erreur==========================================+"
-    echo "^| Consulter le fichier 'temp_output' situé dans le dossier 'temp' à la racine du projet. ^|"
-    echo "+========================================================================================+"
 fi
 
 

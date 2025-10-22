@@ -6,9 +6,9 @@ from PyQt6.QtCore import Qt # importation pour PyQt6
 from PyQt6.QtGui import QCursor, QIcon # importation du Cursor de PyQt6 afin d'avoir un contrôle sur ce dernier
 from threading import Thread # importation du module Thread qui permet de créer et gérer des Threads
 
-from sources.app import App # importation de l'interface graphique
-from sources.packages.command import Worker, Worker4Keyboard # importation du gestionnaire des commandes
-from config import NAVIGATION_MODE, APP_VERSION, OLD_APP_VERSION, APP_NAME # importation de la variable "NAVIGATION_MODE" qui permet de savoir si l'on utilise le joystick ou le clavier/souris, de la variable "APP_VERSION" pour recuperer la version de l'application, "ODL_APP_VERSION" la version precedente et "APP_NAME" le nom de l'application
+from app import App # importation de l'interface graphique
+from commands.command import Worker, Worker4Keyboard # importation du gestionnaire des commandes
+from config.config import NAVIGATION_MODE, APP_VERSION, OLD_APP_VERSION, APP_NAME # importation de la variable "NAVIGATION_MODE" qui permet de savoir si l'on utilise le joystick ou le clavier/souris, de la variable "APP_VERSION" pour recuperer la version de l'application, "ODL_APP_VERSION" la version precedente et "APP_NAME" le nom de l'application
 
 # ASSERTIONS
 assert APP_VERSION >= OLD_APP_VERSION , 'Error in config.py file about "APP_VERSION" and "OLD_APP_VERSION", "APP_VERSION" must be bigger than "OLD_APP_VERSION"'
@@ -22,10 +22,11 @@ def main():
     """
     app_settings = QApplication(sys.argv) # création de l'application
     app_settings.setApplicationName(f'{APP_NAME}  ({APP_VERSION})') # défini le nom de l'application
-    app_settings.setWindowIcon(QIcon('./sources/content/images/icon/app_icon.svg'))
+    app_settings.setWindowIcon(QIcon('./src/ressources/images/icon/app_icon.svg'))
     
     app = App() # création la fenetre
-    app.showFullScreen() # affichage en mode plein écran
+    #app.showFullScreen() # affichage en mode plein écran
+    app.show()
 
     print('+==================='+ APP_NAME + '===================+')
     print('| Thread : handler         |   Statut : opérationnel   |') # affichage du statut du thread 'handler'

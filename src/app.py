@@ -7,10 +7,10 @@ from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import Qt, QUrl
 from PyQt6.QtWebEngineWidgets import QWebEngineView # composant du module PyQt6 qui créer un moteur de rendu pour les fichers html et pdf
 
-from sources.packages.file import File # composant pour créer un objet fichier
-from sources.packages.camera import CameraApp # composant qui gère les qrcodes
-from sources.packages.videoPlayer import VideoPlayer # composant qui gère les vidéos
-from config import SCROLL_SPEED, SUPPORTED_DOCUMENT_EXTENSIONS, SUPPORTED_VIDEO_EXTENSIONS
+from media.file import File # composant pour créer un objet fichier
+from media.camera import CameraApp # composant qui gère les qrcodes
+from media.videoPlayer import VideoPlayer # composant qui gère les vidéos
+from config.config import *
 assert SCROLL_SPEED > 0, 'Veuillez fournir une valeur supérieur à zéro.'
 
 keyboard = pynput.keyboard.Controller() # creation d'un objet pour le clavier
@@ -36,14 +36,18 @@ class App(QMainWindow): # création de la classe (fenêtre)
         self.toolbar = QToolBar() # Création de la toolbar
         self.toolbar.setMovable(False) # empêche de pouvoir déplacer la toolbar
         self.toolbar.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon) # met le texte a côté du l'icone qui lui est associée
-        self.toolbar.setFixedSize(500, 30) # défini la taille de la ToolBar
+        self.toolbar.setFixedSize(700, 30) # défini la taille de la ToolBar
         self.addToolBar(Qt.ToolBarArea.BottomToolBarArea, self.toolbar) # ajout de la ToolBar sur la fenêtre et la place en pied de page
 
         # Création des QActions ("texte d'affichage") qui iront dans la QToolBar
-        self.toolbar.addAction(QIcon('./sources/content/images/icon/joystick.png'), 'Navigation')
-        self.toolbar.addAction(QIcon('./sources/content/images/icon/button_vert.png'), 'Intéragir')
-        self.toolbar.addAction(QIcon('./sources/content/images/icon/button_bleu.png'), 'Scanner QR-Code')
-        self.toolbar.addAction(QIcon('./sources/content/images/icon/button_rouge.png'), 'Retour')
+        if (NAVIGATION_MODE == 'JOYSTICK'):
+            self.toolbar.addAction(QIcon('./src/ressources/images/icon/joystick.png'), 'Navigation')
+            self.toolbar.addAction(QIcon('./src/ressources/images/icon/button_vert.png'), 'Intéragir')
+            self.toolbar.addAction(QIcon('./src/ressources/images/icon/button_bleu.png'), 'Scanner QR-Code')
+            self.toolbar.addAction(QIcon('./src/ressources/images/icon/button_rouge.png'), 'Retour')
+        else:
+            self.toolbar.addAction(f'version: {APP_VERSION}')
+
 
         self.add_tab('index.html') # page d'accueil au demarrage de l'application
         self.default_style() # applique le style css pour la toolbar

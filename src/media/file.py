@@ -26,5 +26,5 @@ class File():
 
   def createPath(self):
     self.ext = (self.name).split('.')[-1]
-    self.dir = os.path.split(os.path.abspath(__file__))[0]+r'/../content/' + str(self.ext) + "/"
+    self.dir = os.path.split(os.path.abspath(__file__))[0]+r'/../ressources/' + str(self.ext) + "/"
     self.path = str(self.dir) + str(self.name)

@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
           removeInputLink.classList.remove('disabled');
           
         } catch {
-          alert('Veuillez télécharger le fichier qrcode.js pour générer des qrcodes :\nhttps://github.com/davidshimjs/qrcodejs\n\nUne fois ce fichier téléchargé, placer-le dans le répertoire : ./sources/content/html/js/');
+          alert('Veuillez télécharger le fichier qrcode.js pour générer des qrcodes :\nhttps://github.com/davidshimjs/qrcodejs\n\nUne fois ce fichier téléchargé, placer-le dans le répertoire : ./src/ressources/html/js/');
         }
     } else {
       alert('Veuillez entrer une valeur afin de pouvoir générer un qrcode.');

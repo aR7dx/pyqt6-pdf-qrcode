@@ -21,3 +21,8 @@ It is essential to consult the project documentation if you want to use the prog
 This project was carried out by students in Terminale (final year of secondary school) during the hours devoted to teaching the "digital and computer sciences" (NSI) speciality, and is their project for the Terminale year.
 
 > The project was presented during the Lycée Curie-Corot, Normandy (France) open days.
+   
+## Common issues
+  
+- Not all libraries are installed. (See requirements.txt for a list of all libraries to be installed and check the log files in the “./logs” directory).  
+- Error “no Qt platform plugin could be initialized” Try entering this command in a terminal ```sudo apt install libxcb-cursor0```.  

@@ -51,6 +51,9 @@ L'installation du projet ce fait en deux partie:
 - La Raspberry Pi-Pico (contient un mini-programme qui écrit une trame USB en boucle).
 - L'application (ne se situe pas sur la raspberry pi-pico).
 
+Pour télécharger le projet rendez-vous sur la [page d'accueil](https://github.com/SneaKxyz/pyqt6-pdf-qrcode/tree/main) et téléchargez le fichier ZIP de la dernière publication en date.  
+Situés sur la partie gauche de l'écran vous devriez voir les dernières publications `(ex: v0.1.0-beta)`.
+
 ### Raspberry Pi-Pico:
 
 > Cette partie est facultative si vous êtes [passer du joystick au clavier/souris](#switchjoytokey), si c'est le cas nous vous renvoyons à [l'installation de l'application](#installproject), sinon suivez les instructions ci-dessous !
@@ -65,15 +68,19 @@ Ce mini-programme sert à écrire une trame USB pour le joystick et les boutons 
 
 > L'application quant à elle peut être placée n'importe où (tant que l'ensemble des fichiers reste groupés) hormis le même emplacement que celui où se situe le fichier `main.py` du [dossier pi-pico](../pi-pico) !
 
-Pour installer le projet rendez-vous sur la [page d'accueil](https://github.com/SneaKxyz/pyqt6-pdf-qrcode/tree/main) et téléchargez le fichier ZIP de la dernière publication en date.  
-Situés sur la partie gauche de l'écran vous devriez voir les dernières publications `(ex: v0.1.0-beta)`.
-
 Une fois le fichier ZIP récupéré et extrait, il ne vous reste plus qu'à installer les modules nécessaires.  
 Pour ce faire, la liste des modules requis par le programme est disponible dans le fichier [requirements.txt](../requirements.txt).
 
 Pour installer les modules, il est **_recommandé d'utiliser_** : [PIP](https://github.com/pypa/pip) !
+You can also set up a “venv” (virtual environment) to install these modules only in this project and not on your entire computer.  
 
-Avec pip:
+**Set up a venv**:
+```cmd
+python3 -m venv .venv
+source .venv/bin/activate
+```
+   
+**Avec pip**:
 ```cmd
 pip install [<module-name>]
 ```
@@ -84,7 +91,7 @@ python -m pip install [<module-name>]
 python3 -m pip install [<module-name>]
 ```
 
-Sur Linux sans pip:
+**Sur Linux sans pip**:
 ```bash
 sudo apt-get install python3-[<module-name>]
 ```

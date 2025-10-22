@@ -1,0 +1,7 @@
+.venv
+
+# Ignorer les fichiers pyc générés par Python
+*.pyc
+
+# Ignorer les dossiers __pycache__
+__pycache__/
