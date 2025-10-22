@@ -51,7 +51,7 @@ L'installation du projet ce fait en deux partie:
 - La Raspberry Pi-Pico (contient un mini-programme qui écrit une trame USB en boucle).
 - L'application (ne se situe pas sur la raspberry pi-pico).
 
-Pour télécharger le projet rendez-vous sur la [page d'accueil](https://github.com/SneaKxyz/pyqt6-pdf-qrcode/tree/main) et téléchargez le fichier ZIP de la dernière publication en date.  
+Pour télécharger le projet rendez-vous sur la [page d'accueil](https://github.com/aR7dx/pyqt6-pdf-qrcode/tree/main) et téléchargez le fichier ZIP de la dernière publication en date.  
 Situés sur la partie gauche de l'écran vous devriez voir les dernières publications `(ex: v0.1.0-beta)`.
 
 ### Raspberry Pi-Pico:

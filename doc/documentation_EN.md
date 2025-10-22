@@ -51,7 +51,7 @@ The project is installed in two parts:
 - The Raspberry Pi-Pico (contains a mini-program that writes a USB frame in a loop)
 - The application (not located on the raspberry pi-pico)
 
-To download the project go to the [home page](https://github.com/SneaKxyz/pyqt6-pdf-qrcode/tree/main) and download the ZIP file for the latest release.  
+To download the project go to the [home page](https://github.com/aR7dx/pyqt6-pdf-qrcode/tree/main) and download the ZIP file for the latest release.  
 On the left-hand side of the screen you should see the latest releases (e.g. v0.1.0-beta).
 
 ### Raspberry Pi-Pico:

@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/version-v1.2.5_stable-blue"/>
+<img src="https://img.shields.io/badge/version-v1.2.6_stable-blue"/>
 <img src="https://img.shields.io/badge/purpose-educational-lemon"/>
 </p>
 
